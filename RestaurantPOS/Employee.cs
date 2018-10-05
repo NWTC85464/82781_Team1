@@ -8,6 +8,7 @@ namespace RestaurantPOS
 {
     class Employee
     {
+        // hey
         private String name;
         private int employeeNumber;
         private int employeePassCode;
