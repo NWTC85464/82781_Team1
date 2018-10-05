@@ -2,7 +2,7 @@
 {
     partial class Form1
     {
-        // Gage
+        // Gage test branch
         /// <summary>
         /// Required designer variable.
         /// </summary>
