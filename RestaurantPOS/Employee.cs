@@ -20,5 +20,15 @@ namespace RestaurantPOS
             this.employeePassCode = _employeePassCode;
             this.jobTitle = _jobTitle;
         }
+
+        public void LogIn(int employeeNumber, int employeePassCode)
+        {
+
+        }
+
+        public void LogOut()
+        {
+
+        }
     }
 }
