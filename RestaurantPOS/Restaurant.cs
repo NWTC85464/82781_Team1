@@ -8,10 +8,10 @@ namespace RestaurantPOS
 {
     class Restaurant
     {
-        public string Name;
+        private string name;
         public List<MenuItem> restaurantMenu;
         public List<Employee> employeeRecords;
-        public Manager Manager;
+        private Manager manager;
 
         public Restaurant(string _name, Manager _manager)
         {
@@ -19,5 +19,9 @@ namespace RestaurantPOS
             Manager = _manager;
         }
 
+        public string Name { get => name; set => name = value; }
+        internal List<MenuItem> RestaurantMenu { get => restaurantMenu; set => restaurantMenu = value; }
+        internal List<Employee> EmployeeRecords { get => employeeRecords; set => employeeRecords = value; }
+        internal Manager Manager { get => manager; set => manager = value; }
     }
 }

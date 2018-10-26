@@ -20,6 +20,10 @@ namespace RestaurantPOS
 
             Manager generalManager = new Manager("Jack Inthebox", 1, 1234, "General Manager");
 
+            generalManager.Name = "Tom";
+
+            MessageBox.Show(generalManager.Name);
+
             Restaurant restaurant = new Restaurant("Burger Shack", generalManager);
             //HELLO
         }

@@ -8,10 +8,15 @@ namespace RestaurantPOS
 {
     class Manager : Employee
     {
-        private string Name;
-        private int EmployeeNumber;
-        private int EmployeePassCode;
-        private string JobTitle;
+        private string name;
+        private int employeeNumber;
+        private int employeePassCode;
+        private string jobTitle;
+
+        public string Name { get => name; set => name = value; }
+        public int EmployeeNumber { get => employeeNumber; set => employeeNumber = value; }
+        public int EmployeePassCode { get => employeePassCode; set => employeePassCode = value; }
+        public string JobTitle { get => jobTitle; set => jobTitle = value; }
 
         public Manager(string _name, int _employeeNumber, int _employeePassCode, string _jobTitle) : base(_name, _employeeNumber, _employeePassCode, _jobTitle)
         {

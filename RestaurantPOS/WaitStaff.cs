@@ -10,7 +10,7 @@ namespace RestaurantPOS
     {
         public WaitStaff(string _name, int _employeeNumber, int _employeePassCode, string _jobTitle) : base(_name, _employeeNumber, _employeePassCode, _jobTitle)
         {
-            this.name = 
+            
         }
 
         // Adds new Table to Waiter's list of Active Tables
