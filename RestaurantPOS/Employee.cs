@@ -8,6 +8,7 @@ namespace RestaurantPOS
 {
     class Employee
     {
+        // hey
         private String name;
         private int employeeNumber;
         private int employeePassCode;
@@ -19,6 +20,16 @@ namespace RestaurantPOS
             this.employeeNumber = _employeeNumber;
             this.employeePassCode = _employeePassCode;
             this.jobTitle = _jobTitle;
+        }
+
+        public void LogIn(int employeeNumber, int employeePassCode)
+        {
+
+        }
+
+        public void LogOut()
+        {
+
         }
     }
 }
