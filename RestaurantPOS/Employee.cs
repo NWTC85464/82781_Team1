@@ -15,11 +15,13 @@ namespace RestaurantPOS
 
         public Employee(String _name, int _employeeNumber, int _employeePassCode, String _jobTitle)
         {
-            this.name = _name;
+            this.Name = _name;
             this.employeeNumber = _employeeNumber;
             this.employeePassCode = _employeePassCode;
             this.jobTitle = _jobTitle;
         }
+
+        public string Name { get => name; set => name = value; }
 
         public void LogIn(int employeeNumber, int employeePassCode)
         {

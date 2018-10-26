@@ -9,14 +9,18 @@ namespace RestaurantPOS
     class MenuItem
     {
         private int menuItemID;
-        public string itemName;
-        public double itemPrice;
+        private string itemName;
+        private double itemPrice;
 
         public MenuItem(int _menuItemId, string _itemName, double _itemPrice)
         {
-            this.menuItemID = _menuItemId;
-            this.itemName = _itemName;
-            this.itemPrice = _itemPrice;
+            MenuItemID = _menuItemId;
+            ItemName = _itemName;
+            ItemPrice = _itemPrice;
         }
+
+        public int MenuItemID { get => menuItemID; set => menuItemID = value; }
+        public string ItemName { get => itemName; set => itemName = value; }
+        public double ItemPrice { get => itemPrice; set => itemPrice = value; }
     }
 }

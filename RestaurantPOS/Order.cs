@@ -8,14 +8,16 @@ namespace RestaurantPOS
 {
     class OrderItem
     {
-        public int Quantity;
-        public MenuItem MenuItem;
+        private int quantity;
+        private MenuItem menuItem;
 
         public OrderItem(int _quantity, MenuItem _menuItem)
         {
             Quantity = _quantity;
             MenuItem = _menuItem;
         }
-        
+
+        public int Quantity { get => quantity; set => quantity = value; }
+        internal MenuItem MenuItem { get => menuItem; set => menuItem = value; }
     }
 }

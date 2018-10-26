@@ -8,9 +8,12 @@ namespace RestaurantPOS
 {
     class Table
     {
-        public int TableNumber;
-        public int NumberOfGuests;
+        private int tableNumber;
+        private int numberOfGuests;
         public List<OrderItem> TableOrders;
+
+        public int TableNumber { get => tableNumber; set => tableNumber = value; }
+        public int NumberOfGuests { get => numberOfGuests; set => numberOfGuests = value; }
 
         public Table(int _tableNumber, int _numberOfGuests)
         {
