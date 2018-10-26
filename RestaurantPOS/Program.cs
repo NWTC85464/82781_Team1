@@ -16,12 +16,12 @@ namespace RestaurantPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LoginScreen());
 
             Manager generalManager = new Manager("Jack Inthebox", 1, 1234, "General Manager");
 
             Restaurant restaurant = new Restaurant("Burger Shack", generalManager);
-            
+            //HELLO
         }
 
 
