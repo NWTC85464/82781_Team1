@@ -21,18 +21,10 @@
           </AssociationSet>
           <EntitySet Name="MenuItems" EntityType="Model1.MenuItems" />
           <EntitySet Name="Menus" EntityType="Model1.Menu" />
-          <AssociationSet Name="MenuMenuItems" Association="Model1.MenuMenuItems">
-            <End Role="Menu" EntitySet="Menus" />
-            <End Role="MenuItems" EntitySet="MenuItems" />
-          </AssociationSet>
           <EntitySet Name="TableOrders" EntityType="Model1.TableOrders" />
           <AssociationSet Name="TablesTableOrders" Association="Model1.TablesTableOrders">
             <End Role="Tables" EntitySet="Tables" />
             <End Role="TableOrders" EntitySet="TableOrders" />
-          </AssociationSet>
-          <AssociationSet Name="TableOrdersMenuItems" Association="Model1.TableOrdersMenuItems">
-            <End Role="TableOrders" EntitySet="TableOrders" />
-            <End Role="MenuItems" EntitySet="MenuItems" />
           </AssociationSet>
           <EntitySet Name="Restaurants" EntityType="Model1.Restaurant" />
           <AssociationSet Name="RestaurantEmployees" Association="Model1.RestaurantEmployees">
@@ -41,6 +33,19 @@
           </AssociationSet>
           <AssociationSet Name="RestaurantMenu" Association="Model1.RestaurantMenu">
             <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="Menu" EntitySet="Menus" />
+          </AssociationSet>
+          <EntitySet Name="OrderItems" EntityType="Model1.OrderItem" />
+          <AssociationSet Name="OrderItemMenuItems" Association="Model1.OrderItemMenuItems">
+            <End Role="OrderItem" EntitySet="OrderItems" />
+            <End Role="MenuItems" EntitySet="MenuItems" />
+          </AssociationSet>
+          <AssociationSet Name="OrderItemTableOrders" Association="Model1.OrderItemTableOrders">
+            <End Role="OrderItem" EntitySet="OrderItems" />
+            <End Role="TableOrders" EntitySet="TableOrders" />
+          </AssociationSet>
+          <AssociationSet Name="MenuItemsMenu" Association="Model1.MenuItemsMenu">
+            <End Role="MenuItems" EntitySet="MenuItems" />
             <End Role="Menu" EntitySet="Menus" />
           </AssociationSet>
           </EntityContainer>
@@ -92,10 +97,11 @@
           <Property Name="menuItemName" Type="String" Nullable="false" />
           <Property Name="menuItemPrice" Type="String" Nullable="false" />
           <Property Name="menuItemDescription" Type="String" Nullable="false" />
-          <NavigationProperty Name="Menu" Relationship="Model1.MenuMenuItems" FromRole="MenuItems" ToRole="Menu" />
           <Property Name="MenuMenuId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TableOrder" Relationship="Model1.TableOrdersMenuItems" FromRole="MenuItems" ToRole="TableOrders" />
           <Property Name="TableOrders_tableOrderId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="OrderItems" Relationship="Model1.OrderItemMenuItems" FromRole="MenuItems" ToRole="OrderItem" />
+          <NavigationProperty Name="Menu" Relationship="Model1.MenuItemsMenu" FromRole="MenuItems" ToRole="Menu" />
+          <Property Name="isItemActive" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -103,22 +109,10 @@
           </Key>
           <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="menuName" Type="String" Nullable="false" />
-          <NavigationProperty Name="MenuItems" Relationship="Model1.MenuMenuItems" FromRole="Menu" ToRole="MenuItems" />
           <NavigationProperty Name="Restaurant" Relationship="Model1.RestaurantMenu" FromRole="Menu" ToRole="Restaurant" />
           <Property Name="Restaurant_restaurantId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MenuItems" Relationship="Model1.MenuItemsMenu" FromRole="Menu" ToRole="MenuItems" />
         </EntityType>
-        <Association Name="MenuMenuItems">
-          <End Type="Model1.Menu" Role="Menu" Multiplicity="1" />
-          <End Type="Model1.MenuItems" Role="MenuItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Menu">
-              <PropertyRef Name="MenuId" />
-            </Principal>
-            <Dependent Role="MenuItems">
-              <PropertyRef Name="MenuMenuId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="TableOrders">
           <Key>
             <PropertyRef Name="orderNumber" />
@@ -126,7 +120,7 @@
           <Property Name="orderNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Table" Relationship="Model1.TablesTableOrders" FromRole="TableOrders" ToRole="Tables" />
           <Property Name="Tables_tableNumber" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MenuItems" Relationship="Model1.TableOrdersMenuItems" FromRole="TableOrders" ToRole="MenuItems" />
+          <NavigationProperty Name="OrderItems" Relationship="Model1.OrderItemTableOrders" FromRole="TableOrders" ToRole="OrderItem" />
         </EntityType>
         <Association Name="TablesTableOrders">
           <End Type="Model1.Tables" Role="Tables" Multiplicity="1" />
@@ -137,18 +131,6 @@
             </Principal>
             <Dependent Role="TableOrders">
               <PropertyRef Name="Tables_tableNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TableOrdersMenuItems">
-          <End Type="Model1.TableOrders" Role="TableOrders" Multiplicity="0..1" />
-          <End Type="Model1.MenuItems" Role="MenuItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TableOrders">
-              <PropertyRef Name="orderNumber" />
-            </Principal>
-            <Dependent Role="MenuItems">
-              <PropertyRef Name="TableOrders_tableOrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -184,6 +166,29 @@
               <PropertyRef Name="Restaurant_restaurantId" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="orderItemId" />
+          </Key>
+          <Property Name="orderItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="MenuItem" Relationship="Model1.OrderItemMenuItems" FromRole="OrderItem" ToRole="MenuItems" />
+          <NavigationProperty Name="TableOrder" Relationship="Model1.OrderItemTableOrders" FromRole="OrderItem" ToRole="TableOrders" />
+          <Property Name="quantity" Type="String" Nullable="false" />
+          <Property Name="MenuItems_menuItemID" Type="String" Nullable="false" />
+          <Property Name="Tables_tableNumber" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="OrderItemMenuItems">
+          <End Type="Model1.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <End Type="Model1.MenuItems" Role="MenuItems" Multiplicity="0..1" />
+        </Association>
+        <Association Name="OrderItemTableOrders">
+          <End Type="Model1.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <End Type="Model1.TableOrders" Role="TableOrders" Multiplicity="0..1" />
+        </Association>
+        <Association Name="MenuItemsMenu">
+          <End Type="Model1.MenuItems" Role="MenuItems" Multiplicity="*" />
+          <End Type="Model1.Menu" Role="Menu" Multiplicity="0..1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
