@@ -16,13 +16,15 @@
         <AssociationConnector Association="Model1.WaitstaffTables" />
         <EntityTypeShape EntityType="Model1.MenuItems" Width="1.5" PointX="9.25" PointY="5.375" />
         <EntityTypeShape EntityType="Model1.Menu" Width="1.5" PointX="9.25" PointY="3" />
-        <AssociationConnector Association="Model1.MenuMenuItems" />
-        <EntityTypeShape EntityType="Model1.TableOrders" Width="1.5" PointX="6.375" PointY="4.625" />
+        <EntityTypeShape EntityType="Model1.TableOrders" Width="1.5" PointX="6.25" PointY="3.875" />
         <AssociationConnector Association="Model1.TablesTableOrders" />
-        <AssociationConnector Association="Model1.TableOrdersMenuItems" />
         <EntityTypeShape EntityType="Model1.Restaurant" Width="1.5" PointX="9.25" PointY="0.625" />
         <AssociationConnector Association="Model1.RestaurantEmployees" />
         <AssociationConnector Association="Model1.RestaurantMenu" />
+        <EntityTypeShape EntityType="Model1.OrderItem" Width="1.5" PointX="6.75" PointY="6.375" />
+        <AssociationConnector Association="Model1.OrderItemMenuItems" />
+        <AssociationConnector Association="Model1.OrderItemTableOrders" />
+        <AssociationConnector Association="Model1.MenuItemsMenu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

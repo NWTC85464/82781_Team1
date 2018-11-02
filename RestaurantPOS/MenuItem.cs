@@ -11,6 +11,7 @@ namespace RestaurantPOS
         private int menuItemID;
         private string itemName;
         private double itemPrice;
+        public Boolean isItemActive;
 
         public MenuItem(int _menuItemId, string _itemName, double _itemPrice)
         {
