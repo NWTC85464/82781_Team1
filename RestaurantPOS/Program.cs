@@ -14,7 +14,7 @@ namespace RestaurantPOS
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            Application.EnableVisualStyles(); // test
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new LoginScreen());
