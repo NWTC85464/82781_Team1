@@ -16,16 +16,19 @@ namespace RestaurantPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new LoginScreen());
 
-            Manager generalManager = new Manager("Jack Inthebox", 1, 1234, "General Manager");
 
-            generalManager.Name = "Tom";
+            /*
+             *  Add Initialization Methods here for restaurant employee and menu objects
+             * 
+             */
 
-            MessageBox.Show(generalManager.Name);
+            // When the Application starts, show the Login Screen
+            Application.Run(new LoginScreen());
 
-            Restaurant restaurant = new Restaurant("Burger Shack", generalManager);
-            //HELLO
+
         }
 
 
