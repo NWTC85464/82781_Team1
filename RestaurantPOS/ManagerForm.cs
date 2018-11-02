@@ -16,5 +16,18 @@ namespace RestaurantPOS
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            // Exit Button
+            this.Close();
+        }
+
+        private void btnClearLists_Click(object sender, EventArgs e)
+        {
+            // Clear lists
+            lstEmployees.Items.Clear();
+            lstMenuItems.Items.Clear();
+        }
     }
 }

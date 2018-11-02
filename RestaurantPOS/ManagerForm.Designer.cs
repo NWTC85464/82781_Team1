@@ -29,24 +29,26 @@
         private void InitializeComponent()
         {
             this.gbEmployees = new System.Windows.Forms.GroupBox();
-            this.lstEmployees = new System.Windows.Forms.ListBox();
-            this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
+            this.btnAddEmployee = new System.Windows.Forms.Button();
+            this.lstEmployees = new System.Windows.Forms.ListBox();
             this.gbMenuItems = new System.Windows.Forms.GroupBox();
             this.btnRemoveMenuItem = new System.Windows.Forms.Button();
             this.btnAddMenuItem = new System.Windows.Forms.Button();
             this.lstMenuItems = new System.Windows.Forms.ListBox();
             this.gbDiscount = new System.Windows.Forms.GroupBox();
-            this.lblOrderNumber = new System.Windows.Forms.Label();
-            this.lblDiscountPercentage = new System.Windows.Forms.Label();
-            this.txtDiscountOrderNumber = new System.Windows.Forms.TextBox();
-            this.txtDiscountPercent = new System.Windows.Forms.TextBox();
             this.btnGiveDiscount = new System.Windows.Forms.Button();
+            this.txtDiscountPercent = new System.Windows.Forms.TextBox();
+            this.txtDiscountOrderNumber = new System.Windows.Forms.TextBox();
+            this.lblDiscountPercentage = new System.Windows.Forms.Label();
+            this.lblOrderNumber = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnClearLists = new System.Windows.Forms.Button();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.btnGetSalesReport = new System.Windows.Forms.Button();
+            this.btnGetEmployees = new System.Windows.Forms.Button();
+            this.btnGetMenuItems = new System.Windows.Forms.Button();
             this.gbEmployees.SuspendLayout();
             this.gbMenuItems.SuspendLayout();
             this.gbDiscount.SuspendLayout();
@@ -64,14 +66,14 @@
             this.gbEmployees.TabStop = false;
             this.gbEmployees.Text = "Employees";
             // 
-            // lstEmployees
+            // btnRemoveEmployee
             // 
-            this.lstEmployees.FormattingEnabled = true;
-            this.lstEmployees.ItemHeight = 16;
-            this.lstEmployees.Location = new System.Drawing.Point(6, 21);
-            this.lstEmployees.Name = "lstEmployees";
-            this.lstEmployees.Size = new System.Drawing.Size(350, 564);
-            this.lstEmployees.TabIndex = 0;
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(81, 657);
+            this.btnRemoveEmployee.Name = "btnRemoveEmployee";
+            this.btnRemoveEmployee.Size = new System.Drawing.Size(201, 34);
+            this.btnRemoveEmployee.TabIndex = 2;
+            this.btnRemoveEmployee.Text = "Remove Selected Employee";
+            this.btnRemoveEmployee.UseVisualStyleBackColor = true;
             // 
             // btnAddEmployee
             // 
@@ -82,14 +84,14 @@
             this.btnAddEmployee.Text = "Add New Employee";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
             // 
-            // btnRemoveEmployee
+            // lstEmployees
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(81, 657);
-            this.btnRemoveEmployee.Name = "btnRemoveEmployee";
-            this.btnRemoveEmployee.Size = new System.Drawing.Size(201, 34);
-            this.btnRemoveEmployee.TabIndex = 2;
-            this.btnRemoveEmployee.Text = "Remove Selected Employee";
-            this.btnRemoveEmployee.UseVisualStyleBackColor = true;
+            this.lstEmployees.FormattingEnabled = true;
+            this.lstEmployees.ItemHeight = 16;
+            this.lstEmployees.Location = new System.Drawing.Point(6, 21);
+            this.lstEmployees.Name = "lstEmployees";
+            this.lstEmployees.Size = new System.Drawing.Size(350, 564);
+            this.lstEmployees.TabIndex = 0;
             // 
             // gbMenuItems
             // 
@@ -144,14 +146,28 @@
             this.gbDiscount.TabStop = false;
             this.gbDiscount.Text = "Discounts";
             // 
-            // lblOrderNumber
+            // btnGiveDiscount
             // 
-            this.lblOrderNumber.AutoSize = true;
-            this.lblOrderNumber.Location = new System.Drawing.Point(23, 35);
-            this.lblOrderNumber.Name = "lblOrderNumber";
-            this.lblOrderNumber.Size = new System.Drawing.Size(103, 17);
-            this.lblOrderNumber.TabIndex = 0;
-            this.lblOrderNumber.Text = "Order Number:";
+            this.btnGiveDiscount.Location = new System.Drawing.Point(32, 117);
+            this.btnGiveDiscount.Name = "btnGiveDiscount";
+            this.btnGiveDiscount.Size = new System.Drawing.Size(243, 32);
+            this.btnGiveDiscount.TabIndex = 4;
+            this.btnGiveDiscount.Text = "Give Discount";
+            this.btnGiveDiscount.UseVisualStyleBackColor = true;
+            // 
+            // txtDiscountPercent
+            // 
+            this.txtDiscountPercent.Location = new System.Drawing.Point(132, 63);
+            this.txtDiscountPercent.Name = "txtDiscountPercent";
+            this.txtDiscountPercent.Size = new System.Drawing.Size(169, 22);
+            this.txtDiscountPercent.TabIndex = 3;
+            // 
+            // txtDiscountOrderNumber
+            // 
+            this.txtDiscountOrderNumber.Location = new System.Drawing.Point(132, 32);
+            this.txtDiscountOrderNumber.Name = "txtDiscountOrderNumber";
+            this.txtDiscountOrderNumber.Size = new System.Drawing.Size(169, 22);
+            this.txtDiscountOrderNumber.TabIndex = 2;
             // 
             // lblDiscountPercentage
             // 
@@ -162,46 +178,34 @@
             this.lblDiscountPercentage.TabIndex = 1;
             this.lblDiscountPercentage.Text = "Discount Percent:";
             // 
-            // txtDiscountOrderNumber
+            // lblOrderNumber
             // 
-            this.txtDiscountOrderNumber.Location = new System.Drawing.Point(132, 32);
-            this.txtDiscountOrderNumber.Name = "txtDiscountOrderNumber";
-            this.txtDiscountOrderNumber.Size = new System.Drawing.Size(169, 22);
-            this.txtDiscountOrderNumber.TabIndex = 2;
-            // 
-            // txtDiscountPercent
-            // 
-            this.txtDiscountPercent.Location = new System.Drawing.Point(132, 63);
-            this.txtDiscountPercent.Name = "txtDiscountPercent";
-            this.txtDiscountPercent.Size = new System.Drawing.Size(169, 22);
-            this.txtDiscountPercent.TabIndex = 3;
-            // 
-            // btnGiveDiscount
-            // 
-            this.btnGiveDiscount.Location = new System.Drawing.Point(32, 117);
-            this.btnGiveDiscount.Name = "btnGiveDiscount";
-            this.btnGiveDiscount.Size = new System.Drawing.Size(243, 32);
-            this.btnGiveDiscount.TabIndex = 4;
-            this.btnGiveDiscount.Text = "Give Discount";
-            this.btnGiveDiscount.UseVisualStyleBackColor = true;
+            this.lblOrderNumber.AutoSize = true;
+            this.lblOrderNumber.Location = new System.Drawing.Point(23, 35);
+            this.lblOrderNumber.Name = "lblOrderNumber";
+            this.lblOrderNumber.Size = new System.Drawing.Size(103, 17);
+            this.lblOrderNumber.TabIndex = 0;
+            this.lblOrderNumber.Text = "Order Number:";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(781, 565);
+            this.btnExit.Location = new System.Drawing.Point(781, 645);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(243, 32);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnRefresh
+            // btnClearLists
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(781, 514);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(243, 32);
-            this.btnRefresh.TabIndex = 6;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnClearLists.Location = new System.Drawing.Point(781, 535);
+            this.btnClearLists.Name = "btnClearLists";
+            this.btnClearLists.Size = new System.Drawing.Size(243, 32);
+            this.btnClearLists.TabIndex = 6;
+            this.btnClearLists.Text = "Clear Lists";
+            this.btnClearLists.UseVisualStyleBackColor = true;
+            this.btnClearLists.Click += new System.EventHandler(this.btnClearLists_Click);
             // 
             // lblCurrentDate
             // 
@@ -225,22 +229,42 @@
             // 
             // btnGetSalesReport
             // 
-            this.btnGetSalesReport.Location = new System.Drawing.Point(781, 463);
+            this.btnGetSalesReport.Location = new System.Drawing.Point(781, 590);
             this.btnGetSalesReport.Name = "btnGetSalesReport";
             this.btnGetSalesReport.Size = new System.Drawing.Size(243, 32);
             this.btnGetSalesReport.TabIndex = 9;
             this.btnGetSalesReport.Text = "Get Sales Report";
             this.btnGetSalesReport.UseVisualStyleBackColor = true;
             // 
+            // btnGetEmployees
+            // 
+            this.btnGetEmployees.Location = new System.Drawing.Point(781, 480);
+            this.btnGetEmployees.Name = "btnGetEmployees";
+            this.btnGetEmployees.Size = new System.Drawing.Size(243, 32);
+            this.btnGetEmployees.TabIndex = 10;
+            this.btnGetEmployees.Text = "Get Employees";
+            this.btnGetEmployees.UseVisualStyleBackColor = true;
+            // 
+            // btnGetMenuItems
+            // 
+            this.btnGetMenuItems.Location = new System.Drawing.Point(781, 425);
+            this.btnGetMenuItems.Name = "btnGetMenuItems";
+            this.btnGetMenuItems.Size = new System.Drawing.Size(243, 32);
+            this.btnGetMenuItems.TabIndex = 11;
+            this.btnGetMenuItems.Text = "Get Menu Items";
+            this.btnGetMenuItems.UseVisualStyleBackColor = true;
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 731);
+            this.Controls.Add(this.btnGetMenuItems);
+            this.Controls.Add(this.btnGetEmployees);
             this.Controls.Add(this.btnGetSalesReport);
             this.Controls.Add(this.lblCurrentTime);
             this.Controls.Add(this.lblCurrentDate);
-            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnClearLists);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.gbDiscount);
             this.Controls.Add(this.gbMenuItems);
@@ -273,9 +297,11 @@
         private System.Windows.Forms.Label lblDiscountPercentage;
         private System.Windows.Forms.Label lblOrderNumber;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnClearLists;
         private System.Windows.Forms.Label lblCurrentDate;
         private System.Windows.Forms.Label lblCurrentTime;
         private System.Windows.Forms.Button btnGetSalesReport;
+        private System.Windows.Forms.Button btnGetEmployees;
+        private System.Windows.Forms.Button btnGetMenuItems;
     }
 }
