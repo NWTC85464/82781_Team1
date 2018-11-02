@@ -5,9 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="35c21c6cbf464c239b77006212a8e855" Name="Diagram1" >
-        <EntityTypeShape EntityType="Model1.Entity1" Width="3.625" PointX="2.25" PointY="1.875" />
-        <EntityTypeShape EntityType="Model1.Entity2" Width="1.5" PointX="7.375" PointY="2.125" />
-        <InheritanceConnector EntityType="Model1.Entity1" />
+        <EntityTypeShape EntityType="Model1.Employees" Width="3.625" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Chefs" Width="1.5" PointX="0.5" PointY="3.375" />
+        <InheritanceConnector EntityType="Model1.Chefs" />
+        <EntityTypeShape EntityType="Model1.Managers" Width="1.5" PointX="2.125" PointY="3.375" />
+        <InheritanceConnector EntityType="Model1.Managers" />
+        <EntityTypeShape EntityType="Model1.Waitstaff" Width="1.5" PointX="3.75" PointY="3.375" />
+        <InheritanceConnector EntityType="Model1.Waitstaff" />
+        <EntityTypeShape EntityType="Model1.Tables" Width="1.5" PointX="3.75" PointY="5" />
+        <AssociationConnector Association="Model1.WaitstaffTables" />
+        <EntityTypeShape EntityType="Model1.MenuItems" Width="1.5" PointX="9.25" PointY="5.375" />
+        <EntityTypeShape EntityType="Model1.Menu" Width="1.5" PointX="9.25" PointY="3" />
+        <AssociationConnector Association="Model1.MenuMenuItems" />
+        <EntityTypeShape EntityType="Model1.TableOrders" Width="1.5" PointX="6.375" PointY="4.625" />
+        <AssociationConnector Association="Model1.TablesTableOrders" />
+        <AssociationConnector Association="Model1.TableOrdersMenuItems" />
+        <EntityTypeShape EntityType="Model1.Restaurant" Width="1.5" PointX="9.25" PointY="0.625" />
+        <AssociationConnector Association="Model1.RestaurantEmployees" />
+        <AssociationConnector Association="Model1.RestaurantMenu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

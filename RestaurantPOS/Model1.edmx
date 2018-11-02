@@ -13,18 +13,178 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Entity2" EntityType="Model1.Entity2" />
-        </EntityContainer>
-        <EntityType Name="Entity1" BaseType="Model1.Entity2">
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Property1" Type="String" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Entity2">
+          <EntitySet Name="Employees" EntityType="Model1.Employees" />
+          <EntitySet Name="Tables" EntityType="Model1.Tables" />
+          <AssociationSet Name="WaitstaffTables" Association="Model1.WaitstaffTables">
+            <End Role="Waitstaff" EntitySet="Employees" />
+            <End Role="Tables" EntitySet="Tables" />
+          </AssociationSet>
+          <EntitySet Name="MenuItems" EntityType="Model1.MenuItems" />
+          <EntitySet Name="Menus" EntityType="Model1.Menu" />
+          <AssociationSet Name="MenuMenuItems" Association="Model1.MenuMenuItems">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="MenuItems" EntitySet="MenuItems" />
+          </AssociationSet>
+          <EntitySet Name="TableOrders" EntityType="Model1.TableOrders" />
+          <AssociationSet Name="TablesTableOrders" Association="Model1.TablesTableOrders">
+            <End Role="Tables" EntitySet="Tables" />
+            <End Role="TableOrders" EntitySet="TableOrders" />
+          </AssociationSet>
+          <AssociationSet Name="TableOrdersMenuItems" Association="Model1.TableOrdersMenuItems">
+            <End Role="TableOrders" EntitySet="TableOrders" />
+            <End Role="MenuItems" EntitySet="MenuItems" />
+          </AssociationSet>
+          <EntitySet Name="Restaurants" EntityType="Model1.Restaurant" />
+          <AssociationSet Name="RestaurantEmployees" Association="Model1.RestaurantEmployees">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="RestaurantMenu" Association="Model1.RestaurantMenu">
+            <End Role="Restaurant" EntitySet="Restaurants" />
+            <End Role="Menu" EntitySet="Menus" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Employees">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="employeeNumber" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="employeePasscode" Type="String" Nullable="false" />
+          <Property Name="jobTitle" Type="String" Nullable="false" />
+          <NavigationProperty Name="Restaurant" Relationship="Model1.RestaurantEmployees" FromRole="Employees" ToRole="Restaurant" />
+          <Property Name="Restaurant_restaurantId" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Chefs" BaseType="Model1.Employees" />
+        <EntityType Name="Managers" BaseType="Model1.Employees" >
+        </EntityType>
+        <EntityType Name="Waitstaff" BaseType="Model1.Employees" >
+          <NavigationProperty Name="Tables" Relationship="Model1.WaitstaffTables" FromRole="Waitstaff" ToRole="Tables" />
+        </EntityType>
+        <EntityType Name="Tables">
+          <Key>
+            <PropertyRef Name="tableNumber" />
+          </Key>
+          <Property Name="tableNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numberOfGuests" Type="String" Nullable="false" />
+          <Property Name="isActive" Type="String" Nullable="false" />
+          <NavigationProperty Name="Waitstaff" Relationship="Model1.WaitstaffTables" FromRole="Tables" ToRole="Waitstaff" />
+          <Property Name="Waitstaff_employeeNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TableOrders" Relationship="Model1.TablesTableOrders" FromRole="Tables" ToRole="TableOrders" />
+        </EntityType>
+        <Association Name="WaitstaffTables">
+          <End Type="Model1.Waitstaff" Role="Waitstaff" Multiplicity="1" />
+          <End Type="Model1.Tables" Role="Tables" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Waitstaff">
+              <PropertyRef Name="employeeNumber" />
+            </Principal>
+            <Dependent Role="Tables">
+              <PropertyRef Name="Waitstaff_employeeNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MenuItems">
+          <Key>
+            <PropertyRef Name="menuItemId" />
+          </Key>
+          <Property Name="menuItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuItemName" Type="String" Nullable="false" />
+          <Property Name="menuItemPrice" Type="String" Nullable="false" />
+          <Property Name="menuItemDescription" Type="String" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Model1.MenuMenuItems" FromRole="MenuItems" ToRole="Menu" />
+          <Property Name="MenuMenuId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TableOrder" Relationship="Model1.TableOrdersMenuItems" FromRole="MenuItems" ToRole="TableOrders" />
+          <Property Name="TableOrders_tableOrderId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menuName" Type="String" Nullable="false" />
+          <NavigationProperty Name="MenuItems" Relationship="Model1.MenuMenuItems" FromRole="Menu" ToRole="MenuItems" />
+          <NavigationProperty Name="Restaurant" Relationship="Model1.RestaurantMenu" FromRole="Menu" ToRole="Restaurant" />
+          <Property Name="Restaurant_restaurantId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="MenuMenuItems">
+          <End Type="Model1.Menu" Role="Menu" Multiplicity="1" />
+          <End Type="Model1.MenuItems" Role="MenuItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="MenuItems">
+              <PropertyRef Name="MenuMenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TableOrders">
+          <Key>
+            <PropertyRef Name="orderNumber" />
+          </Key>
+          <Property Name="orderNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Table" Relationship="Model1.TablesTableOrders" FromRole="TableOrders" ToRole="Tables" />
+          <Property Name="Tables_tableNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MenuItems" Relationship="Model1.TableOrdersMenuItems" FromRole="TableOrders" ToRole="MenuItems" />
+        </EntityType>
+        <Association Name="TablesTableOrders">
+          <End Type="Model1.Tables" Role="Tables" Multiplicity="1" />
+          <End Type="Model1.TableOrders" Role="TableOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tables">
+              <PropertyRef Name="tableNumber" />
+            </Principal>
+            <Dependent Role="TableOrders">
+              <PropertyRef Name="Tables_tableNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TableOrdersMenuItems">
+          <End Type="Model1.TableOrders" Role="TableOrders" Multiplicity="0..1" />
+          <End Type="Model1.MenuItems" Role="MenuItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableOrders">
+              <PropertyRef Name="orderNumber" />
+            </Principal>
+            <Dependent Role="MenuItems">
+              <PropertyRef Name="TableOrders_tableOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Restaurant">
+          <Key>
+            <PropertyRef Name="restaurantId" />
+          </Key>
+          <Property Name="restaurantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="restaurantName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Model1.RestaurantEmployees" FromRole="Restaurant" ToRole="Employees" />
+          <NavigationProperty Name="Menus" Relationship="Model1.RestaurantMenu" FromRole="Restaurant" ToRole="Menu" />
+        </EntityType>
+        <Association Name="RestaurantEmployees">
+          <End Type="Model1.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="Model1.Employees" Role="Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="restaurantId" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="Restaurant_restaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RestaurantMenu">
+          <End Type="Model1.Restaurant" Role="Restaurant" Multiplicity="1" />
+          <End Type="Model1.Menu" Role="Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restaurant">
+              <PropertyRef Name="restaurantId" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="Restaurant_restaurantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

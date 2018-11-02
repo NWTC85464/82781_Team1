@@ -11,6 +11,7 @@ namespace RestaurantPOS
         private int tableNumber;
         private int numberOfGuests;
         public List<OrderItem> TableOrders;
+        public Boolean isActive = false;
 
         public int TableNumber { get => tableNumber; set => tableNumber = value; }
         public int NumberOfGuests { get => numberOfGuests; set => numberOfGuests = value; }
