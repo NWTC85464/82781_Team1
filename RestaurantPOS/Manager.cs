@@ -8,29 +8,16 @@ namespace RestaurantPOS
 {
     class Manager : Employee
     {
-        private string name;
-        private int employeeNumber;
-        private int employeePassCode;
-        private string jobTitle;
-
-        public string Name { get => name; set => name = value; }
-        public int EmployeeNumber { get => employeeNumber; set => employeeNumber = value; }
-        public int EmployeePassCode { get => employeePassCode; set => employeePassCode = value; }
-        public string JobTitle { get => jobTitle; set => jobTitle = value; }
-
         public Manager(string _name, int _employeeNumber, int _employeePassCode, string _jobTitle) : base(_name, _employeeNumber, _employeePassCode, _jobTitle)
         {
-            Name = _name;
-            EmployeeNumber = _employeeNumber;
-            EmployeePassCode = _employeePassCode;
-            JobTitle = _jobTitle;
+      
         }
 
         // Adds MenuItem to Restaurant's Menu
         public void AddMenuItem(Restaurant _restaurant, int _menuItemId, string _menuItemName, double _menuItemPrice)
         {
-            _restaurant.restaurantMenu.Add(new MenuItem(_menuItemId, _menuItemName, _menuItemPrice));
-
+           // _restaurant.restaurantMenu.Add(new MenuItem(_menuItemId, _menuItemName, _menuItemPrice));
+           //will need to change in order to store data in database to populate list
         }
 
         // Removes MenuItem from Restaurant's Menu
