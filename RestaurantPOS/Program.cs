@@ -26,7 +26,7 @@ namespace RestaurantPOS
              */
 
             // When the Application starts, show the Login Screen
-            Application.Run(new LoginScreen());
+            //Application.Run(new LoginScreen());
 
 
         }
