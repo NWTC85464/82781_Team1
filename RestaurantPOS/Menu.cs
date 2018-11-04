@@ -11,6 +11,7 @@ public class Menu
     public Menu(String _menuName)
 	{
         MenuName = _menuName;
+        menuList = new List<MenuItem>();
 	}
 
     public string MenuName { get => menuName; set => menuName = value; }

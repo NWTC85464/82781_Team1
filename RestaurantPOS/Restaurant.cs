@@ -11,6 +11,7 @@ namespace RestaurantPOS
         private string name;
         public List<MenuItem> restaurantMenu;
         public List<Employee> employeeRecords;
+        public Kitchen kitchen = new Kitchen();
         
 
         public Restaurant(string _name)

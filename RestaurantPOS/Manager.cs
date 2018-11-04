@@ -34,9 +34,9 @@ namespace RestaurantPOS
         }
 
         // Removes MenuItem from Restaurant's Menu
-        public void RemoveMenuItem()
+        public void setMenuItemInactive(MenuItem _menuItem)
         {
-
+            _menuItem.isItemActive = false;
         }
 
         // Adds Employee Record to Restaurant Employee Records
