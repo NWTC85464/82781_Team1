@@ -20,8 +20,13 @@ namespace RestaurantPOS
         private void btnExit_Click(object sender, EventArgs e)
         {
             // Exit Button
-            this.Close();
-        }
+            this.Hide();
+
+			// Show log in screen
+			LoginScreen Form1 = new LoginScreen();
+			Form1.ShowDialog();
+
+		}
 
         private void btnCompleteOrderOne_Click(object sender, EventArgs e)
         {
@@ -79,5 +84,10 @@ namespace RestaurantPOS
             // Disable Load Next Order button
             btnLoadOrderThree.Enabled = false;
         }
-    }
+
+		private void ChefForm_Load(object sender, EventArgs e)
+		{
+			
+		}
+	}
 }
