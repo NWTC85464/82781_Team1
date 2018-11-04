@@ -25,9 +25,16 @@ namespace RestaurantPOS
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            // Login - to chef right now for testing
-            ChefForm Form1 = new ChefForm();
-            Form1.ShowDialog();
-        }
+			// Hide the login screen
+			this.Hide();
+
+			// Login - to chef right now for testing
+			//ChefForm Form1 = new ChefForm();
+			//Form1.ShowDialog();
+
+			// Login - to manager right now for testing
+			ManagerForm Form1 = new ManagerForm();
+			Form1.ShowDialog();
+		}
     }
 }
