@@ -10,7 +10,7 @@ namespace RestaurantPOS
     {
         private int tableNumber;
         private int numberOfGuests;
-        public List<OrderItem> TableOrders;
+        public List<Order> TableOrders;
         public Boolean isActive = false;
 
         public int TableNumber { get => tableNumber; set => tableNumber = value; }
@@ -20,6 +20,7 @@ namespace RestaurantPOS
         {
             TableNumber = _tableNumber;
             NumberOfGuests = _numberOfGuests;
+            TableOrders = new List<Order>();
         }
     }
 }
