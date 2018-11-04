@@ -18,6 +18,7 @@ namespace RestaurantPOS
             MenuItemID = _menuItemId;
             ItemName = _itemName;
             ItemPrice = _itemPrice;
+            isItemActive = true;
         }
 
         public int MenuItemID { get => menuItemID; set => menuItemID = value; }
