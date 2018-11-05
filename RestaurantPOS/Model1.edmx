@@ -138,7 +138,7 @@
           </Key>
           <Property Name="orderItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="quantity" Type="String" Nullable="false" />
-          <Property Name="MenuItems_menuItemID" Type="String" Nullable="false" />
+          <Property Name="MenuItems_menuItemID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MenuItem" Relationship="Model1.MenuItemsOrderItem" FromRole="OrderItem" ToRole="MenuItems" />
           <NavigationProperty Name="Order" Relationship="Model1.OrdersOrderItem" FromRole="OrderItem" ToRole="Orders" />
           <Property Name="Orders_orderNumber" Type="Int32" Nullable="true" />
@@ -155,7 +155,7 @@
               <PropertyRef Name="menuItemId" />
             </Principal>
             <Dependent Role="OrderItem">
-              <PropertyRef Name="MenuItems_menuItemId1" />
+              <PropertyRef Name="MenuItems_menuItemID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -177,7 +177,7 @@
               <PropertyRef Name="employeeNumber" />
             </Principal>
             <Dependent Role="Tables">
-              <PropertyRef Name="Waitstaff_employeeNumber1" />
+              <PropertyRef Name="Waitstaff_employeeNumber" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
