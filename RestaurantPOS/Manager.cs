@@ -30,6 +30,10 @@ namespace RestaurantPOS
         public void AddEmployee(Restaurant _restaurant, string _name, int _employeeNumber, int _employeePassCode, string _jobTitle)
         {
             
+            // Adding a employee to the employee table in the Database
+            RestaurantDataSetTableAdapters.EmployeesTableAdapter Emp = new RestaurantDataSetTableAdapters.EmployeesTableAdapter();
+            Emp.Insert(_name, _employeePassCode, _jobTitle, _restaurant.restaurantId);
+            
         }
 
         // Removes Employee Record from Restaurant Employee Records
