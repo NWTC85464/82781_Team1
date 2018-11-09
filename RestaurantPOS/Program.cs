@@ -25,6 +25,7 @@ namespace RestaurantPOS
 
             // Getting the resaurant table from the database
             RestaurantDataSet.RestaurantsDataTable restaurants = new RestaurantDataSet.RestaurantsDataTable() ;
+
            
             // Getting the data adaptor for the resaurant database
             RestaurantDataSetTableAdapters.RestaurantsTableAdapter rta = new RestaurantDataSetTableAdapters.RestaurantsTableAdapter();
