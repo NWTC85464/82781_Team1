@@ -19,6 +19,10 @@ namespace RestaurantPOS
 
           
 
+
+           
+        }
+
             // Creating objects
             Restaurant restaurant = new Restaurant();
             restaurant.restaurantName = "Burgers And Fries";
@@ -52,6 +56,7 @@ namespace RestaurantPOS
             Staff staff = new Staff("Gage", 107, 102, "Waitstaff");
            
             Application.Run(new LoginScreen());
+
 
 
         }

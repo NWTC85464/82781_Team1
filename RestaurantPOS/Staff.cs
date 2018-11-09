@@ -12,5 +12,28 @@ namespace RestaurantPOS
         {
 
         }
+
+        // Adds new Table to Waiter's list of Active Tables
+        public void AddNewTable()
+        {
+        }
+        // Adds Order to Table Order
+        public void AddOrderToTable()
+        {
+        }
+        // Sends Added Order to Chef's Active Orders
+        public void SendOrder()
+        {
+        }
+        // Removes an unwanted item from Table Order
+        public void RemoveItemFromOrder()
+        {
+        }
+        // Total the Order and track how much is owed by 
+        // waiter in Cash or Credit Card for nightly sales
+        // report
+        public void PayBill()
+        {
+        }
     }
 }
