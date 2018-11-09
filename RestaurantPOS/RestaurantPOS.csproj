@@ -144,6 +144,9 @@
     <Compile Include="Restaurant.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantDataSet.cs">
+      <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RestaurantDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
