@@ -14,11 +14,14 @@ namespace RestaurantPOS
     
     public partial class Restaurant
     {
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Restaurant()
         {
             this.Employees = new HashSet<Employees>();
             this.Menus = new HashSet<Menu>();
+
         }
     
         public int restaurantId { get; set; }
