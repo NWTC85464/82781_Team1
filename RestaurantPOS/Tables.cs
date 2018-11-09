@@ -12,20 +12,21 @@ namespace RestaurantPOS
     using System;
     using System.Collections.Generic;
     
-    public partial class Menu
+    public partial class Tables
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Menu()
+        public Tables()
         {
-            this.MenuItems = new HashSet<MenuItems>();
+            this.Orders = new HashSet<Orders>();
         }
     
-        public int MenuId { get; set; }
-        public string menuName { get; set; }
-        public int Restaurant_restaurantId { get; set; }
+        public int tableNumber { get; set; }
+        public string numberOfGuests { get; set; }
+        public string isActive { get; set; }
+        public int Waitstaff_employeeNumber { get; set; }
     
-        public virtual Restaurant Restaurant { get; set; }
+        public virtual Waitstaffs Waitstaff { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MenuItems> MenuItems { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
     }
 }

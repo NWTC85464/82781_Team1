@@ -10,8 +10,8 @@
         <InheritanceConnector EntityType="Model1.Chefs" />
         <EntityTypeShape EntityType="Model1.Managers" Width="1.5" PointX="2.125" PointY="3.375" />
         <InheritanceConnector EntityType="Model1.Managers" />
-        <EntityTypeShape EntityType="Model1.Waitstaff" Width="1.5" PointX="3.75" PointY="3.375" />
-        <InheritanceConnector EntityType="Model1.Waitstaff" />
+        <EntityTypeShape EntityType="Model1.Waitstaffs" Width="1.5" PointX="3.75" PointY="3.375" />
+        <InheritanceConnector EntityType="Model1.Waitstaffs" />
         <EntityTypeShape EntityType="Model1.Tables" Width="1.5" PointX="3.75" PointY="5" />
         <EntityTypeShape EntityType="Model1.MenuItems" Width="1.5" PointX="9.25" PointY="5.375" />
         <EntityTypeShape EntityType="Model1.Menu" Width="1.5" PointX="9.25" PointY="3" />

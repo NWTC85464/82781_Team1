@@ -8,7 +8,7 @@ namespace RestaurantPOS
 {
     class Employee
     {
-        // hey
+        // Fields for logging in
         private String name;
         private int employeeNumber;
         private int employeePassCode;
@@ -23,6 +23,22 @@ namespace RestaurantPOS
         }
 
         public string Name { get => name; set => name = value; }
+
+        public int GetEmployeeNumber()
+        {
+            return employeeNumber;
+        }
+
+        public int GetPasscode()
+        {
+            return employeePassCode;
+        }
+
+        public String GetJobTitle()
+        {
+            return jobTitle;
+        }
+
 
         public void LogIn(int employeeNumber, int employeePassCode)
         {

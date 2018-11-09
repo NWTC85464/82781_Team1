@@ -12,14 +12,7 @@ namespace RestaurantPOS
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderItem
+    public partial class Managers : Employees
     {
-        public int orderItemId { get; set; }
-        public string quantity { get; set; }
-        public int MenuItems_menuItemID { get; set; }
-        public Nullable<int> Orders_orderNumber { get; set; }
-    
-        public virtual MenuItems MenuItem { get; set; }
-        public virtual Orders Order { get; set; }
     }
 }
