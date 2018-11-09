@@ -19,13 +19,16 @@ namespace RestaurantPOS
 
           
 
+
+           
+        }
+
             // Creating objects
             Restaurant restaurant = new Restaurant();
             restaurant.restaurantName = "Burgers And Fries";
 
             // Getting the resaurant table from the database
             RestaurantDataSet.RestaurantsDataTable restaurants = new RestaurantDataSet.RestaurantsDataTable() ;
-
            
             // Getting the data adaptor for the resaurant database
             RestaurantDataSetTableAdapters.RestaurantsTableAdapter rta = new RestaurantDataSetTableAdapters.RestaurantsTableAdapter();
@@ -51,6 +54,7 @@ namespace RestaurantPOS
             Staff staff = new Staff("Gage", 107, 102, "Waitstaff");
            
   Application.Run(new LoginScreen());
+
 
 
         }
