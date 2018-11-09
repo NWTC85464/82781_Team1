@@ -19,16 +19,8 @@ namespace RestaurantPOS
 
             Application.Run(new LoginScreen());
 
-
-            /*
-             *  Add Initialization Methods here for restaurant employee and menu objects
-             * 
-             */
-
-            // When the Application starts, show the Login Screen
-            Application.Run(new LoginScreen());
-
-
+            Restaurant myRestaurant = new Restaurant("My Restaurant");
+           
         }
 
 
