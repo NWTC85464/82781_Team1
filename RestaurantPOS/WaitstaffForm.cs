@@ -39,14 +39,37 @@ namespace RestaurantPOS
 
         private void WaitstaffForm_Load(object sender, EventArgs e)
         {
-            // Setting up a variable for the datatable from the database
-            RestaurantDataSet.MenuItemsDataTable menuItems = new RestaurantDataSet.MenuItemsDataTable();
-            // Setting up a employee adaptor and it's to fill in the datatable
-            RestaurantDataSetTableAdapters.MenuItemsTableAdapter MenuItemsTableAdap = new RestaurantDataSetTableAdapters.MenuItemsTableAdapter();
-            // Getting the employee data from the database
-            AppetizerListBox.DataSource = MenuItemsTableAdap.GetData();
+            // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
+            this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
+            // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
+            this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
 
-            AppetizerListBox.Show();
+        }
+
+        private void menuItemsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.menuItemsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.restaurantDataSet);
+
+        }
+
+        private void menuItemsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.menuItemsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.restaurantDataSet);
+
+        }
+
+        private void menuItemNameLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuItemNameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
