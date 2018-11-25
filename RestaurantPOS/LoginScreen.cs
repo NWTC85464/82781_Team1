@@ -12,6 +12,8 @@ namespace RestaurantPOS
 {
     public partial class LoginScreen : Form
     {
+        public static String userName = "";
+
         public LoginScreen()
         {
             InitializeComponent();
@@ -66,6 +68,9 @@ namespace RestaurantPOS
                 // Checks to see if password text box equals the password in the database for the employee
                 else if(empRow.employeePasscode == password)
                 {
+                    // Collect user name
+                    userName = empRow.name;
+
                     // Hide the login screen
                     this.Hide();
 
@@ -85,10 +90,6 @@ namespace RestaurantPOS
                         WaitstaffForm form1 = new WaitstaffForm();
                         form1.ShowDialog();
                     }
-
-
-
-
                 }
                 else
                 {
@@ -99,6 +100,8 @@ namespace RestaurantPOS
 
 		
 		}
+
+       
 
     }
 }

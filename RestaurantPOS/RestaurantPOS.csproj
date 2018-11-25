@@ -90,6 +90,12 @@
       <DependentUpon>ChefForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="RemoveEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveEmployeeForm.Designer.cs">
+      <DependentUpon>RemoveEmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaitstaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveEmployeeForm.resx">
+      <DependentUpon>RemoveEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitstaffForm.resx">
       <DependentUpon>WaitstaffForm.cs</DependentUpon>
