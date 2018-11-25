@@ -44,7 +44,7 @@ namespace RestaurantPOS
             {
                 // Table Adapter is the link between the database and your
                 // Application. It allows for insert, update, delete and displaying
-                // of data fromt he database.
+                // of data from the database.
 
                 // Setting up a variable for the datatable from the database
                 RestaurantDataSet.EmployeesDataTable emp = new RestaurantDataSet.EmployeesDataTable();
@@ -57,15 +57,13 @@ namespace RestaurantPOS
                 // Going and looking in the datatable for a given employee number and returning the row. 
                 RestaurantDataSet.EmployeesRow empRow =  emp.FindByemployeeNumber(employeeNumber);
 
-                // Check if the employee row was found (If null, employee number does not exist
-                //in database)
+                // Check if the employee row was found (If null, employee number does not exist in database)
                 if(empRow == null)
                 {
                     MessageBox.Show("Could not find employee number, please try again.");
                 }
 
-                // Checks to see if password text box equals the password in the database 
-                // for the employee
+                // Checks to see if password text box equals the password in the database for the employee
                 else if(empRow.employeePasscode == password)
                 {
                     // Hide the login screen

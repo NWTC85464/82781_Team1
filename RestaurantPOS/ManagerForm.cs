@@ -39,14 +39,25 @@ namespace RestaurantPOS
 
 		private void ManagerForm_Load(object sender, EventArgs e)
 		{
-			// Date and time
+			// Show the current date
 			String nowDate;
-			String nowTime;
-
 			DateTime now = DateTime.Now;
 			nowDate = now.ToString("F");
-
 			lblCurrentDate.Text = nowDate;
+
+            // Show the user's name
 		}
-	}
+
+        private void btnAddMenuItem_Click(object sender, EventArgs e)
+        {
+            AddMenuItemForm Form1 = new AddMenuItemForm();
+            Form1.ShowDialog();
+        }
+
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+            AddEmployeeForm Form1 = new AddEmployeeForm();
+            Form1.ShowDialog();
+        }
+    }
 }
