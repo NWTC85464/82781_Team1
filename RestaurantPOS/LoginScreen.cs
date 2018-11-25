@@ -44,7 +44,7 @@ namespace RestaurantPOS
             {
                 // Table Adapter is the link between the database and your
                 // Application. It allows for insert, update, delete and displaying
-                // of data fromt he database.
+                // of data from the database.
 
                 // Setting up a variable for the datatable from the database
                 RestaurantDataSet.EmployeesDataTable emp = new RestaurantDataSet.EmployeesDataTable();
