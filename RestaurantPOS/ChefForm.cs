@@ -18,7 +18,7 @@ namespace RestaurantPOS
 
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             // Exit Button
             this.Hide();
@@ -29,7 +29,7 @@ namespace RestaurantPOS
 
 		}
 
-        private void btnCompleteOrderOne_Click(object sender, EventArgs e)
+        private void BtnCompleteOrderOne_Click(object sender, EventArgs e)
         {
             // Clear Chef list one
             lstOrderOne.Items.Clear();
@@ -40,7 +40,7 @@ namespace RestaurantPOS
             btnLoadOrderOne.Enabled = true;
         }
 
-        private void btnCompleteOrderTwo_Click(object sender, EventArgs e)
+        private void BtnCompleteOrderTwo_Click(object sender, EventArgs e)
         {
             // Clear Chef list two
             lstOrderTwo.Items.Clear();
@@ -51,7 +51,7 @@ namespace RestaurantPOS
             btnLoadOrderTwo.Enabled = true;
         }
 
-        private void btnCompleteOrderThree_Click(object sender, EventArgs e)
+        private void BtnCompleteOrderThree_Click(object sender, EventArgs e)
         {
             // Clear Chef list three
             lstOrderThree.Items.Clear();
@@ -62,7 +62,7 @@ namespace RestaurantPOS
             btnLoadOrderThree.Enabled = true;
         }
 
-        private void btnLoadOrderOne_Click(object sender, EventArgs e)
+        private void BtnLoadOrderOne_Click(object sender, EventArgs e)
         {
             // Load order from the queue
 
@@ -70,7 +70,7 @@ namespace RestaurantPOS
             btnLoadOrderOne.Enabled = false;
         }
 
-        private void btnLoadOrderTwo_Click(object sender, EventArgs e)
+        private void BtnLoadOrderTwo_Click(object sender, EventArgs e)
         {
             // Load order from the queue
 
@@ -78,7 +78,7 @@ namespace RestaurantPOS
             btnLoadOrderTwo.Enabled = false;
         }
 
-        private void btnLoadOrderThree_Click(object sender, EventArgs e)
+        private void BtnLoadOrderThree_Click(object sender, EventArgs e)
         {
             // Load order from the queue
 

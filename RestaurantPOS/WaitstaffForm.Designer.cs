@@ -1,6 +1,6 @@
 ﻿namespace RestaurantPOS
 {
-    partial class Form1
+    partial class WaitstaffForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,27 +29,46 @@
         private void InitializeComponent()
         {
             this.appetizersGroupBox = new System.Windows.Forms.GroupBox();
+            this.AppetizerListBox = new System.Windows.Forms.ListBox();
             this.dessertGroupBox = new System.Windows.Forms.GroupBox();
+            this.DessertListBox = new System.Windows.Forms.ListBox();
             this.entreeGroupBox = new System.Windows.Forms.GroupBox();
+            this.EntreesListBox = new System.Windows.Forms.ListBox();
             this.beverageGroupBox = new System.Windows.Forms.GroupBox();
+            this.BeveragesListBox = new System.Windows.Forms.ListBox();
             this.orderPreviewListBox = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.appetizersGroupBox.SuspendLayout();
+            this.dessertGroupBox.SuspendLayout();
+            this.entreeGroupBox.SuspendLayout();
+            this.beverageGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // appetizersGroupBox
             // 
+            this.appetizersGroupBox.Controls.Add(this.AppetizerListBox);
             this.appetizersGroupBox.Location = new System.Drawing.Point(0, 0);
             this.appetizersGroupBox.Name = "appetizersGroupBox";
             this.appetizersGroupBox.Size = new System.Drawing.Size(288, 375);
             this.appetizersGroupBox.TabIndex = 0;
             this.appetizersGroupBox.TabStop = false;
             this.appetizersGroupBox.Text = "Appetizers";
-            this.appetizersGroupBox.Enter += new System.EventHandler(this.appetizersGroupBox_Enter);
+            this.appetizersGroupBox.Enter += new System.EventHandler(this.AppetizersGroupBox_Enter);
+            // 
+            // AppetizerListBox
+            // 
+            this.AppetizerListBox.FormattingEnabled = true;
+            this.AppetizerListBox.Location = new System.Drawing.Point(6, 16);
+            this.AppetizerListBox.Name = "AppetizerListBox";
+            this.AppetizerListBox.Size = new System.Drawing.Size(282, 355);
+            this.AppetizerListBox.TabIndex = 0;
+            this.AppetizerListBox.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
             // 
             // dessertGroupBox
             // 
+            this.dessertGroupBox.Controls.Add(this.DessertListBox);
             this.dessertGroupBox.Location = new System.Drawing.Point(588, 188);
             this.dessertGroupBox.Name = "dessertGroupBox";
             this.dessertGroupBox.Size = new System.Drawing.Size(271, 187);
@@ -57,8 +76,17 @@
             this.dessertGroupBox.TabStop = false;
             this.dessertGroupBox.Text = "Dessert";
             // 
+            // DessertListBox
+            // 
+            this.DessertListBox.FormattingEnabled = true;
+            this.DessertListBox.Location = new System.Drawing.Point(6, 19);
+            this.DessertListBox.Name = "DessertListBox";
+            this.DessertListBox.Size = new System.Drawing.Size(259, 160);
+            this.DessertListBox.TabIndex = 8;
+            // 
             // entreeGroupBox
             // 
+            this.entreeGroupBox.Controls.Add(this.EntreesListBox);
             this.entreeGroupBox.Location = new System.Drawing.Point(294, 0);
             this.entreeGroupBox.Name = "entreeGroupBox";
             this.entreeGroupBox.Size = new System.Drawing.Size(288, 375);
@@ -66,14 +94,31 @@
             this.entreeGroupBox.TabStop = false;
             this.entreeGroupBox.Text = "Entrees";
             // 
+            // EntreesListBox
+            // 
+            this.EntreesListBox.FormattingEnabled = true;
+            this.EntreesListBox.Location = new System.Drawing.Point(6, 16);
+            this.EntreesListBox.Name = "EntreesListBox";
+            this.EntreesListBox.Size = new System.Drawing.Size(282, 355);
+            this.EntreesListBox.TabIndex = 1;
+            // 
             // beverageGroupBox
             // 
+            this.beverageGroupBox.Controls.Add(this.BeveragesListBox);
             this.beverageGroupBox.Location = new System.Drawing.Point(588, 0);
             this.beverageGroupBox.Name = "beverageGroupBox";
             this.beverageGroupBox.Size = new System.Drawing.Size(271, 182);
             this.beverageGroupBox.TabIndex = 2;
             this.beverageGroupBox.TabStop = false;
             this.beverageGroupBox.Text = "Beverages";
+            // 
+            // BeveragesListBox
+            // 
+            this.BeveragesListBox.FormattingEnabled = true;
+            this.BeveragesListBox.Location = new System.Drawing.Point(6, 16);
+            this.BeveragesListBox.Name = "BeveragesListBox";
+            this.BeveragesListBox.Size = new System.Drawing.Size(259, 160);
+            this.BeveragesListBox.TabIndex = 7;
             // 
             // orderPreviewListBox
             // 
@@ -109,8 +154,9 @@
             this.exitButton.TabIndex = 6;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // Form1
+            // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,8 +169,13 @@
             this.Controls.Add(this.entreeGroupBox);
             this.Controls.Add(this.dessertGroupBox);
             this.Controls.Add(this.appetizersGroupBox);
-            this.Name = "Form1";
+            this.Name = "WaitstaffForm";
             this.Text = "POS Terminal";
+            this.Load += new System.EventHandler(this.WaitstaffForm_Load);
+            this.appetizersGroupBox.ResumeLayout(false);
+            this.dessertGroupBox.ResumeLayout(false);
+            this.entreeGroupBox.ResumeLayout(false);
+            this.beverageGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -139,6 +190,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.ListBox AppetizerListBox;
+        private System.Windows.Forms.ListBox DessertListBox;
+        private System.Windows.Forms.ListBox EntreesListBox;
+        private System.Windows.Forms.ListBox BeveragesListBox;
     }
 }
 
