@@ -44,5 +44,16 @@ namespace RestaurantPOS.Properties {
                 return ((string)(this["RestaurantConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=nwtcrestaurant.database.windows.net;Initial Catalog=Restaurant;Persis" +
+            "t Security Info=True;User ID=Team1")]
+        public string RestaurantConnectionString2 {
+            get {
+                return ((string)(this["RestaurantConnectionString2"]));
+            }
+        }
     }
 }
