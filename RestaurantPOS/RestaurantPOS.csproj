@@ -78,11 +78,11 @@
       <DependentUpon>ChefForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="WaitstaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="WaitstaffForm.Designer.cs">
+      <DependentUpon>WaitstaffForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Kitchen.cs" />
     <Compile Include="Manager.cs" />
@@ -115,8 +115,8 @@
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="WaitstaffForm.resx">
+      <DependentUpon>WaitstaffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
@@ -125,7 +125,6 @@
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\RestaurantPOS.ChefForm.resources" />
-    <EmbeddedResource Include="obj\Debug\RestaurantPOS.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\RestaurantPOS.LoginScreen.resources" />
     <EmbeddedResource Include="obj\Debug\RestaurantPOS.ManagerForm.resources" />
     <EmbeddedResource Include="obj\Debug\RestaurantPOS.Properties.Resources.resources" />

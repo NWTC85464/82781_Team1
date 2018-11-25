@@ -17,13 +17,13 @@ namespace RestaurantPOS
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             // Exit Button
             this.Close();
         }
 
-        private void btnLogIn_Click(object sender, EventArgs e)
+        private void BtnLogIn_Click(object sender, EventArgs e)
         {
             // Check to see if the employee number exists
             int employeeNumber;
@@ -71,13 +71,26 @@ namespace RestaurantPOS
                     // Hide the login screen
                     this.Hide();
 
-                    // Login - to chef right now for testing
-                    //ChefForm Form1 = new ChefForm();
-                    //Form1.ShowDialog();
+                    if (empRow.jobTitle == "Manager")
+                    {
+                        // Login - to manager screen
+                        ManagerForm Form1 = new ManagerForm();
+                        Form1.ShowDialog();
+                    }else if(empRow.jobTitle == "Chef")
+                    {
+                        // Login - to chef screen
+                        ChefForm Form1 = new ChefForm();
+                        Form1.ShowDialog();
+                    }else if(empRow.jobTitle == "Waitstaff")
+                    {
+                        // Login - to waitstaff screen
+                        WaitstaffForm form1 = new WaitstaffForm();
+                        form1.ShowDialog();
+                    }
 
-                    // Login - to manager right now for testing
-                    ManagerForm Form1 = new ManagerForm();
-                    Form1.ShowDialog();
+
+
+
                 }
                 else
                 {

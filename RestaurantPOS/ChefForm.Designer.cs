@@ -66,7 +66,7 @@
 			this.btnCompleteOrderOne.TabIndex = 2;
 			this.btnCompleteOrderOne.Text = "Complete Current Order";
 			this.btnCompleteOrderOne.UseVisualStyleBackColor = true;
-			this.btnCompleteOrderOne.Click += new System.EventHandler(this.btnCompleteOrderOne_Click);
+			this.btnCompleteOrderOne.Click += new System.EventHandler(this.BtnCompleteOrderOne_Click);
 			// 
 			// btnLoadOrderOne
 			// 
@@ -76,7 +76,7 @@
 			this.btnLoadOrderOne.TabIndex = 1;
 			this.btnLoadOrderOne.Text = "Load Next Order";
 			this.btnLoadOrderOne.UseVisualStyleBackColor = true;
-			this.btnLoadOrderOne.Click += new System.EventHandler(this.btnLoadOrderOne_Click);
+			this.btnLoadOrderOne.Click += new System.EventHandler(this.BtnLoadOrderOne_Click);
 			// 
 			// lstOrderOne
 			// 
@@ -107,7 +107,7 @@
 			this.btnCompleteOrderTwo.TabIndex = 2;
 			this.btnCompleteOrderTwo.Text = "Complete Current Order";
 			this.btnCompleteOrderTwo.UseVisualStyleBackColor = true;
-			this.btnCompleteOrderTwo.Click += new System.EventHandler(this.btnCompleteOrderTwo_Click);
+			this.btnCompleteOrderTwo.Click += new System.EventHandler(this.BtnCompleteOrderTwo_Click);
 			// 
 			// btnLoadOrderTwo
 			// 
@@ -117,7 +117,7 @@
 			this.btnLoadOrderTwo.TabIndex = 1;
 			this.btnLoadOrderTwo.Text = "Load Next Order";
 			this.btnLoadOrderTwo.UseVisualStyleBackColor = true;
-			this.btnLoadOrderTwo.Click += new System.EventHandler(this.btnLoadOrderTwo_Click);
+			this.btnLoadOrderTwo.Click += new System.EventHandler(this.BtnLoadOrderTwo_Click);
 			// 
 			// lstOrderTwo
 			// 
@@ -148,7 +148,7 @@
 			this.btnCompleteOrderThree.TabIndex = 2;
 			this.btnCompleteOrderThree.Text = "Complete Current Order";
 			this.btnCompleteOrderThree.UseVisualStyleBackColor = true;
-			this.btnCompleteOrderThree.Click += new System.EventHandler(this.btnCompleteOrderThree_Click);
+			this.btnCompleteOrderThree.Click += new System.EventHandler(this.BtnCompleteOrderThree_Click);
 			// 
 			// btnLoadOrderThree
 			// 
@@ -158,7 +158,7 @@
 			this.btnLoadOrderThree.TabIndex = 1;
 			this.btnLoadOrderThree.Text = "Load Next Order";
 			this.btnLoadOrderThree.UseVisualStyleBackColor = true;
-			this.btnLoadOrderThree.Click += new System.EventHandler(this.btnLoadOrderThree_Click);
+			this.btnLoadOrderThree.Click += new System.EventHandler(this.BtnLoadOrderThree_Click);
 			// 
 			// lstOrderThree
 			// 
@@ -177,7 +177,7 @@
 			this.btnExit.TabIndex = 4;
 			this.btnExit.Text = "Exit";
 			this.btnExit.UseVisualStyleBackColor = true;
-			this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+			this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
 			// 
 			// ChefForm
 			// 

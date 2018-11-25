@@ -94,7 +94,7 @@
             this.btnLogIn.TabIndex = 5;
             this.btnLogIn.Text = "Log In";
             this.btnLogIn.UseVisualStyleBackColor = true;
-            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
+            this.btnLogIn.Click += new System.EventHandler(this.BtnLogIn_Click);
             // 
             // btnExit
             // 
@@ -105,7 +105,7 @@
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // LoginScreen
             // 
