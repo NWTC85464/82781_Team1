@@ -13,7 +13,6 @@ namespace RestaurantPOS
 {
     public partial class ManagerForm : Form
     {
-		
 
         public ManagerForm()
         {
@@ -30,23 +29,22 @@ namespace RestaurantPOS
 			Form1.ShowDialog();
 		}
 
-        private void btnClearLists_Click(object sender, EventArgs e)
-        {
-            // Clear lists
-            lstEmployees.Items.Clear();
-            lstActiveMenuItems.Items.Clear();
-        }
 
 		private void ManagerForm_Load(object sender, EventArgs e)
 		{
-			// Show the current date
-			String nowDate;
+            // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
+            this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
+            // TODO: This line of code loads data into the 'restaurantDataSet.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
+            // Show the current date
+            String nowDate;
 			DateTime now = DateTime.Now;
 			nowDate = now.ToString("F");
 			lblCurrentDate.Text = nowDate;
 
             // Show the user's name
-		}
+            lblLoggedInEmployeeName.Text = LoginScreen.userName;
+        }
 
         private void btnAddMenuItem_Click(object sender, EventArgs e)
         {
