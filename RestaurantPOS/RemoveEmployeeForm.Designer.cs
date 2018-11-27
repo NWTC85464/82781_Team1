@@ -30,8 +30,8 @@
         {
             this.lblEmployeeNumber = new System.Windows.Forms.Label();
             this.txtEmployeeNumber = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteEmployee = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblEmployeeNumber
@@ -50,35 +50,37 @@
             this.txtEmployeeNumber.Size = new System.Drawing.Size(129, 20);
             this.txtEmployeeNumber.TabIndex = 1;
             // 
-            // btnDelete
+            // btnDeleteEmployee
             // 
-            this.btnDelete.Location = new System.Drawing.Point(15, 44);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "button1";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(15, 44);
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(104, 32);
+            this.btnDeleteEmployee.TabIndex = 2;
+            this.btnDeleteEmployee.Text = "Delete Employee";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(137, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(139, 44);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(104, 32);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // RemoveEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnDelete);
+            this.ClientSize = new System.Drawing.Size(274, 90);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnDeleteEmployee);
             this.Controls.Add(this.txtEmployeeNumber);
             this.Controls.Add(this.lblEmployeeNumber);
             this.Name = "RemoveEmployeeForm";
-            this.Text = "RemoveEmployeeForm";
+            this.Text = "Delete an Employee";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,7 +90,7 @@
 
         private System.Windows.Forms.Label lblEmployeeNumber;
         private System.Windows.Forms.TextBox txtEmployeeNumber;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDeleteEmployee;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

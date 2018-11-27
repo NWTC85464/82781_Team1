@@ -31,16 +31,25 @@
             this.components = new System.ComponentModel.Container();
             this.gbEmployees = new System.Windows.Forms.GroupBox();
             this.employeesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeePasscodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jobTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restaurantrestaurantIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantDataSet = new RestaurantPOS.RestaurantDataSet();
             this.btnRemoveEmployee = new System.Windows.Forms.Button();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.gbMenuItems = new System.Windows.Forms.GroupBox();
+            this.btnRemoveMenuItem = new System.Windows.Forms.Button();
+            this.menuItemsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnEnableItem = new System.Windows.Forms.Button();
             this.btnDisableItem = new System.Windows.Forms.Button();
             this.btnAddMenuItem = new System.Windows.Forms.Button();
@@ -57,22 +66,14 @@
             this.employeesTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.EmployeesTableAdapter();
             this.tableAdapterManager = new RestaurantPOS.RestaurantDataSetTableAdapters.TableAdapterManager();
             this.menuItemsTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.MenuItemsTableAdapter();
-            this.menuItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.menuItemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDataSet)).BeginInit();
             this.gbMenuItems.SuspendLayout();
-            this.gbDiscount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).BeginInit();
+            this.gbDiscount.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbEmployees
@@ -94,47 +95,47 @@
             this.employeesDataGridView.AutoGenerateColumns = false;
             this.employeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.employeeNumberDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.employeePasscodeDataGridViewTextBoxColumn,
+            this.jobTitleDataGridViewTextBoxColumn,
+            this.restaurantrestaurantIdDataGridViewTextBoxColumn});
             this.employeesDataGridView.DataSource = this.employeesBindingSource;
-            this.employeesDataGridView.Location = new System.Drawing.Point(11, 22);
+            this.employeesDataGridView.Location = new System.Drawing.Point(6, 22);
             this.employeesDataGridView.Name = "employeesDataGridView";
-            this.employeesDataGridView.Size = new System.Drawing.Size(569, 142);
+            this.employeesDataGridView.Size = new System.Drawing.Size(569, 184);
             this.employeesDataGridView.TabIndex = 16;
             // 
-            // dataGridViewTextBoxColumn1
+            // employeeNumberDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "employeeNumber";
-            this.dataGridViewTextBoxColumn1.HeaderText = "employeeNumber";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.employeeNumberDataGridViewTextBoxColumn.DataPropertyName = "employeeNumber";
+            this.employeeNumberDataGridViewTextBoxColumn.HeaderText = "employeeNumber";
+            this.employeeNumberDataGridViewTextBoxColumn.Name = "employeeNumberDataGridViewTextBoxColumn";
+            this.employeeNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // nameDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn3
+            // employeePasscodeDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "employeePasscode";
-            this.dataGridViewTextBoxColumn3.HeaderText = "employeePasscode";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.employeePasscodeDataGridViewTextBoxColumn.DataPropertyName = "employeePasscode";
+            this.employeePasscodeDataGridViewTextBoxColumn.HeaderText = "employeePasscode";
+            this.employeePasscodeDataGridViewTextBoxColumn.Name = "employeePasscodeDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn4
+            // jobTitleDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "jobTitle";
-            this.dataGridViewTextBoxColumn4.HeaderText = "jobTitle";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.jobTitleDataGridViewTextBoxColumn.DataPropertyName = "jobTitle";
+            this.jobTitleDataGridViewTextBoxColumn.HeaderText = "jobTitle";
+            this.jobTitleDataGridViewTextBoxColumn.Name = "jobTitleDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn5
+            // restaurantrestaurantIdDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Restaurant_restaurantId";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Restaurant_restaurantId";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.restaurantrestaurantIdDataGridViewTextBoxColumn.DataPropertyName = "Restaurant_restaurantId";
+            this.restaurantrestaurantIdDataGridViewTextBoxColumn.HeaderText = "Restaurant_restaurantId";
+            this.restaurantrestaurantIdDataGridViewTextBoxColumn.Name = "restaurantrestaurantIdDataGridViewTextBoxColumn";
             // 
             // employeesBindingSource
             // 
@@ -148,17 +149,18 @@
             // 
             // btnRemoveEmployee
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(288, 188);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(424, 211);
             this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
             this.btnRemoveEmployee.Size = new System.Drawing.Size(151, 28);
             this.btnRemoveEmployee.TabIndex = 2;
             this.btnRemoveEmployee.Text = "Remove Employee";
             this.btnRemoveEmployee.UseVisualStyleBackColor = true;
+            this.btnRemoveEmployee.Click += new System.EventHandler(this.btnRemoveEmployee_Click);
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(83, 188);
+            this.btnAddEmployee.Location = new System.Drawing.Point(269, 211);
             this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(151, 28);
@@ -169,6 +171,7 @@
             // 
             // gbMenuItems
             // 
+            this.gbMenuItems.Controls.Add(this.btnRemoveMenuItem);
             this.gbMenuItems.Controls.Add(this.menuItemsDataGridView);
             this.gbMenuItems.Controls.Add(this.btnEnableItem);
             this.gbMenuItems.Controls.Add(this.btnDisableItem);
@@ -177,34 +180,106 @@
             this.gbMenuItems.Margin = new System.Windows.Forms.Padding(2);
             this.gbMenuItems.Name = "gbMenuItems";
             this.gbMenuItems.Padding = new System.Windows.Forms.Padding(2);
-            this.gbMenuItems.Size = new System.Drawing.Size(699, 247);
+            this.gbMenuItems.Size = new System.Drawing.Size(689, 247);
             this.gbMenuItems.TabIndex = 1;
             this.gbMenuItems.TabStop = false;
             this.gbMenuItems.Text = "Menu Items";
             // 
+            // btnRemoveMenuItem
+            // 
+            this.btnRemoveMenuItem.Location = new System.Drawing.Point(530, 215);
+            this.btnRemoveMenuItem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoveMenuItem.Name = "btnRemoveMenuItem";
+            this.btnRemoveMenuItem.Size = new System.Drawing.Size(151, 28);
+            this.btnRemoveMenuItem.TabIndex = 16;
+            this.btnRemoveMenuItem.Text = "Remove Menu Item";
+            this.btnRemoveMenuItem.UseVisualStyleBackColor = true;
+            this.btnRemoveMenuItem.Click += new System.EventHandler(this.btnRemoveMenuItem_Click);
+            // 
+            // menuItemsDataGridView
+            // 
+            this.menuItemsDataGridView.AutoGenerateColumns = false;
+            this.menuItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.menuItemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.menuItemsDataGridView.DataSource = this.menuItemsBindingSource;
+            this.menuItemsDataGridView.Location = new System.Drawing.Point(5, 18);
+            this.menuItemsDataGridView.Name = "menuItemsDataGridView";
+            this.menuItemsDataGridView.Size = new System.Drawing.Size(676, 192);
+            this.menuItemsDataGridView.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "menuItemId";
+            this.dataGridViewTextBoxColumn6.HeaderText = "menuItemId";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "menuItemName";
+            this.dataGridViewTextBoxColumn7.HeaderText = "menuItemName";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "menuItemPrice";
+            this.dataGridViewTextBoxColumn8.HeaderText = "menuItemPrice";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "menuItemDescription";
+            this.dataGridViewTextBoxColumn9.HeaderText = "menuItemDescription";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "isItemActive";
+            this.dataGridViewTextBoxColumn10.HeaderText = "isItemActive";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Menu_MenuId";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Menu_MenuId";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // menuItemsBindingSource
+            // 
+            this.menuItemsBindingSource.DataMember = "MenuItems";
+            this.menuItemsBindingSource.DataSource = this.restaurantDataSet;
+            // 
             // btnEnableItem
             // 
-            this.btnEnableItem.Location = new System.Drawing.Point(256, 191);
+            this.btnEnableItem.Location = new System.Drawing.Point(65, 215);
             this.btnEnableItem.Margin = new System.Windows.Forms.Padding(2);
             this.btnEnableItem.Name = "btnEnableItem";
             this.btnEnableItem.Size = new System.Drawing.Size(151, 28);
             this.btnEnableItem.TabIndex = 15;
             this.btnEnableItem.Text = "Enable Item";
             this.btnEnableItem.UseVisualStyleBackColor = true;
+            this.btnEnableItem.Click += new System.EventHandler(this.btnEnableItem_Click);
             // 
             // btnDisableItem
             // 
-            this.btnDisableItem.Location = new System.Drawing.Point(448, 191);
+            this.btnDisableItem.Location = new System.Drawing.Point(220, 215);
             this.btnDisableItem.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisableItem.Name = "btnDisableItem";
             this.btnDisableItem.Size = new System.Drawing.Size(151, 28);
             this.btnDisableItem.TabIndex = 14;
             this.btnDisableItem.Text = "Disable Item";
             this.btnDisableItem.UseVisualStyleBackColor = true;
+            this.btnDisableItem.Click += new System.EventHandler(this.btnDisableItem_Click);
             // 
             // btnAddMenuItem
             // 
-            this.btnAddMenuItem.Location = new System.Drawing.Point(64, 191);
+            this.btnAddMenuItem.Location = new System.Drawing.Point(375, 215);
             this.btnAddMenuItem.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddMenuItem.Name = "btnAddMenuItem";
             this.btnAddMenuItem.Size = new System.Drawing.Size(151, 28);
@@ -342,65 +417,6 @@
             // 
             this.menuItemsTableAdapter.ClearBeforeFill = true;
             // 
-            // menuItemsBindingSource
-            // 
-            this.menuItemsBindingSource.DataMember = "MenuItems";
-            this.menuItemsBindingSource.DataSource = this.restaurantDataSet;
-            // 
-            // menuItemsDataGridView
-            // 
-            this.menuItemsDataGridView.AutoGenerateColumns = false;
-            this.menuItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.menuItemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.menuItemsDataGridView.DataSource = this.menuItemsBindingSource;
-            this.menuItemsDataGridView.Location = new System.Drawing.Point(5, 18);
-            this.menuItemsDataGridView.Name = "menuItemsDataGridView";
-            this.menuItemsDataGridView.Size = new System.Drawing.Size(676, 160);
-            this.menuItemsDataGridView.TabIndex = 15;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "menuItemId";
-            this.dataGridViewTextBoxColumn6.HeaderText = "menuItemId";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "menuItemName";
-            this.dataGridViewTextBoxColumn7.HeaderText = "menuItemName";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "menuItemPrice";
-            this.dataGridViewTextBoxColumn8.HeaderText = "menuItemPrice";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "menuItemDescription";
-            this.dataGridViewTextBoxColumn9.HeaderText = "menuItemDescription";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "isItemActive";
-            this.dataGridViewTextBoxColumn10.HeaderText = "isItemActive";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Menu_MenuId";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Menu_MenuId";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,17 +431,17 @@
             this.Controls.Add(this.gbMenuItems);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManagerForm";
-            this.Text = "ManagerForm";
+            this.Text = "Manager Toolbox";
             this.Load += new System.EventHandler(this.ManagerForm_Load);
             this.gbEmployees.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDataSet)).EndInit();
             this.gbMenuItems.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.menuItemsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).EndInit();
             this.gbDiscount.ResumeLayout(false);
             this.gbDiscount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.menuItemsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -454,11 +470,6 @@
         private RestaurantDataSetTableAdapters.EmployeesTableAdapter employeesTableAdapter;
         private RestaurantDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView employeesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private RestaurantDataSetTableAdapters.MenuItemsTableAdapter menuItemsTableAdapter;
         private System.Windows.Forms.BindingSource menuItemsBindingSource;
         private System.Windows.Forms.DataGridView menuItemsDataGridView;
@@ -468,5 +479,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.Button btnRemoveMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeePasscodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jobTitleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn restaurantrestaurantIdDataGridViewTextBoxColumn;
     }
 }

@@ -89,12 +89,30 @@
     <Compile Include="ChefForm.Designer.cs">
       <DependentUpon>ChefForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DisableItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisableItemForm.Designer.cs">
+      <DependentUpon>DisableItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="EnableItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnableItemForm.Designer.cs">
+      <DependentUpon>EnableItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RemoveEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RemoveEmployeeForm.Designer.cs">
       <DependentUpon>RemoveEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveItemForm.Designer.cs">
+      <DependentUpon>RemoveItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WaitstaffForm.cs">
       <SubType>Form</SubType>
@@ -139,8 +157,17 @@
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DisableItemForm.resx">
+      <DependentUpon>DisableItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnableItemForm.resx">
+      <DependentUpon>EnableItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RemoveEmployeeForm.resx">
       <DependentUpon>RemoveEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveItemForm.resx">
+      <DependentUpon>RemoveItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitstaffForm.resx">
       <DependentUpon>WaitstaffForm.cs</DependentUpon>
