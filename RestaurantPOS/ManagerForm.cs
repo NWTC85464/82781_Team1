@@ -101,6 +101,13 @@ namespace RestaurantPOS
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
         }
 
-        
+        private void btnUpdateEmployee_Click(object sender, EventArgs e)
+        {
+            UpdateEmployeeForm Form1 = new UpdateEmployeeForm();
+            Form1.ShowDialog();
+
+            // Refresh Employee table data view
+            this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
+        }
     }
 }

@@ -66,6 +66,7 @@
             this.employeesTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.EmployeesTableAdapter();
             this.tableAdapterManager = new RestaurantPOS.RestaurantDataSetTableAdapters.TableAdapterManager();
             this.menuItemsTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.MenuItemsTableAdapter();
+            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.gbEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
@@ -78,6 +79,7 @@
             // 
             // gbEmployees
             // 
+            this.gbEmployees.Controls.Add(this.btnUpdateEmployee);
             this.gbEmployees.Controls.Add(this.employeesDataGridView);
             this.gbEmployees.Controls.Add(this.btnRemoveEmployee);
             this.gbEmployees.Controls.Add(this.btnAddEmployee);
@@ -160,7 +162,7 @@
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(269, 211);
+            this.btnAddEmployee.Location = new System.Drawing.Point(114, 211);
             this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(151, 28);
@@ -417,6 +419,17 @@
             // 
             this.menuItemsTableAdapter.ClearBeforeFill = true;
             // 
+            // btnUpdateEmployee
+            // 
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(269, 211);
+            this.btnUpdateEmployee.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(151, 28);
+            this.btnUpdateEmployee.TabIndex = 17;
+            this.btnUpdateEmployee.Text = "Update Employee";
+            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -485,5 +498,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn employeePasscodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jobTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn restaurantrestaurantIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnUpdateEmployee;
     }
 }
