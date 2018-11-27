@@ -33,11 +33,11 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.gbJobTitle = new System.Windows.Forms.GroupBox();
+            this.rbWaitstaff = new System.Windows.Forms.RadioButton();
+            this.rbManager = new System.Windows.Forms.RadioButton();
+            this.rbChef = new System.Windows.Forms.RadioButton();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.rbChef = new System.Windows.Forms.RadioButton();
-            this.rbManager = new System.Windows.Forms.RadioButton();
-            this.rbWaitstaff = new System.Windows.Forms.RadioButton();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbJobTitle.SuspendLayout();
@@ -87,6 +87,39 @@
             this.gbJobTitle.TabStop = false;
             this.gbJobTitle.Text = "Job Title:";
             // 
+            // rbWaitstaff
+            // 
+            this.rbWaitstaff.AutoSize = true;
+            this.rbWaitstaff.Location = new System.Drawing.Point(6, 42);
+            this.rbWaitstaff.Name = "rbWaitstaff";
+            this.rbWaitstaff.Size = new System.Drawing.Size(67, 17);
+            this.rbWaitstaff.TabIndex = 2;
+            this.rbWaitstaff.TabStop = true;
+            this.rbWaitstaff.Text = "Waitstaff";
+            this.rbWaitstaff.UseVisualStyleBackColor = true;
+            // 
+            // rbManager
+            // 
+            this.rbManager.AutoSize = true;
+            this.rbManager.Location = new System.Drawing.Point(6, 65);
+            this.rbManager.Name = "rbManager";
+            this.rbManager.Size = new System.Drawing.Size(67, 17);
+            this.rbManager.TabIndex = 1;
+            this.rbManager.TabStop = true;
+            this.rbManager.Text = "Manager";
+            this.rbManager.UseVisualStyleBackColor = true;
+            // 
+            // rbChef
+            // 
+            this.rbChef.AutoSize = true;
+            this.rbChef.Location = new System.Drawing.Point(6, 19);
+            this.rbChef.Name = "rbChef";
+            this.rbChef.Size = new System.Drawing.Size(47, 17);
+            this.rbChef.TabIndex = 0;
+            this.rbChef.TabStop = true;
+            this.rbChef.Text = "Chef";
+            this.rbChef.UseVisualStyleBackColor = true;
+            // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
@@ -103,39 +136,6 @@
             this.txtPassword.Size = new System.Drawing.Size(176, 20);
             this.txtPassword.TabIndex = 6;
             // 
-            // rbChef
-            // 
-            this.rbChef.AutoSize = true;
-            this.rbChef.Location = new System.Drawing.Point(6, 19);
-            this.rbChef.Name = "rbChef";
-            this.rbChef.Size = new System.Drawing.Size(47, 17);
-            this.rbChef.TabIndex = 0;
-            this.rbChef.TabStop = true;
-            this.rbChef.Text = "Chef";
-            this.rbChef.UseVisualStyleBackColor = true;
-            // 
-            // rbManager
-            // 
-            this.rbManager.AutoSize = true;
-            this.rbManager.Location = new System.Drawing.Point(6, 65);
-            this.rbManager.Name = "rbManager";
-            this.rbManager.Size = new System.Drawing.Size(67, 17);
-            this.rbManager.TabIndex = 1;
-            this.rbManager.TabStop = true;
-            this.rbManager.Text = "Manager";
-            this.rbManager.UseVisualStyleBackColor = true;
-            // 
-            // rbWaitstaff
-            // 
-            this.rbWaitstaff.AutoSize = true;
-            this.rbWaitstaff.Location = new System.Drawing.Point(6, 42);
-            this.rbWaitstaff.Name = "rbWaitstaff";
-            this.rbWaitstaff.Size = new System.Drawing.Size(67, 17);
-            this.rbWaitstaff.TabIndex = 2;
-            this.rbWaitstaff.TabStop = true;
-            this.rbWaitstaff.Text = "Waitstaff";
-            this.rbWaitstaff.UseVisualStyleBackColor = true;
-            // 
             // btnAddEmployee
             // 
             this.btnAddEmployee.Location = new System.Drawing.Point(76, 116);
@@ -144,7 +144,7 @@
             this.btnAddEmployee.TabIndex = 7;
             this.btnAddEmployee.Text = "Add Employee";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
-            this.btnAddEmployee.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // btnCancel
             // 
