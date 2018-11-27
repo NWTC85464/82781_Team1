@@ -18,6 +18,7 @@ namespace RestaurantPOS
         // Setting up a order adaptor and to fill in the datatable
         RestaurantDataSetTableAdapters.OrdersTableAdapter OrderTableAdapt = new RestaurantDataSetTableAdapters.OrdersTableAdapter();
 
+
         // Setting up a variable for the order item table from the database
         RestaurantDataSet.OrderItemsDataTable orderItems = new RestaurantDataSet.OrderItemsDataTable();
         // Setting up a order item adaptor and to fill in the datatable
@@ -110,6 +111,7 @@ namespace RestaurantPOS
             // Checking to see if there are more orders to display
             if (ActiveOrders.Where(a => a.orderNumber != orderTwo && a.orderNumber != orderThree).Count()>0)
             {
+                //Find next available order
                 nextOrder = findNextOrder(orderTwo, orderThree);
                 orderOne = ActiveOrders[nextOrder].orderNumber;
                 lstOrderOne.Items.Add("Table number: " + ActiveOrders[nextOrder].tableNumber);
@@ -141,6 +143,7 @@ namespace RestaurantPOS
             // Checking to see if there are more orders to display
             if (ActiveOrders.Where(a => a.orderNumber != orderOne && a.orderNumber != orderThree).Count() > 0)
             {
+                //Find next available order
                 nextOrder = findNextOrder(orderOne, orderThree);
                 orderTwo = ActiveOrders[nextOrder].orderNumber;
 
@@ -173,6 +176,7 @@ namespace RestaurantPOS
             // Checking to see if there are more orders to display
             if (ActiveOrders.Where(a => a.orderNumber != orderTwo && a.orderNumber != orderOne).Count() > 0)
             {
+                //Find next available order
                 nextOrder = findNextOrder(orderTwo, orderOne);
                 orderThree = ActiveOrders[nextOrder].orderNumber;
 
