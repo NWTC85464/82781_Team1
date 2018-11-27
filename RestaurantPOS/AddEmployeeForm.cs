@@ -41,7 +41,7 @@ namespace RestaurantPOS
                 fName = txtFirstName.Text;
             }
 
-            // Validate first name
+            // Validate last name
             if (txtLastName.Text == "")
             {
                 MessageBox.Show("Please enter a valid last name");
