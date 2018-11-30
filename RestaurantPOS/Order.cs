@@ -11,13 +11,13 @@ namespace RestaurantPOS
         private int orderNumber;
         private int tableNumber;
         private Boolean isComplete;
-        // ERROR List<OrderItem> orderItems;
+     //   List<OrderItem> orderItems;
 
         public Order(int _orderNumber, int _tableNumber)
         {
             OrderNumber = _orderNumber;
             TableNumber = _tableNumber;
-           // ERROR orderItems = new List<OrderItem>();
+         //   orderItems = new List<OrderItem>();
             IsComplete = false;
         }
 
