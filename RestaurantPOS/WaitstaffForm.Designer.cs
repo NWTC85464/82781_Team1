@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label tableNumberLabel1;
-            System.Windows.Forms.Label tableNumberLabel2;
+            System.Windows.Forms.Label tableNumberLabel;
             this.appetizersGroupBox = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -53,19 +52,22 @@
             this.WaitstaffNameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gbMyTables = new System.Windows.Forms.GroupBox();
+            this.tableNumberComboBox = new System.Windows.Forms.ComboBox();
             this.btnSelectMyTable = new System.Windows.Forms.Button();
             this.gbOpenTables = new System.Windows.Forms.GroupBox();
             this.btnSelectOpenTable = new System.Windows.Forms.Button();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.OrdersTableAdapter();
-            this.tableNumberComboBox = new System.Windows.Forms.ComboBox();
             this.tablesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            tableNumberLabel1 = new System.Windows.Forms.Label();
-            tableNumberLabel2 = new System.Windows.Forms.Label();
+            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
+            tableNumberLabel = new System.Windows.Forms.Label();
             this.appetizersGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource2)).BeginInit();
@@ -78,16 +80,18 @@
             this.gbOpenTables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablesDataGridView)).BeginInit();
+            this.fillByToolStrip.SuspendLayout();
+            this.fillBy1ToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableNumberLabel1
+            // tableNumberLabel
             // 
-            tableNumberLabel1.AutoSize = true;
-            tableNumberLabel1.Location = new System.Drawing.Point(64, 32);
-            tableNumberLabel1.Name = "tableNumberLabel1";
-            tableNumberLabel1.Size = new System.Drawing.Size(97, 17);
-            tableNumberLabel1.TabIndex = 4;
-            tableNumberLabel1.Text = "table Number:";
+            tableNumberLabel.AutoSize = true;
+            tableNumberLabel.Location = new System.Drawing.Point(41, 35);
+            tableNumberLabel.Name = "tableNumberLabel";
+            tableNumberLabel.Size = new System.Drawing.Size(97, 17);
+            tableNumberLabel.TabIndex = 4;
+            tableNumberLabel.Text = "table Number:";
             // 
             // appetizersGroupBox
             // 
@@ -210,9 +214,6 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Employees_ChefsTableAdapter = null;
-            this.tableAdapterManager.Employees_ManagersTableAdapter = null;
-            this.tableAdapterManager.Employees_WaitstaffsTableAdapter = null;
             this.tableAdapterManager.EmployeesTableAdapter = null;
             this.tableAdapterManager.MenuItemsTableAdapter = this.menuItemsTableAdapter;
             this.tableAdapterManager.MenusTableAdapter = null;
@@ -268,17 +269,29 @@
             // 
             // gbMyTables
             // 
-            this.gbMyTables.Controls.Add(tableNumberLabel2);
+            this.gbMyTables.Controls.Add(tableNumberLabel);
             this.gbMyTables.Controls.Add(this.tableNumberComboBox);
             this.gbMyTables.Controls.Add(this.btnSelectMyTable);
             this.gbMyTables.Location = new System.Drawing.Point(16, 243);
             this.gbMyTables.Margin = new System.Windows.Forms.Padding(4);
             this.gbMyTables.Name = "gbMyTables";
             this.gbMyTables.Padding = new System.Windows.Forms.Padding(4);
-            this.gbMyTables.Size = new System.Drawing.Size(304, 151);
+            this.gbMyTables.Size = new System.Drawing.Size(377, 151);
             this.gbMyTables.TabIndex = 5;
             this.gbMyTables.TabStop = false;
             this.gbMyTables.Text = "My Tables";
+            // 
+            // tableNumberComboBox
+            // 
+            this.tableNumberComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tablesBindingSource, "tableNumber", true));
+            this.tableNumberComboBox.DataSource = this.tablesBindingSource;
+            this.tableNumberComboBox.DisplayMember = "tableNumber";
+            this.tableNumberComboBox.FormattingEnabled = true;
+            this.tableNumberComboBox.Location = new System.Drawing.Point(144, 32);
+            this.tableNumberComboBox.Name = "tableNumberComboBox";
+            this.tableNumberComboBox.Size = new System.Drawing.Size(121, 24);
+            this.tableNumberComboBox.TabIndex = 5;
+            this.tableNumberComboBox.ValueMember = "tableNumber";
             // 
             // btnSelectMyTable
             // 
@@ -292,7 +305,6 @@
             // 
             // gbOpenTables
             // 
-            this.gbOpenTables.Controls.Add(tableNumberLabel1);
             this.gbOpenTables.Controls.Add(this.btnSelectOpenTable);
             this.gbOpenTables.Location = new System.Drawing.Point(323, 243);
             this.gbOpenTables.Margin = new System.Windows.Forms.Padding(4);
@@ -322,24 +334,6 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
-            // tableNumberLabel2
-            // 
-            tableNumberLabel2.AutoSize = true;
-            tableNumberLabel2.Location = new System.Drawing.Point(49, 32);
-            tableNumberLabel2.Name = "tableNumberLabel2";
-            tableNumberLabel2.Size = new System.Drawing.Size(97, 17);
-            tableNumberLabel2.TabIndex = 4;
-            tableNumberLabel2.Text = "table Number:";
-            // 
-            // tableNumberComboBox
-            // 
-            this.tableNumberComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tablesBindingSource, "tableNumber", true));
-            this.tableNumberComboBox.FormattingEnabled = true;
-            this.tableNumberComboBox.Location = new System.Drawing.Point(152, 29);
-            this.tableNumberComboBox.Name = "tableNumberComboBox";
-            this.tableNumberComboBox.Size = new System.Drawing.Size(121, 24);
-            this.tableNumberComboBox.TabIndex = 5;
-            // 
             // tablesDataGridView
             // 
             this.tablesDataGridView.AutoGenerateColumns = false;
@@ -350,10 +344,10 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.tablesDataGridView.DataSource = this.tablesBindingSource;
-            this.tablesDataGridView.Location = new System.Drawing.Point(56, 431);
+            this.tablesDataGridView.Location = new System.Drawing.Point(12, 401);
             this.tablesDataGridView.Name = "tablesDataGridView";
             this.tablesDataGridView.RowTemplate.Height = 24;
-            this.tablesDataGridView.Size = new System.Drawing.Size(609, 220);
+            this.tablesDataGridView.Size = new System.Drawing.Size(653, 220);
             this.tablesDataGridView.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn1
@@ -381,11 +375,51 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "employeeNumber";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // fillByToolStrip
+            // 
+            this.fillByToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton});
+            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillByToolStrip.Name = "fillByToolStrip";
+            this.fillByToolStrip.Size = new System.Drawing.Size(1037, 27);
+            this.fillByToolStrip.TabIndex = 9;
+            this.fillByToolStrip.Text = "fillByToolStrip";
+            // 
+            // fillByToolStripButton
+            // 
+            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton.Name = "fillByToolStripButton";
+            this.fillByToolStripButton.Size = new System.Drawing.Size(48, 24);
+            this.fillByToolStripButton.Text = "FillBy";
+            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
+            // 
+            // fillBy1ToolStrip
+            // 
+            this.fillBy1ToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.fillBy1ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillBy1ToolStripButton});
+            this.fillBy1ToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillBy1ToolStrip.Name = "fillBy1ToolStrip";
+            this.fillBy1ToolStrip.Size = new System.Drawing.Size(111, 25);
+            this.fillBy1ToolStrip.TabIndex = 10;
+            this.fillBy1ToolStrip.Text = "fillBy1ToolStrip";
+            // 
+            // fillBy1ToolStripButton
+            // 
+            this.fillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillBy1ToolStripButton.Name = "fillBy1ToolStripButton";
+            this.fillBy1ToolStripButton.Size = new System.Drawing.Size(56, 22);
+            this.fillBy1ToolStripButton.Text = "FillBy1";
+            this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
+            // 
             // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 749);
+            this.Controls.Add(this.fillBy1ToolStrip);
+            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.tablesDataGridView);
             this.Controls.Add(this.gbOpenTables);
             this.Controls.Add(this.gbMyTables);
@@ -411,9 +445,12 @@
             this.gbMyTables.ResumeLayout(false);
             this.gbMyTables.PerformLayout();
             this.gbOpenTables.ResumeLayout(false);
-            this.gbOpenTables.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablesDataGridView)).EndInit();
+            this.fillByToolStrip.ResumeLayout(false);
+            this.fillByToolStrip.PerformLayout();
+            this.fillBy1ToolStrip.ResumeLayout(false);
+            this.fillBy1ToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,12 +485,16 @@
         private System.Windows.Forms.Button btnSelectOpenTable;
         private System.Windows.Forms.BindingSource ordersBindingSource;
         private RestaurantDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
-        private System.Windows.Forms.ComboBox tableNumberComboBox;
         private System.Windows.Forms.DataGridView tablesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.ComboBox tableNumberComboBox;
+        private System.Windows.Forms.ToolStrip fillByToolStrip;
+        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
+        private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
+        private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
     }
 }
 

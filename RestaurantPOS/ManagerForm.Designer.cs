@@ -411,9 +411,6 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Employees_ChefsTableAdapter = null;
-            this.tableAdapterManager.Employees_ManagersTableAdapter = null;
-            this.tableAdapterManager.Employees_WaitstaffsTableAdapter = null;
             this.tableAdapterManager.EmployeesTableAdapter = this.employeesTableAdapter;
             this.tableAdapterManager.MenuItemsTableAdapter = this.menuItemsTableAdapter;
             this.tableAdapterManager.MenusTableAdapter = null;
