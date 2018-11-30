@@ -78,5 +78,96 @@ namespace RestaurantPOS
         {
 
         }
+
+        private void fillActiveMenuItemsToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillActiveMenuItems(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillBy(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillActiveMenuItems1ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillActiveMenuItems1(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillActiveMenuItems1ToolStripButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillActiveMenuItems1(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillActiveMenuItems1ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillActiveMenuItems1(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillBy1(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy2ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillBy2(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }

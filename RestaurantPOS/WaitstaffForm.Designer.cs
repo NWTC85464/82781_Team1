@@ -69,7 +69,7 @@
             this.appetizersGroupBox.Controls.Add(this.menuItemsComboBox);
             this.appetizersGroupBox.Location = new System.Drawing.Point(12, 35);
             this.appetizersGroupBox.Name = "appetizersGroupBox";
-            this.appetizersGroupBox.Size = new System.Drawing.Size(470, 156);
+            this.appetizersGroupBox.Size = new System.Drawing.Size(484, 176);
             this.appetizersGroupBox.TabIndex = 0;
             this.appetizersGroupBox.TabStop = false;
             this.appetizersGroupBox.Text = "Item Selection";
