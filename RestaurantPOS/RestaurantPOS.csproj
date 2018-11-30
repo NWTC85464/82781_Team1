@@ -114,6 +114,9 @@
     <Compile Include="RemoveItemForm.Designer.cs">
       <DependentUpon>RemoveItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RestaurantDataSet.cs">
+      <DependentUpon>RestaurantDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UpdateEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
