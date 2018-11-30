@@ -52,7 +52,7 @@ namespace RestaurantPOS
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
 
             // This line of code loads data into the 'restaurantDataSet.Employees' table.
-            //this.tablesTableAdapter.Fill(this.restaurantDataSet.Tables);
+            this.tablesTableAdapter.Fill(this.restaurantDataSet._Tables);
 
 
         }

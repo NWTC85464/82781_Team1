@@ -3284,7 +3284,6 @@ namespace RestaurantPOS {
                 this.columnnumberOfGuests.MaxLength = 2147483647;
                 this.columnisActive.AllowDBNull = false;
                 this.columnisActive.MaxLength = 2147483647;
-                this.columnemployeeNumber.AllowDBNull = false;
                 this.ExtendedProperties.Add("Generator_TablePropName", "_Tables");
                 this.ExtendedProperties.Add("Generator_UserTableName", "Tables");
             }
@@ -4460,7 +4459,12 @@ namespace RestaurantPOS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int employeeNumber {
                 get {
-                    return ((int)(this[this.tableTables.employeeNumberColumn]));
+                    try {
+                        return ((int)(this[this.tableTables.employeeNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'employeeNumber\' in table \'Tables\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableTables.employeeNumberColumn] = value;
@@ -4476,6 +4480,18 @@ namespace RestaurantPOS {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Tables_Employees"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsemployeeNumberNull() {
+                return this.IsNull(this.tableTables.employeeNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetemployeeNumberNull() {
+                this[this.tableTables.employeeNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5822,39 +5838,12 @@ SELECT menuItemId, menuItemName, menuItemPrice, menuItemDescription, isItemActiv
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT menuItemId, menuItemName, menuItemPrice, menuItemDescription, isItemActive" +
                 ", Menu_MenuId FROM dbo.MenuItems";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT menuItemId, menuItemName, menuItemPrice, menuItemDescription, isItemActive" +
-                ", Menu_MenuId FROM dbo.MenuItems\r\nWHERE isItemActive = \'true\'";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        menuItemId, menuItemName, menuItemPrice, menuItemDescription, isIte" +
-                "mActive, Menu_MenuId\r\nFROM            MenuItems\r\nWHERE        (isItemActive = N\'" +
-                "1\')";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT menuItemId, menuItemName, menuItemPrice, menuItemDescription, isItemActive" +
-                ", Menu_MenuId FROM dbo.MenuItems\r\nWHERE isItemActive = 1";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT menuItemId, menuItemName, menuItemPrice, menuItemDescription, isItemActive" +
-                ", Menu_MenuId FROM dbo.MenuItems\r\nWHERE        (isItemActive = N\'1\')";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT        menuItemId, menuItemName, menuItemPrice, menuItemDescription, isIte" +
-                "mActive, Menu_MenuId\r\nFROM            MenuItems\r\nWHERE        (isItemActive = N\'" +
-                "1\')";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5879,71 +5868,6 @@ SELECT menuItemId, menuItemName, menuItemPrice, menuItemDescription, isItemActiv
             RestaurantDataSet.MenuItemsDataTable dataTable = new RestaurantDataSet.MenuItemsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillActiveMenuItems(RestaurantDataSet.MenuItemsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillActiveMenuItems1(RestaurantDataSet.MenuItemsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(RestaurantDataSet.MenuItemsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy1(RestaurantDataSet.MenuItemsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy2(RestaurantDataSet.MenuItemsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7570,33 +7494,37 @@ SELECT name, principal_id, diagram_id, version, definition FROM sysdiagrams WHER
             tableMapping.ColumnMappings.Add("tableNumber", "tableNumber");
             tableMapping.ColumnMappings.Add("numberOfGuests", "numberOfGuests");
             tableMapping.ColumnMappings.Add("isActive", "isActive");
-            tableMapping.ColumnMappings.Add("Waitstaff_employeeNumber", "employeeNumber");
+            tableMapping.ColumnMappings.Add("employeeNumber", "employeeNumber");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tables] WHERE (([tableNumber] = @Original_tableNumber) AND ([W" +
-                "aitstaff_employeeNumber] = @Original_Waitstaff_employeeNumber))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Tables] WHERE (([tableNumber] = @Original_tableNumber) AND ((@IsNull" +
+                "_employeeNumber = 1 AND [employeeNumber] IS NULL) OR ([employeeNumber] = @Origin" +
+                "al_employeeNumber)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tableNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tableNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Waitstaff_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Waitstaff_employeeNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Tables] ([numberOfGuests], [isActive], [Waitstaff_employeeNumber]) VALUES (@numberOfGuests, @isActive, @Waitstaff_employeeNumber);
-SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tables WHERE (tableNumber = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Tables] ([numberOfGuests], [isActive], [employeeNumber]) VALUES (@nu" +
+                "mberOfGuests, @isActive, @employeeNumber);\r\nSELECT tableNumber, numberOfGuests, " +
+                "isActive, employeeNumber FROM Tables WHERE (tableNumber = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numberOfGuests", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numberOfGuests", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isActive", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isActive", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Waitstaff_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Waitstaff_employeeNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Tables] SET [numberOfGuests] = @numberOfGuests, [isActive] = @isActive, [Waitstaff_employeeNumber] = @Waitstaff_employeeNumber WHERE (([tableNumber] = @Original_tableNumber) AND ([Waitstaff_employeeNumber] = @Original_Waitstaff_employeeNumber));
-SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tables WHERE (tableNumber = @tableNumber)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Tables] SET [numberOfGuests] = @numberOfGuests, [isActive] = @isActive, [employeeNumber] = @employeeNumber WHERE (([tableNumber] = @Original_tableNumber) AND ((@IsNull_employeeNumber = 1 AND [employeeNumber] IS NULL) OR ([employeeNumber] = @Original_employeeNumber)));
+SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables WHERE (tableNumber = @tableNumber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numberOfGuests", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "numberOfGuests", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@isActive", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "isActive", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Waitstaff_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Waitstaff_employeeNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tableNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tableNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Waitstaff_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Waitstaff_employeeNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tableNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "tableNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -7613,8 +7541,7 @@ SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tabl
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM dbo.T" +
-                "ables";
+            this._commandCollection[0].CommandText = "SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7675,9 +7602,16 @@ SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tabl
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_tableNumber, int Original_Waitstaff_employeeNumber) {
+        public virtual int Delete(int Original_tableNumber, global::System.Nullable<int> Original_employeeNumber) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_tableNumber));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Waitstaff_employeeNumber));
+            if ((Original_employeeNumber.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_employeeNumber.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7698,7 +7632,7 @@ SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tabl
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string numberOfGuests, string isActive, int Waitstaff_employeeNumber) {
+        public virtual int Insert(string numberOfGuests, string isActive, global::System.Nullable<int> employeeNumber) {
             if ((numberOfGuests == null)) {
                 throw new global::System.ArgumentNullException("numberOfGuests");
             }
@@ -7711,7 +7645,12 @@ SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tabl
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(isActive));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Waitstaff_employeeNumber));
+            if ((employeeNumber.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(employeeNumber.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7732,7 +7671,7 @@ SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tabl
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string numberOfGuests, string isActive, int Waitstaff_employeeNumber, int Original_tableNumber, int Original_Waitstaff_employeeNumber, int tableNumber) {
+        public virtual int Update(string numberOfGuests, string isActive, global::System.Nullable<int> employeeNumber, int Original_tableNumber, global::System.Nullable<int> Original_employeeNumber, int tableNumber) {
             if ((numberOfGuests == null)) {
                 throw new global::System.ArgumentNullException("numberOfGuests");
             }
@@ -7745,10 +7684,22 @@ SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tabl
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(isActive));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Waitstaff_employeeNumber));
+            if ((employeeNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(employeeNumber.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_tableNumber));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Waitstaff_employeeNumber));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(tableNumber));
+            if ((Original_employeeNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_employeeNumber.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(tableNumber));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7769,8 +7720,8 @@ SELECT tableNumber, numberOfGuests, isActive, Waitstaff_employeeNumber FROM Tabl
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string numberOfGuests, string isActive, int Waitstaff_employeeNumber, int Original_tableNumber, int Original_Waitstaff_employeeNumber) {
-            return this.Update(numberOfGuests, isActive, Waitstaff_employeeNumber, Original_tableNumber, Original_Waitstaff_employeeNumber, Original_tableNumber);
+        public virtual int Update(string numberOfGuests, string isActive, global::System.Nullable<int> employeeNumber, int Original_tableNumber, global::System.Nullable<int> Original_employeeNumber) {
+            return this.Update(numberOfGuests, isActive, employeeNumber, Original_tableNumber, Original_employeeNumber, Original_tableNumber);
         }
     }
     
