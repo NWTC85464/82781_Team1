@@ -107,10 +107,10 @@
             this.rbDesert.AutoSize = true;
             this.rbDesert.Location = new System.Drawing.Point(7, 65);
             this.rbDesert.Name = "rbDesert";
-            this.rbDesert.Size = new System.Drawing.Size(56, 17);
+            this.rbDesert.Size = new System.Drawing.Size(61, 17);
             this.rbDesert.TabIndex = 2;
             this.rbDesert.TabStop = true;
-            this.rbDesert.Text = "Desert";
+            this.rbDesert.Text = "Dessert";
             this.rbDesert.UseVisualStyleBackColor = true;
             // 
             // rbEntree
