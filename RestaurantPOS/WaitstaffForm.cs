@@ -39,10 +39,17 @@ namespace RestaurantPOS
 
         private void WaitstaffForm_Load(object sender, EventArgs e)
         {
+            this.WaitstaffNameLabel.Text = LoginScreen.userName.ToString();
+
+            // TODO: This line of code loads data into the 'restaurantDataSet.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
+
             // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
             // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
+
+
 
         }
 
