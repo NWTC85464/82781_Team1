@@ -39,6 +39,8 @@ namespace RestaurantPOS
 
         private void WaitstaffForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'restaurantDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.restaurantDataSet.Orders);
             this.WaitstaffNameLabel.Text = LoginScreen.userName.ToString();
 
             // TODO: This line of code loads data into the 'restaurantDataSet.Employees' table. You can move, or remove it, as needed.
@@ -49,6 +51,8 @@ namespace RestaurantPOS
             // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
 
+            // This line of code loads data into the 'restaurantDataSet.Employees' table.
+            //this.tablesTableAdapter.Fill(this.restaurantDataSet.Tables);
 
 
         }
@@ -75,6 +79,16 @@ namespace RestaurantPOS
         }
 
         private void menuItemNameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableNumberComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
