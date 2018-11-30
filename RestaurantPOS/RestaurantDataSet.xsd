@@ -436,7 +436,28 @@ SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables WHERE (
               <Mapping SourceColumn="isActive" DataSetColumn="isActive" />
               <Mapping SourceColumn="employeeNumber" DataSetColumn="employeeNumber" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="RestaurantConnectionString2 (Settings)" DbObjectName="Restaurant.dbo.Tables" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT tableNumber, numberOfGuests, isActive, employeeNumber
+FROM     Tables
+WHERE  (employeeNumber = 5)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="RestaurantConnectionString2 (Settings)" DbObjectName="Restaurant.dbo.Tables" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT tableNumber, numberOfGuests, isActive, employeeNumber
+FROM     Tables
+WHERE  (isActive = N'0')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="OrdersTableAdapter" GeneratorDataComponentClassName="OrdersTableAdapter" Name="Orders" UserDataComponentName="OrdersTableAdapter">
             <MainSource>
@@ -808,13 +829,14 @@ SELECT orderNumber, isActive, tableNumber FROM Orders WHERE (orderNumber = @orde
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_RestaurantEmployees" msdata:parent="Restaurants" msdata:child="Employees" msdata:parentkey="restaurantId" msdata:childkey="Restaurant_restaurantId" msprop:Generator_UserChildTable="Employees" msprop:Generator_ChildPropName="GetEmployeesRows" msprop:Generator_UserRelationName="FK_RestaurantEmployees" msprop:Generator_RelationVarName="relationFK_RestaurantEmployees" msprop:Generator_UserParentTable="Restaurants" msprop:Generator_ParentPropName="RestaurantsRow" />
-      <msdata:Relationship name="FK_MenuItemsMenu" msdata:parent="Menus" msdata:child="MenuItems" msdata:parentkey="MenuId" msdata:childkey="Menu_MenuId" msprop:Generator_UserChildTable="MenuItems" msprop:Generator_ChildPropName="GetMenuItemsRows" msprop:Generator_UserRelationName="FK_MenuItemsMenu" msprop:Generator_RelationVarName="relationFK_MenuItemsMenu" msprop:Generator_UserParentTable="Menus" msprop:Generator_ParentPropName="MenusRow" />
-      <msdata:Relationship name="FK_RestaurantMenu" msdata:parent="Restaurants" msdata:child="Menus" msdata:parentkey="restaurantId" msdata:childkey="Restaurant_restaurantId" msprop:Generator_UserChildTable="Menus" msprop:Generator_ChildPropName="GetMenusRows" msprop:Generator_UserRelationName="FK_RestaurantMenu" msprop:Generator_RelationVarName="relationFK_RestaurantMenu" msprop:Generator_UserParentTable="Restaurants" msprop:Generator_ParentPropName="RestaurantsRow" />
-      <msdata:Relationship name="FK_MenuItemsOrderItem" msdata:parent="MenuItems" msdata:child="OrderItems" msdata:parentkey="menuItemId" msdata:childkey="MenuItems_menuItemID" msprop:Generator_UserChildTable="OrderItems" msprop:Generator_ChildPropName="GetOrderItemsRows" msprop:Generator_UserRelationName="FK_MenuItemsOrderItem" msprop:Generator_ParentPropName="MenuItemsRow" msprop:Generator_RelationVarName="relationFK_MenuItemsOrderItem" msprop:Generator_UserParentTable="MenuItems" />
-      <msdata:Relationship name="FK_OrdersOrderItem" msdata:parent="Orders" msdata:child="OrderItems" msdata:parentkey="orderNumber" msdata:childkey="Orders_orderNumber" msprop:Generator_UserChildTable="OrderItems" msprop:Generator_ChildPropName="GetOrderItemsRows" msprop:Generator_UserRelationName="FK_OrdersOrderItem" msprop:Generator_ParentPropName="OrdersRow" msprop:Generator_RelationVarName="relationFK_OrdersOrderItem" msprop:Generator_UserParentTable="Orders" />
-      <msdata:Relationship name="FK_Orders_Tables" msdata:parent="Tables" msdata:child="Orders" msdata:parentkey="tableNumber" msdata:childkey="tableNumber" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_Tables" msprop:Generator_RelationVarName="relationFK_Orders_Tables" msprop:Generator_UserParentTable="Tables" msprop:Generator_ParentPropName="TablesRow" />
-      <msdata:Relationship name="FK_Tables_Employees" msdata:parent="Employees" msdata:child="Tables" msdata:parentkey="employeeNumber" msdata:childkey="employeeNumber" msprop:Generator_UserChildTable="Tables" msprop:Generator_ChildPropName="GetTablesRows" msprop:Generator_UserRelationName="FK_Tables_Employees" msprop:Generator_ParentPropName="EmployeesRow" msprop:Generator_RelationVarName="relationFK_Tables_Employees" msprop:Generator_UserParentTable="Employees" />
+
+      <msdata:Relationship name="FK_RestaurantEmployees" msdata:parent="Restaurants" msdata:child="Employees" msdata:parentkey="restaurantId" msdata:childkey="Restaurant_restaurantId" msprop:Generator_UserChildTable="Employees" msprop:Generator_ChildPropName="GetEmployeesRows" msprop:Generator_UserRelationName="FK_RestaurantEmployees" msprop:Generator_ParentPropName="RestaurantsRow" msprop:Generator_RelationVarName="relationFK_RestaurantEmployees" msprop:Generator_UserParentTable="Restaurants" />
+      <msdata:Relationship name="FK_MenuItemsMenu" msdata:parent="Menus" msdata:child="MenuItems" msdata:parentkey="MenuId" msdata:childkey="Menu_MenuId" msprop:Generator_UserChildTable="MenuItems" msprop:Generator_ChildPropName="GetMenuItemsRows" msprop:Generator_UserRelationName="FK_MenuItemsMenu" msprop:Generator_ParentPropName="MenusRow" msprop:Generator_RelationVarName="relationFK_MenuItemsMenu" msprop:Generator_UserParentTable="Menus" />
+      <msdata:Relationship name="FK_RestaurantMenu" msdata:parent="Restaurants" msdata:child="Menus" msdata:parentkey="restaurantId" msdata:childkey="Restaurant_restaurantId" msprop:Generator_UserChildTable="Menus" msprop:Generator_ChildPropName="GetMenusRows" msprop:Generator_UserRelationName="FK_RestaurantMenu" msprop:Generator_ParentPropName="RestaurantsRow" msprop:Generator_RelationVarName="relationFK_RestaurantMenu" msprop:Generator_UserParentTable="Restaurants" />
+      <msdata:Relationship name="FK_MenuItemsOrderItem" msdata:parent="MenuItems" msdata:child="OrderItems" msdata:parentkey="menuItemId" msdata:childkey="MenuItems_menuItemID" msprop:Generator_UserChildTable="OrderItems" msprop:Generator_ChildPropName="GetOrderItemsRows" msprop:Generator_UserRelationName="FK_MenuItemsOrderItem" msprop:Generator_RelationVarName="relationFK_MenuItemsOrderItem" msprop:Generator_UserParentTable="MenuItems" msprop:Generator_ParentPropName="MenuItemsRow" />
+      <msdata:Relationship name="FK_OrdersOrderItem" msdata:parent="Orders" msdata:child="OrderItems" msdata:parentkey="orderNumber" msdata:childkey="Orders_orderNumber" msprop:Generator_UserChildTable="OrderItems" msprop:Generator_ChildPropName="GetOrderItemsRows" msprop:Generator_UserRelationName="FK_OrdersOrderItem" msprop:Generator_RelationVarName="relationFK_OrdersOrderItem" msprop:Generator_UserParentTable="Orders" msprop:Generator_ParentPropName="OrdersRow" />
+      <msdata:Relationship name="FK_Orders_Tables" msdata:parent="Tables" msdata:child="Orders" msdata:parentkey="tableNumber" msdata:childkey="tableNumber" msprop:Generator_UserChildTable="Orders" msprop:Generator_ChildPropName="GetOrdersRows" msprop:Generator_UserRelationName="FK_Orders_Tables" msprop:Generator_ParentPropName="TablesRow" msprop:Generator_RelationVarName="relationFK_Orders_Tables" msprop:Generator_UserParentTable="Tables" />
+
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

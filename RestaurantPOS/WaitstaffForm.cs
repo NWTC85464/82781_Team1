@@ -51,9 +51,8 @@ namespace RestaurantPOS
             // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
 
-            // This line of code loads data into the 'restaurantDataSet.Employees' table.
-            this.tablesTableAdapter.Fill(this.restaurantDataSet._Tables);
 
+            this.tablesTableAdapter.Fill(this.restaurantDataSet._Tables);
 
         }
 
@@ -90,6 +89,32 @@ namespace RestaurantPOS
 
         private void tableNumberComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tablesTableAdapter.FillBy(this.restaurantDataSet._Tables);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tablesTableAdapter.FillBy1(this.restaurantDataSet._Tables);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
     }

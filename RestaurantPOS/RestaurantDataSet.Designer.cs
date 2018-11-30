@@ -56,8 +56,6 @@ namespace RestaurantPOS {
         
         private global::System.Data.DataRelation relationFK_Orders_Tables;
         
-        private global::System.Data.DataRelation relationFK_Tables_Employees;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -430,7 +428,6 @@ namespace RestaurantPOS {
             this.relationFK_MenuItemsOrderItem = this.Relations["FK_MenuItemsOrderItem"];
             this.relationFK_OrdersOrderItem = this.Relations["FK_OrdersOrderItem"];
             this.relationFK_Orders_Tables = this.Relations["FK_Orders_Tables"];
-            this.relationFK_Tables_Employees = this.Relations["FK_Tables_Employees"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -485,10 +482,6 @@ namespace RestaurantPOS {
                         this.tableTables.tableNumberColumn}, new global::System.Data.DataColumn[] {
                         this.tableOrders.tableNumberColumn}, false);
             this.Relations.Add(this.relationFK_Orders_Tables);
-            this.relationFK_Tables_Employees = new global::System.Data.DataRelation("FK_Tables_Employees", new global::System.Data.DataColumn[] {
-                        this.tableEmployees.employeeNumberColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTables.employeeNumberColumn}, false);
-            this.Relations.Add(this.relationFK_Tables_Employees);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3216,16 +3209,13 @@ namespace RestaurantPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TablesRow AddTablesRow(string numberOfGuests, string isActive, EmployeesRow parentEmployeesRowByFK_Tables_Employees) {
+            public TablesRow AddTablesRow(string numberOfGuests, string isActive, int employeeNumber) {
                 TablesRow rowTablesRow = ((TablesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         numberOfGuests,
                         isActive,
-                        null};
-                if ((parentEmployeesRowByFK_Tables_Employees != null)) {
-                    columnValuesArray[3] = parentEmployeesRowByFK_Tables_Employees[0];
-                }
+                        employeeNumber};
                 rowTablesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTablesRow);
                 return rowTablesRow;
@@ -3961,17 +3951,6 @@ namespace RestaurantPOS {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_RestaurantEmployees"]);
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TablesRow[] GetTablesRows() {
-                if ((this.Table.ChildRelations["FK_Tables_Employees"] == null)) {
-                    return new TablesRow[0];
-                }
-                else {
-                    return ((TablesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Tables_Employees"])));
-                }
-            }
         }
         
         /// <summary>
@@ -4473,13 +4452,14 @@ namespace RestaurantPOS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public EmployeesRow EmployeesRow {
-                get {
-                    return ((EmployeesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Tables_Employees"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Tables_Employees"]);
-                }
+            public bool IsemployeeNumberNull() {
+                return this.IsNull(this.tableTables.employeeNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetemployeeNumberNull() {
+                this[this.tableTables.employeeNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7538,11 +7518,21 @@ SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables WHERE (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT tableNumber, numberOfGuests, isActive, employeeNumber\r\nFROM     Tables\r\nWH" +
+                "ERE  (employeeNumber = 5)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT tableNumber, numberOfGuests, isActive, employeeNumber\r\nFROM     Tables\r\nWH" +
+                "ERE  (isActive = N\'0\')";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7567,6 +7557,32 @@ SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables WHERE (
             RestaurantDataSet.TablesDataTable dataTable = new RestaurantDataSet.TablesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(RestaurantDataSet.TablesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(RestaurantDataSet.TablesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8617,15 +8633,6 @@ SELECT orderNumber, isActive, tableNumber FROM Orders WHERE (orderNumber = @orde
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._employeesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._employeesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._menusTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Menus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -8659,6 +8666,15 @@ SELECT orderNumber, isActive, tableNumber FROM Orders WHERE (orderNumber = @orde
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._ordersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._employeesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._employeesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8698,14 +8714,6 @@ SELECT orderNumber, isActive, tableNumber FROM Orders WHERE (orderNumber = @orde
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._employeesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._employeesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._menusTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Menus.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -8735,6 +8743,14 @@ SELECT orderNumber, isActive, tableNumber FROM Orders WHERE (orderNumber = @orde
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._ordersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._employeesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._employeesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8780,6 +8796,14 @@ SELECT orderNumber, isActive, tableNumber FROM Orders WHERE (orderNumber = @orde
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._employeesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._employeesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._ordersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Orders.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8809,14 +8833,6 @@ SELECT orderNumber, isActive, tableNumber FROM Orders WHERE (orderNumber = @orde
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._menusTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._employeesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Employees.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._employeesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
