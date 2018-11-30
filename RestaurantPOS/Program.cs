@@ -17,12 +17,13 @@ namespace RestaurantPOS
             Application.EnableVisualStyles(); // test
             Application.SetCompatibleTextRenderingDefault(false);
 
-          
+            Application.Run(new LoginScreen());
 
 
-           
+
+
         }
-
+        /*
             // Creating objects
             Restaurant restaurant = new Restaurant();
             restaurant.restaurantName = "Burgers And Fries";
@@ -57,9 +58,11 @@ namespace RestaurantPOS
            
             Application.Run(new LoginScreen());
 
+    */
 
+        //  }
 
-        }
+        
         
 
     }

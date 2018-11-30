@@ -14,11 +14,13 @@ namespace RestaurantPOS
         }
 
         // Adds MenuItem to Restaurant's Menu
+        /* FIX THIS
         public void AddMenuItem(Restaurant _restaurant, int _menuItemId, string _menuItemName, double _menuItemPrice)
         {
            // _restaurant.restaurantMenu.Add(new MenuItem(_menuItemId, _menuItemName, _menuItemPrice));
            //will need to change in order to store data in database to populate list
         }
+        */
 
         // Removes MenuItem from Restaurant's Menu
         public void setMenuItemInactive(MenuItem _menuItem)
@@ -27,6 +29,7 @@ namespace RestaurantPOS
         }
 
         // Adds Employee Record to Restaurant Employee Records
+        /* FIX THIS
         public void AddEmployee(Restaurant _restaurant, string _name, int _employeeNumber, int _employeePassCode, string _jobTitle)
         {
             
@@ -35,6 +38,7 @@ namespace RestaurantPOS
             Emp.Insert(_name, _employeePassCode, _jobTitle, _restaurant.restaurantId);
             
         }
+        */
 
         // Removes Employee Record from Restaurant Employee Records
         public void RemoveEmployee()
