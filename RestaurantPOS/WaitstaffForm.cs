@@ -51,7 +51,9 @@ namespace RestaurantPOS
             // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
 
+
             this.tablesTableAdapter.Fill(this.restaurantDataSet._Tables);
+
         }
 
         private void menuItemsBindingNavigatorSaveItem_Click(object sender, EventArgs e)

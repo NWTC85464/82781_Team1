@@ -14,7 +14,7 @@
     <Shape ID="DesignTable:OrderItems" ZOrder="13" X="2290" Y="70" Height="265" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="182" />
     <Shape ID="DesignTable:Restaurants" ZOrder="12" X="1180" Y="70" Height="195" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="112" />
     <Shape ID="DesignTable:sysdiagrams" ZOrder="11" X="2660" Y="70" Height="300" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="217" />
-    <Shape ID="DesignTable:Tables" ZOrder="10" X="1550" Y="475" Height="265" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="182" />
+    <Shape ID="DesignTable:Tables" ZOrder="10" X="1550" Y="475" Height="153" Width="182" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:Orders" ZOrder="4" X="2233" Y="551" Height="230" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="147" />
     <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="5" X="3030" Y="70" Height="255" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="16" />
   </Shapes>
@@ -82,12 +82,12 @@
     <Connector ID="DesignRelation:FK_Orders_Tables" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>1850</X>
-          <Y>680</Y>
+          <X>1732</X>
+          <Y>628</Y>
         </Point>
         <Point>
           <X>2233</X>
-          <Y>680</Y>
+          <Y>628</Y>
         </Point>
       </RoutePoints>
     </Connector>
