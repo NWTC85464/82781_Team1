@@ -55,9 +55,10 @@ namespace RestaurantPOS
 
             this.tablesTableAdapter.Fill(this.restaurantDataSet._Tables);
 
+
         }
 
-        private void menuItemsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void MenuItemsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.menuItemsBindingSource.EndEdit();
@@ -65,7 +66,7 @@ namespace RestaurantPOS
 
         }
 
-        private void menuItemsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        private void MenuItemsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
             this.Validate();
             this.menuItemsBindingSource.EndEdit();
@@ -73,27 +74,13 @@ namespace RestaurantPOS
 
         }
 
-        private void menuItemNameLabel1_Click(object sender, EventArgs e)
+
+        private void MenuItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void menuItemNameTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableNumberComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        private void FillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -106,7 +93,7 @@ namespace RestaurantPOS
 
         }
 
-        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        private void FillBy1ToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
