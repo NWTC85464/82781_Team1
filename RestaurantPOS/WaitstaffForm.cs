@@ -157,5 +157,21 @@ namespace RestaurantPOS
             }
 
         }
+
+        private void btnAddToOrder_Click(object sender, EventArgs e)
+        {
+            string menuItemName = menuItemNameComboBox.Text;
+            int quantity = (int) quantityUpDownSelector.Value;
+            //int tableNum = ;
+
+            MessageBox.Show("ITEM: "+ menuItemName.ToString()+" QUANTITY: "+ quantity);
+            
+        }
+
+        private void btnSelectMyTable_Click(object sender, EventArgs e)
+        {
+            int tableNumber = (int) tableNumberComboBox.SelectedValue;
+            MessageBox.Show("Selected Table Number " + tableNumber);
+        }
     }
 }
