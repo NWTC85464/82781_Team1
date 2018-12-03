@@ -110,8 +110,8 @@
             this.appetizersGroupBox.Controls.Add(this.menuItemNameComboBox);
             this.appetizersGroupBox.Controls.Add(this.label2);
 
-            this.appetizersGroupBox.Controls.Add(this.numericUpDown1);
-            this.appetizersGroupBox.Controls.Add(this.button1);
+            this.appetizersGroupBox.Controls.Add(this.quantityUpDownSelector);
+            this.appetizersGroupBox.Controls.Add(this.btnAddToOrder);
             this.appetizersGroupBox.Location = new System.Drawing.Point(15, 201);
 
             this.appetizersGroupBox.Name = "appetizersGroupBox";
@@ -177,10 +177,10 @@
             // quantityUpDownSelector
             // 
 
-            this.numericUpDown1.Location = new System.Drawing.Point(73, 73);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.quantityUpDownSelector.Location = new System.Drawing.Point(73, 73);
+            this.quantityUpDownSelector.Name = "numericUpDown1";
+            this.quantityUpDownSelector.Size = new System.Drawing.Size(120, 20);
+            this.quantityUpDownSelector.TabIndex = 2;
 
             // 
             // btnAddToOrder
@@ -341,7 +341,7 @@
             this.btnSelectMyTable.TabIndex = 4;
             this.btnSelectMyTable.Text = "Select";
             this.btnSelectMyTable.UseVisualStyleBackColor = true;
-            this.btnSelectMyTable.Click += new System.EventHandler(this.btnSelectMyTable_Click);
+            //this.btnSelectMyTable.Click += new System.EventHandler(this.btnSelectMyTable_Click);
             // 
             // ordersBindingSource
             // 
@@ -386,7 +386,7 @@
             this.fillByMyTableToolStripButton.Name = "fillByMyTableToolStripButton";
             this.fillByMyTableToolStripButton.Size = new System.Drawing.Size(72, 22);
             this.fillByMyTableToolStripButton.Text = "View Tables";
-            this.fillByMyTableToolStripButton.Click += new System.EventHandler(this.fillByMyTableToolStripButton_Click);
+    
             // 
 
             // WaitstaffForm

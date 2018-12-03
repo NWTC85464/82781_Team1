@@ -44,7 +44,7 @@ namespace RestaurantPOS
             // TODO: This line of code loads data into the 'restaurantDataSet.Orders' table. You can move, or remove it, as needed.
             this.ordersTableAdapter.Fill(this.restaurantDataSet.Orders);
             this.WaitstaffNameLabel.Text = LoginScreen.userName.ToString();
-            
+
 
             // TODO: This line of code loads data into the 'restaurantDataSet.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
@@ -164,32 +164,11 @@ namespace RestaurantPOS
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             string menuItemName = menuItemNameComboBox.Text;
-            int quantity = (int) quantityUpDownSelector.Value;
+            int quantity = (int)quantityUpDownSelector.Value;
             //int tableNum = ;
 
-            MessageBox.Show("ITEM: "+ menuItemName.ToString()+" QUANTITY: "+ quantity);
-            
-
-        private void fillByMyTableToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.tablesTableAdapter.FillByMyTable(this.restaurantDataSet._Tables, new System.Nullable<int>(((int)(System.Convert.ChangeType(activeEmployeeNumberToolStripTextBox.Text, typeof(int))))));
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-
-        }
-
-        private void btnSelectMyTable_Click(object sender, EventArgs e)
-        {
-
-            int tableNumber = (int) tableNumberComboBox.SelectedValue;
-            MessageBox.Show("Selected Table Number " + tableNumber);
-
+            MessageBox.Show("ITEM: " + menuItemName.ToString() + " QUANTITY: " + quantity);
         }
     }
 }
+
