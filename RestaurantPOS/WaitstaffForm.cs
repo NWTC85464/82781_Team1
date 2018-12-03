@@ -42,6 +42,7 @@ namespace RestaurantPOS
             // TODO: This line of code loads data into the 'restaurantDataSet.Orders' table. You can move, or remove it, as needed.
             this.ordersTableAdapter.Fill(this.restaurantDataSet.Orders);
             this.WaitstaffNameLabel.Text = LoginScreen.userName.ToString();
+            
 
             // TODO: This line of code loads data into the 'restaurantDataSet.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
@@ -97,6 +98,45 @@ namespace RestaurantPOS
             try
             {
                 this.tablesTableAdapter.FillBy1(this.restaurantDataSet._Tables);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy1ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tablesTableAdapter.FillBy1(this.restaurantDataSet._Tables);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillByToolStripButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillBy(this.restaurantDataSet.MenuItems);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillByToolStripButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.menuItemsTableAdapter.FillBy(this.restaurantDataSet.MenuItems);
             }
             catch (System.Exception ex)
             {
