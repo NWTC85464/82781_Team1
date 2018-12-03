@@ -52,14 +52,6 @@
             this.WaitstaffNameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gbMyTables = new System.Windows.Forms.GroupBox();
-
-            this.tableNumberComboBox = new System.Windows.Forms.ComboBox();
-            this.btnSelectMyTable = new System.Windows.Forms.Button();
-            this.gbOpenTables = new System.Windows.Forms.GroupBox();
-            this.btnSelectOpenTable = new System.Windows.Forms.Button();
-            this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ordersTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.OrdersTableAdapter();
-
             this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
@@ -71,9 +63,7 @@
             this.fillByToolStrip2 = new System.Windows.Forms.ToolStrip();
             this.fillByToolStripButton2 = new System.Windows.Forms.ToolStripButton();
             tableNumberLabel = new System.Windows.Forms.Label();
-
             menuItemNameLabel = new System.Windows.Forms.Label();
-
             this.appetizersGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDataSet)).BeginInit();
@@ -83,12 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.gbMyTables.SuspendLayout();
-
             this.fillByToolStrip.SuspendLayout();
             this.fillBy1ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             this.fillByToolStrip2.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // tableNumberLabel
@@ -99,7 +87,6 @@
             tableNumberLabel.Size = new System.Drawing.Size(73, 13);
             tableNumberLabel.TabIndex = 4;
             tableNumberLabel.Text = "table Number:";
-
             // 
             // menuItemNameLabel
             // 
@@ -109,7 +96,6 @@
             menuItemNameLabel.Size = new System.Drawing.Size(63, 13);
             menuItemNameLabel.TabIndex = 4;
             menuItemNameLabel.Text = "Select Item:";
-
             // 
             // appetizersGroupBox
             // 
@@ -174,8 +160,6 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-
-
             // menuItemsBindingSource2
             // 
             this.menuItemsBindingSource2.DataMember = "MenuItems";
@@ -273,12 +257,10 @@
             this.gbMyTables.Controls.Add(tableNumberLabel);
             this.gbMyTables.Controls.Add(this.tableNumberComboBox);
             this.gbMyTables.Controls.Add(this.btnSelectMyTable);
-            this.gbMyTables.Location = new System.Drawing.Point(12, 197);
+            this.gbMyTables.Location = new System.Drawing.Point(12, 229);
             this.gbMyTables.Name = "gbMyTables";
             this.gbMyTables.Padding = new System.Windows.Forms.Padding(4);
-
             this.gbMyTables.Size = new System.Drawing.Size(470, 151);
-
             this.gbMyTables.TabIndex = 5;
             this.gbMyTables.TabStop = false;
             this.gbMyTables.Text = "My Tables";
@@ -346,7 +328,6 @@
             this.btnSelectMyTable.Text = "Select";
             this.btnSelectMyTable.UseVisualStyleBackColor = true;
             // 
-
             // ordersBindingSource
             // 
             this.ordersBindingSource.DataMember = "FK_Orders_Tables";
@@ -356,7 +337,6 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
-
             // fillByToolStrip2
             // 
             this.fillByToolStrip2.Dock = System.Windows.Forms.DockStyle.None;
@@ -376,15 +356,12 @@
             this.fillByToolStripButton2.Size = new System.Drawing.Size(105, 22);
             this.fillByToolStripButton2.Text = "Load Active Items";
             this.fillByToolStripButton2.Click += new System.EventHandler(this.fillByToolStripButton2_Click);
-
             // 
             // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 749);
-
-
             this.Controls.Add(this.gbMyTables);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.WaitstaffNameLabel);
@@ -406,8 +383,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             this.gbMyTables.ResumeLayout(false);
             this.gbMyTables.PerformLayout();
-
-
             this.fillByToolStrip.ResumeLayout(false);
             this.fillByToolStrip.PerformLayout();
             this.fillBy1ToolStrip.ResumeLayout(false);
