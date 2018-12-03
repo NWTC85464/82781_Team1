@@ -32,6 +32,8 @@
             System.Windows.Forms.Label tableNumberLabel;
             System.Windows.Forms.Label menuItemNameLabel;
             this.appetizersGroupBox = new System.Windows.Forms.GroupBox();
+            this.fillByToolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.menuItemNameComboBox = new System.Windows.Forms.ComboBox();
             this.menuItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantDataSet = new RestaurantPOS.RestaurantDataSet();
@@ -52,19 +54,20 @@
             this.WaitstaffNameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.gbMyTables = new System.Windows.Forms.GroupBox();
-            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
-            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableNumberComboBox = new System.Windows.Forms.ComboBox();
             this.btnSelectMyTable = new System.Windows.Forms.Button();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.OrdersTableAdapter();
-            this.fillByToolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.fillByToolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.fillByMyTableToolStrip = new System.Windows.Forms.ToolStrip();
+            this.activeEmployeeNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.activeEmployeeNumberToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.fillByMyTableToolStripButton = new System.Windows.Forms.ToolStripButton();
             tableNumberLabel = new System.Windows.Forms.Label();
             menuItemNameLabel = new System.Windows.Forms.Label();
             this.appetizersGroupBox.SuspendLayout();
+            this.fillByToolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -73,10 +76,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tablesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.gbMyTables.SuspendLayout();
-            this.fillByToolStrip.SuspendLayout();
             this.fillBy1ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
-            this.fillByToolStrip2.SuspendLayout();
+            this.fillByMyTableToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableNumberLabel
@@ -91,7 +93,7 @@
             // menuItemNameLabel
             // 
             menuItemNameLabel.AutoSize = true;
-            menuItemNameLabel.Location = new System.Drawing.Point(166, 37);
+            menuItemNameLabel.Location = new System.Drawing.Point(131, 37);
             menuItemNameLabel.Name = "menuItemNameLabel";
             menuItemNameLabel.Size = new System.Drawing.Size(63, 13);
             menuItemNameLabel.TabIndex = 4;
@@ -105,13 +107,33 @@
             this.appetizersGroupBox.Controls.Add(this.label2);
             this.appetizersGroupBox.Controls.Add(this.numericUpDown1);
             this.appetizersGroupBox.Controls.Add(this.button1);
-            this.appetizersGroupBox.Location = new System.Drawing.Point(12, 35);
+            this.appetizersGroupBox.Location = new System.Drawing.Point(15, 201);
             this.appetizersGroupBox.Name = "appetizersGroupBox";
-            this.appetizersGroupBox.Size = new System.Drawing.Size(470, 176);
+            this.appetizersGroupBox.Size = new System.Drawing.Size(369, 123);
             this.appetizersGroupBox.TabIndex = 0;
             this.appetizersGroupBox.TabStop = false;
             this.appetizersGroupBox.Text = "Item Selection";
             this.appetizersGroupBox.Enter += new System.EventHandler(this.AppetizersGroupBox_Enter);
+            // 
+            // fillByToolStrip2
+            // 
+            this.fillByToolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.fillByToolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton2});
+            this.fillByToolStrip2.Location = new System.Drawing.Point(3, 30);
+            this.fillByToolStrip2.Name = "fillByToolStrip2";
+            this.fillByToolStrip2.Size = new System.Drawing.Size(117, 25);
+            this.fillByToolStrip2.TabIndex = 10;
+            this.fillByToolStrip2.Text = "fillByToolStrip2";
+            // 
+            // fillByToolStripButton2
+            // 
+            this.fillByToolStripButton2.BackColor = System.Drawing.Color.CadetBlue;
+            this.fillByToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton2.Name = "fillByToolStripButton2";
+            this.fillByToolStripButton2.Size = new System.Drawing.Size(105, 22);
+            this.fillByToolStripButton2.Text = "Load Active Items";
+            this.fillByToolStripButton2.Click += new System.EventHandler(this.fillByToolStripButton2_Click);
             // 
             // menuItemNameComboBox
             // 
@@ -119,7 +141,7 @@
             this.menuItemNameComboBox.DataSource = this.menuItemsBindingSource;
             this.menuItemNameComboBox.DisplayMember = "menuItemName";
             this.menuItemNameComboBox.FormattingEnabled = true;
-            this.menuItemNameComboBox.Location = new System.Drawing.Point(235, 34);
+            this.menuItemNameComboBox.Location = new System.Drawing.Point(200, 34);
             this.menuItemNameComboBox.Name = "menuItemNameComboBox";
             this.menuItemNameComboBox.Size = new System.Drawing.Size(148, 21);
             this.menuItemNameComboBox.TabIndex = 5;
@@ -138,7 +160,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 74);
+            this.label2.Location = new System.Drawing.Point(15, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 3;
@@ -146,16 +168,16 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(164, 72);
+            this.numericUpDown1.Location = new System.Drawing.Point(73, 73);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(164, 114);
+            this.button1.Location = new System.Drawing.Point(218, 67);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 42);
+            this.button1.Size = new System.Drawing.Size(130, 28);
             this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -168,23 +190,23 @@
             // orderPreviewListBox
             // 
             this.orderPreviewListBox.FormattingEnabled = true;
-            this.orderPreviewListBox.Location = new System.Drawing.Point(504, 0);
+            this.orderPreviewListBox.Location = new System.Drawing.Point(590, 9);
             this.orderPreviewListBox.Name = "orderPreviewListBox";
-            this.orderPreviewListBox.Size = new System.Drawing.Size(211, 368);
+            this.orderPreviewListBox.Size = new System.Drawing.Size(211, 316);
             this.orderPreviewListBox.TabIndex = 3;
             // 
             // BtnSendOrder
             // 
-            this.BtnSendOrder.Location = new System.Drawing.Point(538, 374);
+            this.BtnSendOrder.Location = new System.Drawing.Point(420, 218);
             this.BtnSendOrder.Name = "BtnSendOrder";
-            this.BtnSendOrder.Size = new System.Drawing.Size(144, 42);
+            this.BtnSendOrder.Size = new System.Drawing.Size(141, 33);
             this.BtnSendOrder.TabIndex = 5;
             this.BtnSendOrder.Text = "Send Order";
             this.BtnSendOrder.UseVisualStyleBackColor = true;
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(672, 445);
+            this.exitButton.Location = new System.Drawing.Point(455, 276);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(65, 41);
             this.exitButton.TabIndex = 6;
@@ -252,39 +274,18 @@
             // 
             // gbMyTables
             // 
-            this.gbMyTables.Controls.Add(this.fillByToolStrip);
+            this.gbMyTables.Controls.Add(this.fillByMyTableToolStrip);
             this.gbMyTables.Controls.Add(this.fillBy1ToolStrip);
             this.gbMyTables.Controls.Add(tableNumberLabel);
             this.gbMyTables.Controls.Add(this.tableNumberComboBox);
             this.gbMyTables.Controls.Add(this.btnSelectMyTable);
-            this.gbMyTables.Location = new System.Drawing.Point(12, 229);
+            this.gbMyTables.Location = new System.Drawing.Point(15, 35);
             this.gbMyTables.Name = "gbMyTables";
             this.gbMyTables.Padding = new System.Windows.Forms.Padding(4);
-            this.gbMyTables.Size = new System.Drawing.Size(470, 151);
+            this.gbMyTables.Size = new System.Drawing.Size(569, 151);
             this.gbMyTables.TabIndex = 5;
             this.gbMyTables.TabStop = false;
             this.gbMyTables.Text = "My Tables";
-            // 
-            // fillByToolStrip
-            // 
-            this.fillByToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.fillByToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillByToolStripButton});
-            this.fillByToolStrip.Location = new System.Drawing.Point(193, 25);
-            this.fillByToolStrip.Name = "fillByToolStrip";
-            this.fillByToolStrip.Size = new System.Drawing.Size(104, 25);
-            this.fillByToolStrip.TabIndex = 9;
-            this.fillByToolStrip.Text = "fillByToolStrip";
-            // 
-            // fillByToolStripButton
-            // 
-            this.fillByToolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton.Name = "fillByToolStripButton";
-            this.fillByToolStripButton.Size = new System.Drawing.Size(92, 22);
-            this.fillByToolStripButton.Text = "View My Tables";
-            this.fillByToolStripButton.Click += new System.EventHandler(this.fillByToolStripButton_Click);
             // 
             // fillBy1ToolStrip
             // 
@@ -300,7 +301,7 @@
             // 
             // fillBy1ToolStripButton
             // 
-            this.fillBy1ToolStripButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.fillBy1ToolStripButton.BackColor = System.Drawing.Color.CadetBlue;
             this.fillBy1ToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.fillBy1ToolStripButton.Name = "fillBy1ToolStripButton";
             this.fillBy1ToolStripButton.Size = new System.Drawing.Size(109, 22);
@@ -327,6 +328,7 @@
             this.btnSelectMyTable.TabIndex = 4;
             this.btnSelectMyTable.Text = "Select";
             this.btnSelectMyTable.UseVisualStyleBackColor = true;
+            this.btnSelectMyTable.Click += new System.EventHandler(this.btnSelectMyTable_Click);
             // 
             // ordersBindingSource
             // 
@@ -337,31 +339,46 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
-            // fillByToolStrip2
+            // fillByMyTableToolStrip
             // 
-            this.fillByToolStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.fillByToolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillByToolStripButton2});
-            this.fillByToolStrip2.Location = new System.Drawing.Point(3, 30);
-            this.fillByToolStrip2.Name = "fillByToolStrip2";
-            this.fillByToolStrip2.Size = new System.Drawing.Size(117, 25);
-            this.fillByToolStrip2.TabIndex = 10;
-            this.fillByToolStrip2.Text = "fillByToolStrip2";
+            this.fillByMyTableToolStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.fillByMyTableToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.fillByMyTableToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activeEmployeeNumberToolStripLabel,
+            this.activeEmployeeNumberToolStripTextBox,
+            this.fillByMyTableToolStripButton});
+            this.fillByMyTableToolStrip.Location = new System.Drawing.Point(169, 25);
+            this.fillByMyTableToolStrip.Name = "fillByMyTableToolStrip";
+            this.fillByMyTableToolStrip.Size = new System.Drawing.Size(325, 25);
+            this.fillByMyTableToolStrip.TabIndex = 9;
+            this.fillByMyTableToolStrip.Text = "fillByMyTableToolStrip";
             // 
-            // fillByToolStripButton2
+            // activeEmployeeNumberToolStripLabel
             // 
-            this.fillByToolStripButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.fillByToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.fillByToolStripButton2.Name = "fillByToolStripButton2";
-            this.fillByToolStripButton2.Size = new System.Drawing.Size(105, 22);
-            this.fillByToolStripButton2.Text = "Load Active Items";
-            this.fillByToolStripButton2.Click += new System.EventHandler(this.fillByToolStripButton2_Click);
+            this.activeEmployeeNumberToolStripLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.activeEmployeeNumberToolStripLabel.Name = "activeEmployeeNumberToolStripLabel";
+            this.activeEmployeeNumberToolStripLabel.Size = new System.Drawing.Size(139, 22);
+            this.activeEmployeeNumberToolStripLabel.Text = "Enter Employee Number:";
+            // 
+            // activeEmployeeNumberToolStripTextBox
+            // 
+            this.activeEmployeeNumberToolStripTextBox.Name = "activeEmployeeNumberToolStripTextBox";
+            this.activeEmployeeNumberToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // fillByMyTableToolStripButton
+            // 
+            this.fillByMyTableToolStripButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.fillByMyTableToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByMyTableToolStripButton.Name = "fillByMyTableToolStripButton";
+            this.fillByMyTableToolStripButton.Size = new System.Drawing.Size(72, 22);
+            this.fillByMyTableToolStripButton.Text = "View Tables";
+            this.fillByMyTableToolStripButton.Click += new System.EventHandler(this.fillByMyTableToolStripButton_Click);
             // 
             // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 749);
+            this.ClientSize = new System.Drawing.Size(830, 346);
             this.Controls.Add(this.gbMyTables);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.WaitstaffNameLabel);
@@ -374,6 +391,8 @@
             this.Load += new System.EventHandler(this.WaitstaffForm_Load);
             this.appetizersGroupBox.ResumeLayout(false);
             this.appetizersGroupBox.PerformLayout();
+            this.fillByToolStrip2.ResumeLayout(false);
+            this.fillByToolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -383,13 +402,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             this.gbMyTables.ResumeLayout(false);
             this.gbMyTables.PerformLayout();
-            this.fillByToolStrip.ResumeLayout(false);
-            this.fillByToolStrip.PerformLayout();
             this.fillBy1ToolStrip.ResumeLayout(false);
             this.fillBy1ToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
-            this.fillByToolStrip2.ResumeLayout(false);
-            this.fillByToolStrip2.PerformLayout();
+            this.fillByMyTableToolStrip.ResumeLayout(false);
+            this.fillByMyTableToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,13 +438,15 @@
         private System.Windows.Forms.BindingSource ordersBindingSource;
         private RestaurantDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
         private System.Windows.Forms.ComboBox tableNumberComboBox;
-        private System.Windows.Forms.ToolStrip fillByToolStrip;
         private System.Windows.Forms.ToolStrip fillBy1ToolStrip;
         private System.Windows.Forms.ToolStripButton fillBy1ToolStripButton;
-        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
         private System.Windows.Forms.ComboBox menuItemNameComboBox;
         private System.Windows.Forms.ToolStrip fillByToolStrip2;
         private System.Windows.Forms.ToolStripButton fillByToolStripButton2;
+        private System.Windows.Forms.ToolStrip fillByMyTableToolStrip;
+        private System.Windows.Forms.ToolStripLabel activeEmployeeNumberToolStripLabel;
+        private System.Windows.Forms.ToolStripTextBox activeEmployeeNumberToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton fillByMyTableToolStripButton;
     }
 }
 

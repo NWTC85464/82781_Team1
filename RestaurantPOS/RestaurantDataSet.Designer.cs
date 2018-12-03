@@ -4462,10 +4462,8 @@ namespace RestaurantPOS {
                 this[this.tableTables.employeeNumberColumn] = global::System.Convert.DBNull;
             }
             
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-
             public OrdersRow[] GetOrdersRows() {
                 if ((this.Table.ChildRelations["FK_Orders_Tables"] == null)) {
                     return new OrdersRow[0];
@@ -7527,7 +7525,7 @@ SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables WHERE (
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables";
@@ -7542,6 +7540,12 @@ SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables WHERE (
             this._commandCollection[2].CommandText = "SELECT tableNumber, numberOfGuests, isActive, employeeNumber\r\nFROM     Tables\r\nWH" +
                 "ERE  (isActive = N\'0\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT tableNumber, numberOfGuests, isActive, employeeNumber\r\nFROM     Tables\r\nWH" +
+                "ERE  (employeeNumber = @activeEmployeeNumber)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@activeEmployeeNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "employeeNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7587,6 +7591,25 @@ SELECT tableNumber, numberOfGuests, isActive, employeeNumber FROM Tables WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy1(RestaurantDataSet.TablesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByMyTable(RestaurantDataSet.TablesDataTable dataTable, global::System.Nullable<int> activeEmployeeNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((activeEmployeeNumber.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(activeEmployeeNumber.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }

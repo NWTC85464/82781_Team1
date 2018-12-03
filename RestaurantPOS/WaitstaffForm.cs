@@ -12,6 +12,8 @@ namespace RestaurantPOS
 {
     public partial class WaitstaffForm : Form
     {
+        int activeEmployeeNumber = LoginScreen.employeeNumber;
+
         public WaitstaffForm()
         {
             InitializeComponent();
@@ -155,6 +157,26 @@ namespace RestaurantPOS
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void fillByMyTableToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tablesTableAdapter.FillByMyTable(this.restaurantDataSet._Tables, new System.Nullable<int>(((int)(System.Convert.ChangeType(activeEmployeeNumberToolStripTextBox.Text, typeof(int))))));
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnSelectMyTable_Click(object sender, EventArgs e)
+        {
+            int tableNumber = (int)tableNumberComboBox.SelectedValue;
+            
 
         }
     }
