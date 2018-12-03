@@ -38,8 +38,8 @@
             this.menuItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restaurantDataSet = new RestaurantPOS.RestaurantDataSet();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
+            this.quantityUpDownSelector = new System.Windows.Forms.NumericUpDown();
+            this.btnAddToOrder = new System.Windows.Forms.Button();
             this.menuItemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.orderPreviewListBox = new System.Windows.Forms.ListBox();
             this.BtnSendOrder = new System.Windows.Forms.Button();
@@ -60,17 +60,19 @@
             this.btnSelectMyTable = new System.Windows.Forms.Button();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.OrdersTableAdapter();
+
             this.fillByMyTableToolStrip = new System.Windows.Forms.ToolStrip();
             this.activeEmployeeNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.activeEmployeeNumberToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.fillByMyTableToolStripButton = new System.Windows.Forms.ToolStripButton();
+
             tableNumberLabel = new System.Windows.Forms.Label();
             menuItemNameLabel = new System.Windows.Forms.Label();
             this.appetizersGroupBox.SuspendLayout();
             this.fillByToolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityUpDownSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablesBindingSource)).BeginInit();
@@ -78,7 +80,9 @@
             this.gbMyTables.SuspendLayout();
             this.fillBy1ToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
+
             this.fillByMyTableToolStrip.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // tableNumberLabel
@@ -105,9 +109,11 @@
             this.appetizersGroupBox.Controls.Add(menuItemNameLabel);
             this.appetizersGroupBox.Controls.Add(this.menuItemNameComboBox);
             this.appetizersGroupBox.Controls.Add(this.label2);
+
             this.appetizersGroupBox.Controls.Add(this.numericUpDown1);
             this.appetizersGroupBox.Controls.Add(this.button1);
             this.appetizersGroupBox.Location = new System.Drawing.Point(15, 201);
+
             this.appetizersGroupBox.Name = "appetizersGroupBox";
             this.appetizersGroupBox.Size = new System.Drawing.Size(369, 123);
             this.appetizersGroupBox.TabIndex = 0;
@@ -128,7 +134,9 @@
             // 
             // fillByToolStripButton2
             // 
+
             this.fillByToolStripButton2.BackColor = System.Drawing.Color.CadetBlue;
+
             this.fillByToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.fillByToolStripButton2.Name = "fillByToolStripButton2";
             this.fillByToolStripButton2.Size = new System.Drawing.Size(105, 22);
@@ -166,21 +174,26 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Quantity: ";
             // 
-            // numericUpDown1
+            // quantityUpDownSelector
             // 
+
             this.numericUpDown1.Location = new System.Drawing.Point(73, 73);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
             this.numericUpDown1.TabIndex = 2;
+
             // 
-            // button1
+            // btnAddToOrder
             // 
-            this.button1.Location = new System.Drawing.Point(218, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 28);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+
+            this.btnAddToOrder.Location = new System.Drawing.Point(164, 114);
+            this.btnAddToOrder.Name = "btnAddToOrder";
+            this.btnAddToOrder.Size = new System.Drawing.Size(144, 42);
+            this.btnAddToOrder.TabIndex = 4;
+            this.btnAddToOrder.Text = "Add To Order";
+            this.btnAddToOrder.UseVisualStyleBackColor = true;
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
+
             // 
             // menuItemsBindingSource2
             // 
@@ -339,6 +352,7 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
+
             // fillByMyTableToolStrip
             // 
             this.fillByMyTableToolStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -374,6 +388,7 @@
             this.fillByMyTableToolStripButton.Text = "View Tables";
             this.fillByMyTableToolStripButton.Click += new System.EventHandler(this.fillByMyTableToolStripButton_Click);
             // 
+
             // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,7 +410,7 @@
             this.fillByToolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restaurantDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityUpDownSelector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuItemsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablesBindingSource)).EndInit();
@@ -405,8 +420,10 @@
             this.fillBy1ToolStrip.ResumeLayout(false);
             this.fillBy1ToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).EndInit();
+
             this.fillByMyTableToolStrip.ResumeLayout(false);
             this.fillByMyTableToolStrip.PerformLayout();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,7 +433,7 @@
 
         private System.Windows.Forms.GroupBox appetizersGroupBox;
         private System.Windows.Forms.ListBox orderPreviewListBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.Button BtnSendOrder;
         private System.Windows.Forms.Button exitButton;
         private RestaurantDataSet restaurantDataSet;
@@ -426,7 +443,7 @@
         private System.Windows.Forms.BindingSource menuItemsBindingSource1;
         private System.Windows.Forms.BindingSource menuItemsBindingSource2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown quantityUpDownSelector;
         private System.Windows.Forms.BindingSource tablesBindingSource;
         private RestaurantDataSetTableAdapters.TablesTableAdapter tablesTableAdapter;
         private System.Windows.Forms.BindingSource employeesBindingSource;
