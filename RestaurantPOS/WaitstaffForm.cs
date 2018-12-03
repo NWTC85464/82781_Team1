@@ -164,11 +164,11 @@ namespace RestaurantPOS
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             string menuItemName = menuItemNameComboBox.Text;
-            int quantity = (int) quantityUpDownSelector.Value;
+            int quantity = (int)quantityUpDownSelector.Value;
             //int tableNum = ;
 
-            MessageBox.Show("ITEM: "+ menuItemName.ToString()+" QUANTITY: "+ quantity);
-            
+            MessageBox.Show("ITEM: " + menuItemName.ToString() + " QUANTITY: " + quantity);
+        }
 
         private void fillByMyTableToolStripButton_Click(object sender, EventArgs e)
         {
@@ -191,5 +191,9 @@ namespace RestaurantPOS
             MessageBox.Show("Selected Table Number " + tableNumber);
 
         }
+
+        
     }
+
 }
+    
