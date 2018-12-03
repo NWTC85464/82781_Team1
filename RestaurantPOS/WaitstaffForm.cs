@@ -39,11 +39,19 @@ namespace RestaurantPOS
 
         private void WaitstaffForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'restaurantDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.restaurantDataSet.Orders);
+            this.WaitstaffNameLabel.Text = LoginScreen.userName.ToString();
+
+            // TODO: This line of code loads data into the 'restaurantDataSet.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
+
             // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
             // TODO: This line of code loads data into the 'restaurantDataSet.MenuItems' table. You can move, or remove it, as needed.
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
 
+            this.tablesTableAdapter.Fill(this.restaurantDataSet._Tables);
         }
 
         private void menuItemsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -69,6 +77,42 @@ namespace RestaurantPOS
 
         private void menuItemNameTextBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void menuItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableNumberComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tablesTableAdapter.FillBy(this.restaurantDataSet._Tables);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tablesTableAdapter.FillBy1(this.restaurantDataSet._Tables);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
         }
     }

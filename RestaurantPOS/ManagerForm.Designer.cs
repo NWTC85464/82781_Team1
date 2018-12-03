@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbEmployees = new System.Windows.Forms.GroupBox();
+            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.employeesDataGridView = new System.Windows.Forms.DataGridView();
             this.employeeNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,7 +67,6 @@
             this.employeesTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.EmployeesTableAdapter();
             this.tableAdapterManager = new RestaurantPOS.RestaurantDataSetTableAdapters.TableAdapterManager();
             this.menuItemsTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.MenuItemsTableAdapter();
-            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.gbEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
@@ -83,14 +83,25 @@
             this.gbEmployees.Controls.Add(this.employeesDataGridView);
             this.gbEmployees.Controls.Add(this.btnRemoveEmployee);
             this.gbEmployees.Controls.Add(this.btnAddEmployee);
-            this.gbEmployees.Location = new System.Drawing.Point(5, 1);
-            this.gbEmployees.Margin = new System.Windows.Forms.Padding(2);
+            this.gbEmployees.Location = new System.Drawing.Point(7, 1);
+            this.gbEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbEmployees.Name = "gbEmployees";
-            this.gbEmployees.Padding = new System.Windows.Forms.Padding(2);
-            this.gbEmployees.Size = new System.Drawing.Size(580, 243);
+            this.gbEmployees.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbEmployees.Size = new System.Drawing.Size(773, 299);
             this.gbEmployees.TabIndex = 0;
             this.gbEmployees.TabStop = false;
             this.gbEmployees.Text = "Employees";
+            // 
+            // btnUpdateEmployee
+            // 
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(359, 260);
+            this.btnUpdateEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(201, 34);
+            this.btnUpdateEmployee.TabIndex = 17;
+            this.btnUpdateEmployee.Text = "Update Employee";
+            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
             // 
             // employeesDataGridView
             // 
@@ -103,9 +114,10 @@
             this.jobTitleDataGridViewTextBoxColumn,
             this.restaurantrestaurantIdDataGridViewTextBoxColumn});
             this.employeesDataGridView.DataSource = this.employeesBindingSource;
-            this.employeesDataGridView.Location = new System.Drawing.Point(6, 22);
+            this.employeesDataGridView.Location = new System.Drawing.Point(8, 27);
+            this.employeesDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.employeesDataGridView.Name = "employeesDataGridView";
-            this.employeesDataGridView.Size = new System.Drawing.Size(569, 184);
+            this.employeesDataGridView.Size = new System.Drawing.Size(759, 226);
             this.employeesDataGridView.TabIndex = 16;
             // 
             // employeeNumberDataGridViewTextBoxColumn
@@ -151,10 +163,10 @@
             // 
             // btnRemoveEmployee
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(424, 211);
-            this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(565, 260);
+            this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
-            this.btnRemoveEmployee.Size = new System.Drawing.Size(151, 28);
+            this.btnRemoveEmployee.Size = new System.Drawing.Size(201, 34);
             this.btnRemoveEmployee.TabIndex = 2;
             this.btnRemoveEmployee.Text = "Remove Employee";
             this.btnRemoveEmployee.UseVisualStyleBackColor = true;
@@ -162,10 +174,10 @@
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(114, 211);
-            this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddEmployee.Location = new System.Drawing.Point(152, 260);
+            this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(151, 28);
+            this.btnAddEmployee.Size = new System.Drawing.Size(201, 34);
             this.btnAddEmployee.TabIndex = 1;
             this.btnAddEmployee.Text = "Add New Employee";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
@@ -178,21 +190,21 @@
             this.gbMenuItems.Controls.Add(this.btnEnableItem);
             this.gbMenuItems.Controls.Add(this.btnDisableItem);
             this.gbMenuItems.Controls.Add(this.btnAddMenuItem);
-            this.gbMenuItems.Location = new System.Drawing.Point(65, 250);
-            this.gbMenuItems.Margin = new System.Windows.Forms.Padding(2);
+            this.gbMenuItems.Location = new System.Drawing.Point(87, 308);
+            this.gbMenuItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbMenuItems.Name = "gbMenuItems";
-            this.gbMenuItems.Padding = new System.Windows.Forms.Padding(2);
-            this.gbMenuItems.Size = new System.Drawing.Size(689, 247);
+            this.gbMenuItems.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbMenuItems.Size = new System.Drawing.Size(919, 304);
             this.gbMenuItems.TabIndex = 1;
             this.gbMenuItems.TabStop = false;
             this.gbMenuItems.Text = "Menu Items";
             // 
             // btnRemoveMenuItem
             // 
-            this.btnRemoveMenuItem.Location = new System.Drawing.Point(530, 215);
-            this.btnRemoveMenuItem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoveMenuItem.Location = new System.Drawing.Point(707, 265);
+            this.btnRemoveMenuItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveMenuItem.Name = "btnRemoveMenuItem";
-            this.btnRemoveMenuItem.Size = new System.Drawing.Size(151, 28);
+            this.btnRemoveMenuItem.Size = new System.Drawing.Size(201, 34);
             this.btnRemoveMenuItem.TabIndex = 16;
             this.btnRemoveMenuItem.Text = "Remove Menu Item";
             this.btnRemoveMenuItem.UseVisualStyleBackColor = true;
@@ -210,9 +222,10 @@
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
             this.menuItemsDataGridView.DataSource = this.menuItemsBindingSource;
-            this.menuItemsDataGridView.Location = new System.Drawing.Point(5, 18);
+            this.menuItemsDataGridView.Location = new System.Drawing.Point(7, 22);
+            this.menuItemsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menuItemsDataGridView.Name = "menuItemsDataGridView";
-            this.menuItemsDataGridView.Size = new System.Drawing.Size(676, 192);
+            this.menuItemsDataGridView.Size = new System.Drawing.Size(901, 236);
             this.menuItemsDataGridView.TabIndex = 15;
             // 
             // dataGridViewTextBoxColumn6
@@ -259,10 +272,10 @@
             // 
             // btnEnableItem
             // 
-            this.btnEnableItem.Location = new System.Drawing.Point(65, 215);
-            this.btnEnableItem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEnableItem.Location = new System.Drawing.Point(87, 265);
+            this.btnEnableItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEnableItem.Name = "btnEnableItem";
-            this.btnEnableItem.Size = new System.Drawing.Size(151, 28);
+            this.btnEnableItem.Size = new System.Drawing.Size(201, 34);
             this.btnEnableItem.TabIndex = 15;
             this.btnEnableItem.Text = "Enable Item";
             this.btnEnableItem.UseVisualStyleBackColor = true;
@@ -270,10 +283,10 @@
             // 
             // btnDisableItem
             // 
-            this.btnDisableItem.Location = new System.Drawing.Point(220, 215);
-            this.btnDisableItem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDisableItem.Location = new System.Drawing.Point(293, 265);
+            this.btnDisableItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDisableItem.Name = "btnDisableItem";
-            this.btnDisableItem.Size = new System.Drawing.Size(151, 28);
+            this.btnDisableItem.Size = new System.Drawing.Size(201, 34);
             this.btnDisableItem.TabIndex = 14;
             this.btnDisableItem.Text = "Disable Item";
             this.btnDisableItem.UseVisualStyleBackColor = true;
@@ -281,10 +294,10 @@
             // 
             // btnAddMenuItem
             // 
-            this.btnAddMenuItem.Location = new System.Drawing.Point(375, 215);
-            this.btnAddMenuItem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddMenuItem.Location = new System.Drawing.Point(500, 265);
+            this.btnAddMenuItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddMenuItem.Name = "btnAddMenuItem";
-            this.btnAddMenuItem.Size = new System.Drawing.Size(151, 28);
+            this.btnAddMenuItem.Size = new System.Drawing.Size(201, 34);
             this.btnAddMenuItem.TabIndex = 1;
             this.btnAddMenuItem.Text = "Add New Menu Item";
             this.btnAddMenuItem.UseVisualStyleBackColor = true;
@@ -297,67 +310,65 @@
             this.gbDiscount.Controls.Add(this.txtDiscountOrderNumber);
             this.gbDiscount.Controls.Add(this.lblDiscountPercentage);
             this.gbDiscount.Controls.Add(this.lblOrderNumber);
-            this.gbDiscount.Location = new System.Drawing.Point(592, 94);
-            this.gbDiscount.Margin = new System.Windows.Forms.Padding(2);
+            this.gbDiscount.Location = new System.Drawing.Point(789, 116);
+            this.gbDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbDiscount.Name = "gbDiscount";
-            this.gbDiscount.Padding = new System.Windows.Forms.Padding(2);
-            this.gbDiscount.Size = new System.Drawing.Size(230, 150);
+            this.gbDiscount.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbDiscount.Size = new System.Drawing.Size(307, 185);
             this.gbDiscount.TabIndex = 2;
             this.gbDiscount.TabStop = false;
             this.gbDiscount.Text = "Discounts";
             // 
             // btnGiveDiscount
             // 
-            this.btnGiveDiscount.Location = new System.Drawing.Point(24, 95);
-            this.btnGiveDiscount.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGiveDiscount.Location = new System.Drawing.Point(32, 117);
+            this.btnGiveDiscount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGiveDiscount.Name = "btnGiveDiscount";
-            this.btnGiveDiscount.Size = new System.Drawing.Size(182, 26);
+            this.btnGiveDiscount.Size = new System.Drawing.Size(243, 32);
             this.btnGiveDiscount.TabIndex = 4;
             this.btnGiveDiscount.Text = "Give Discount";
             this.btnGiveDiscount.UseVisualStyleBackColor = true;
             // 
             // txtDiscountPercent
             // 
-            this.txtDiscountPercent.Location = new System.Drawing.Point(99, 51);
-            this.txtDiscountPercent.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDiscountPercent.Location = new System.Drawing.Point(132, 63);
+            this.txtDiscountPercent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiscountPercent.Name = "txtDiscountPercent";
-            this.txtDiscountPercent.Size = new System.Drawing.Size(128, 20);
+            this.txtDiscountPercent.Size = new System.Drawing.Size(169, 22);
             this.txtDiscountPercent.TabIndex = 3;
             // 
             // txtDiscountOrderNumber
             // 
-            this.txtDiscountOrderNumber.Location = new System.Drawing.Point(99, 26);
-            this.txtDiscountOrderNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDiscountOrderNumber.Location = new System.Drawing.Point(132, 32);
+            this.txtDiscountOrderNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiscountOrderNumber.Name = "txtDiscountOrderNumber";
-            this.txtDiscountOrderNumber.Size = new System.Drawing.Size(128, 20);
+            this.txtDiscountOrderNumber.Size = new System.Drawing.Size(169, 22);
             this.txtDiscountOrderNumber.TabIndex = 2;
             // 
             // lblDiscountPercentage
             // 
             this.lblDiscountPercentage.AutoSize = true;
-            this.lblDiscountPercentage.Location = new System.Drawing.Point(4, 54);
-            this.lblDiscountPercentage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDiscountPercentage.Location = new System.Drawing.Point(5, 66);
             this.lblDiscountPercentage.Name = "lblDiscountPercentage";
-            this.lblDiscountPercentage.Size = new System.Drawing.Size(92, 13);
+            this.lblDiscountPercentage.Size = new System.Drawing.Size(120, 17);
             this.lblDiscountPercentage.TabIndex = 1;
             this.lblDiscountPercentage.Text = "Discount Percent:";
             // 
             // lblOrderNumber
             // 
             this.lblOrderNumber.AutoSize = true;
-            this.lblOrderNumber.Location = new System.Drawing.Point(17, 28);
-            this.lblOrderNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOrderNumber.Location = new System.Drawing.Point(23, 34);
             this.lblOrderNumber.Name = "lblOrderNumber";
-            this.lblOrderNumber.Size = new System.Drawing.Size(76, 13);
+            this.lblOrderNumber.Size = new System.Drawing.Size(103, 17);
             this.lblOrderNumber.TabIndex = 0;
             this.lblOrderNumber.Text = "Order Number:";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(640, 517);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExit.Location = new System.Drawing.Point(853, 636);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(182, 26);
+            this.btnExit.Size = new System.Drawing.Size(243, 32);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -366,20 +377,19 @@
             // lblCurrentDate
             // 
             this.lblCurrentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentDate.Location = new System.Drawing.Point(587, 51);
-            this.lblCurrentDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCurrentDate.Location = new System.Drawing.Point(783, 63);
             this.lblCurrentDate.Name = "lblCurrentDate";
-            this.lblCurrentDate.Size = new System.Drawing.Size(240, 30);
+            this.lblCurrentDate.Size = new System.Drawing.Size(320, 37);
             this.lblCurrentDate.TabIndex = 7;
             this.lblCurrentDate.Text = "Current Date";
             this.lblCurrentDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnGetSalesReport
             // 
-            this.btnGetSalesReport.Location = new System.Drawing.Point(5, 517);
-            this.btnGetSalesReport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGetSalesReport.Location = new System.Drawing.Point(7, 636);
+            this.btnGetSalesReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGetSalesReport.Name = "btnGetSalesReport";
-            this.btnGetSalesReport.Size = new System.Drawing.Size(182, 26);
+            this.btnGetSalesReport.Size = new System.Drawing.Size(243, 32);
             this.btnGetSalesReport.TabIndex = 9;
             this.btnGetSalesReport.Text = "Get Sales Report";
             this.btnGetSalesReport.UseVisualStyleBackColor = true;
@@ -387,10 +397,9 @@
             // lblLoggedInEmployeeName
             // 
             this.lblLoggedInEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedInEmployeeName.Location = new System.Drawing.Point(587, 9);
-            this.lblLoggedInEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLoggedInEmployeeName.Location = new System.Drawing.Point(783, 11);
             this.lblLoggedInEmployeeName.Name = "lblLoggedInEmployeeName";
-            this.lblLoggedInEmployeeName.Size = new System.Drawing.Size(240, 30);
+            this.lblLoggedInEmployeeName.Size = new System.Drawing.Size(320, 37);
             this.lblLoggedInEmployeeName.TabIndex = 12;
             this.lblLoggedInEmployeeName.Text = "Logged In Employee Name";
             this.lblLoggedInEmployeeName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -402,9 +411,6 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Employees_ChefsTableAdapter = null;
-            this.tableAdapterManager.Employees_ManagersTableAdapter = null;
-            this.tableAdapterManager.Employees_WaitstaffsTableAdapter = null;
             this.tableAdapterManager.EmployeesTableAdapter = this.employeesTableAdapter;
             this.tableAdapterManager.MenuItemsTableAdapter = this.menuItemsTableAdapter;
             this.tableAdapterManager.MenusTableAdapter = null;
@@ -419,22 +425,11 @@
             // 
             this.menuItemsTableAdapter.ClearBeforeFill = true;
             // 
-            // btnUpdateEmployee
-            // 
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(269, 211);
-            this.btnUpdateEmployee.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(151, 28);
-            this.btnUpdateEmployee.TabIndex = 17;
-            this.btnUpdateEmployee.Text = "Update Employee";
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
-            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
-            // 
             // ManagerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 554);
+            this.ClientSize = new System.Drawing.Size(1105, 682);
             this.Controls.Add(this.gbEmployees);
             this.Controls.Add(this.lblLoggedInEmployeeName);
             this.Controls.Add(this.btnGetSalesReport);
@@ -442,7 +437,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.gbDiscount);
             this.Controls.Add(this.gbMenuItems);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManagerForm";
             this.Text = "Manager Toolbox";
             this.Load += new System.EventHandler(this.ManagerForm_Load);

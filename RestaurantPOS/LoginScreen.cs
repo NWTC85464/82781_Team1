@@ -88,6 +88,7 @@ namespace RestaurantPOS
                     {
                         // Login - to waitstaff screen
                         WaitstaffForm form1 = new WaitstaffForm();
+                    
                         form1.ShowDialog();
                     }
                 }
