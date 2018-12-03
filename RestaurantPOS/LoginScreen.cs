@@ -13,6 +13,7 @@ namespace RestaurantPOS
     public partial class LoginScreen : Form
     {
         public static String userName = "";
+        public static int employeeNumber;
 
         public LoginScreen()
         {
@@ -28,7 +29,7 @@ namespace RestaurantPOS
         private void BtnLogIn_Click(object sender, EventArgs e)
         {
             // Check to see if the employee number exists
-            int employeeNumber;
+            
             int password;
 
             // If the employee number is not a integer
