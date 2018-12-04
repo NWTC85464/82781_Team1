@@ -3274,6 +3274,7 @@ namespace RestaurantPOS {
                 this.columnnumberOfGuests.MaxLength = 2147483647;
                 this.columnisActive.AllowDBNull = false;
                 this.columnisActive.MaxLength = 2147483647;
+                this.columnemployeeNumber.DefaultValue = ((int)(0));
                 this.ExtendedProperties.Add("Generator_TablePropName", "_Tables");
                 this.ExtendedProperties.Add("Generator_UserTableName", "Tables");
             }

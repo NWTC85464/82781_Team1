@@ -28,8 +28,7 @@ namespace RestaurantPOS
 
         private void BtnLogIn_Click(object sender, EventArgs e)
         {
-            // Check to see if the employee number exists
-            
+            // Check to see if the employee number exists         
             int password;
 
             // If the employee number is not a integer
