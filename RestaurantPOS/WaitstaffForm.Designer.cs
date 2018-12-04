@@ -42,7 +42,7 @@
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.menuItemsBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.orderPreviewListBox = new System.Windows.Forms.ListBox();
-            this.BtnSendOrder = new System.Windows.Forms.Button();
+            this.btnSendOrder = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.menuItemsTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.MenuItemsTableAdapter();
             this.tableAdapterManager = new RestaurantPOS.RestaurantDataSetTableAdapters.TableAdapterManager();
@@ -64,6 +64,7 @@
             this.btnSelectMyTable = new System.Windows.Forms.Button();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.OrdersTableAdapter();
+            this.btnClearTable = new System.Windows.Forms.Button();
             tableNumberLabel = new System.Windows.Forms.Label();
             menuItemNameLabel = new System.Windows.Forms.Label();
             this.appetizersGroupBox.SuspendLayout();
@@ -175,6 +176,7 @@
             // 
             // btnAddToOrder
             // 
+            this.btnAddToOrder.Enabled = false;
             this.btnAddToOrder.Location = new System.Drawing.Point(164, 114);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(144, 42);
@@ -196,18 +198,19 @@
             this.orderPreviewListBox.Size = new System.Drawing.Size(211, 316);
             this.orderPreviewListBox.TabIndex = 3;
             // 
-            // BtnSendOrder
+            // btnSendOrder
             // 
-            this.BtnSendOrder.Location = new System.Drawing.Point(420, 218);
-            this.BtnSendOrder.Name = "BtnSendOrder";
-            this.BtnSendOrder.Size = new System.Drawing.Size(141, 33);
-            this.BtnSendOrder.TabIndex = 5;
-            this.BtnSendOrder.Text = "Send Order";
-            this.BtnSendOrder.UseVisualStyleBackColor = true;
+            this.btnSendOrder.Location = new System.Drawing.Point(421, 261);
+            this.btnSendOrder.Name = "btnSendOrder";
+            this.btnSendOrder.Size = new System.Drawing.Size(141, 33);
+            this.btnSendOrder.TabIndex = 5;
+            this.btnSendOrder.Text = "Send Order";
+            this.btnSendOrder.UseVisualStyleBackColor = true;
+            this.btnSendOrder.Click += new System.EventHandler(this.BtnSendOrder_Click);
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(455, 276);
+            this.exitButton.Location = new System.Drawing.Point(459, 316);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(65, 41);
             this.exitButton.TabIndex = 6;
@@ -298,7 +301,7 @@
             this.fillByMyTableToolStripButton});
             this.fillByMyTableToolStrip.Location = new System.Drawing.Point(169, 25);
             this.fillByMyTableToolStrip.Name = "fillByMyTableToolStrip";
-            this.fillByMyTableToolStrip.Size = new System.Drawing.Size(356, 25);
+            this.fillByMyTableToolStrip.Size = new System.Drawing.Size(325, 25);
             this.fillByMyTableToolStrip.TabIndex = 9;
             this.fillByMyTableToolStrip.Text = "fillByMyTableToolStrip";
             // 
@@ -375,16 +378,27 @@
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
             // 
+            // btnClearTable
+            // 
+            this.btnClearTable.Location = new System.Drawing.Point(421, 218);
+            this.btnClearTable.Name = "btnClearTable";
+            this.btnClearTable.Size = new System.Drawing.Size(141, 33);
+            this.btnClearTable.TabIndex = 9;
+            this.btnClearTable.Text = "Clear Table";
+            this.btnClearTable.UseVisualStyleBackColor = true;
+            this.btnClearTable.Click += new System.EventHandler(this.btnClearTable_Click);
+            // 
             // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 456);
+            this.ClientSize = new System.Drawing.Size(842, 430);
+            this.Controls.Add(this.btnClearTable);
             this.Controls.Add(this.gbMyTables);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.WaitstaffNameLabel);
             this.Controls.Add(this.exitButton);
-            this.Controls.Add(this.BtnSendOrder);
+            this.Controls.Add(this.btnSendOrder);
             this.Controls.Add(this.orderPreviewListBox);
             this.Controls.Add(this.appetizersGroupBox);
             this.Name = "WaitstaffForm";
@@ -418,7 +432,7 @@
         private System.Windows.Forms.GroupBox appetizersGroupBox;
         private System.Windows.Forms.ListBox orderPreviewListBox;
         private System.Windows.Forms.Button btnAddToOrder;
-        private System.Windows.Forms.Button BtnSendOrder;
+        private System.Windows.Forms.Button btnSendOrder;
         private System.Windows.Forms.Button exitButton;
         private RestaurantDataSet restaurantDataSet;
         private System.Windows.Forms.BindingSource menuItemsBindingSource;
@@ -448,6 +462,7 @@
         private System.Windows.Forms.ToolStripLabel activeEmployeeNumberToolStripLabel;
         private System.Windows.Forms.ToolStripTextBox activeEmployeeNumberToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillByMyTableToolStripButton;
+        private System.Windows.Forms.Button btnClearTable;
     }
 }
 

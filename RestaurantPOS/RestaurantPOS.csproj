@@ -89,6 +89,12 @@
     <Compile Include="ChefForm.Designer.cs">
       <DependentUpon>ChefForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClearTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClearTableForm.Designer.cs">
+      <DependentUpon>ClearTableForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DisableItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChefForm.resx">
       <DependentUpon>ChefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClearTableForm.resx">
+      <DependentUpon>ClearTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisableItemForm.resx">
       <DependentUpon>DisableItemForm.cs</DependentUpon>
