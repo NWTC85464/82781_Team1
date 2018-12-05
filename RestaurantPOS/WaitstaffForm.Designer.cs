@@ -65,6 +65,7 @@
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.OrdersTableAdapter();
             this.btnClearTable = new System.Windows.Forms.Button();
+            this.btnRemoveItem = new System.Windows.Forms.Button();
             tableNumberLabel = new System.Windows.Forms.Label();
             menuItemNameLabel = new System.Windows.Forms.Label();
             this.appetizersGroupBox.SuspendLayout();
@@ -200,7 +201,7 @@
             // 
             // btnSendOrder
             // 
-            this.btnSendOrder.Location = new System.Drawing.Point(421, 261);
+            this.btnSendOrder.Location = new System.Drawing.Point(421, 295);
             this.btnSendOrder.Name = "btnSendOrder";
             this.btnSendOrder.Size = new System.Drawing.Size(141, 33);
             this.btnSendOrder.TabIndex = 5;
@@ -210,7 +211,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(459, 316);
+            this.exitButton.Location = new System.Drawing.Point(453, 334);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(65, 41);
             this.exitButton.TabIndex = 6;
@@ -380,7 +381,7 @@
             // 
             // btnClearTable
             // 
-            this.btnClearTable.Location = new System.Drawing.Point(421, 218);
+            this.btnClearTable.Location = new System.Drawing.Point(421, 256);
             this.btnClearTable.Name = "btnClearTable";
             this.btnClearTable.Size = new System.Drawing.Size(141, 33);
             this.btnClearTable.TabIndex = 9;
@@ -388,11 +389,22 @@
             this.btnClearTable.UseVisualStyleBackColor = true;
             this.btnClearTable.Click += new System.EventHandler(this.btnClearTable_Click);
             // 
+            // btnRemoveItem
+            // 
+            this.btnRemoveItem.Location = new System.Drawing.Point(421, 218);
+            this.btnRemoveItem.Name = "btnRemoveItem";
+            this.btnRemoveItem.Size = new System.Drawing.Size(141, 33);
+            this.btnRemoveItem.TabIndex = 10;
+            this.btnRemoveItem.Text = "Remove Selected Item";
+            this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
+            // 
             // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 430);
+            this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.btnClearTable);
             this.Controls.Add(this.gbMyTables);
             this.Controls.Add(this.label3);
@@ -463,6 +475,7 @@
         private System.Windows.Forms.ToolStripTextBox activeEmployeeNumberToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillByMyTableToolStripButton;
         private System.Windows.Forms.Button btnClearTable;
+        private System.Windows.Forms.Button btnRemoveItem;
     }
 }
 

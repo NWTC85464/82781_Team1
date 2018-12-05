@@ -18,7 +18,7 @@ namespace RestaurantPOS
         int activeTableNumber;
         string dbPassword = "P@ssword";
         string dbUserName = "Team1";
-        string insertedID;
+        string insertedOrderId;
         
 
         public WaitstaffForm()
@@ -211,7 +211,7 @@ namespace RestaurantPOS
                 {
                     dbconn.Open();
                     // Find the order ID
-                    insertedID = dbcm.ExecuteScalar().ToString();
+                    insertedOrderId = dbcm.ExecuteScalar().ToString();
                 }
             }
 
@@ -223,7 +223,7 @@ namespace RestaurantPOS
             btnSendOrder.Enabled = false;
 
             // Display the selected table/order number in the preview list
-            orderPreviewListBox.Items.Add("Table Number: " + activeTableNumber + "   Order Number: " + insertedID);
+            orderPreviewListBox.Items.Add("Table Number: " + activeTableNumber + "   Order Number: " + insertedOrderId);
             orderPreviewListBox.Items.Add("----------------------------------------------------");
 
             // Set table to active and set the employee id
@@ -251,7 +251,7 @@ namespace RestaurantPOS
         private void addItemToOrder(string itemName, int quantity)
         {
             int orderNumber;
-            int.TryParse(insertedID, out orderNumber);
+            int.TryParse(insertedOrderId, out orderNumber);
             // Get item ID
             int itemId = getItemId(itemName);
             // Setting up a variable for the datatable from the database
@@ -263,7 +263,7 @@ namespace RestaurantPOS
             // Filling the data to the datatable
             orderItemsTableAdap.Fill(orderItems);
             // Add the selection to the preview list
-            orderPreviewListBox.Items.Add(itemName + " x(" + quantity + ")");
+            orderPreviewListBox.Items.Add(itemName + " (" + quantity + ")");
             // Adding the new record to the database  
             orderItemsTableAdap.Insert(quantity.ToString(), itemId, orderNumber); 
         }
@@ -271,7 +271,7 @@ namespace RestaurantPOS
         private void BtnSendOrder_Click(object sender, EventArgs e)
         {
             int orderNumber;
-            int.TryParse(insertedID, out orderNumber);
+            int.TryParse(insertedOrderId, out orderNumber);
             // Enable the select table button
             btnSelectMyTable.Enabled = true;
             // Disable add item to order button
@@ -321,6 +321,25 @@ namespace RestaurantPOS
             ClearTableForm Form1 = new ClearTableForm();
             Form1.ShowDialog();
             
+        }
+
+        private void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            // Get selected item to be removed
+            string selectedItem = null;
+            string trimmedItem = null;
+            string trimmedQuantity = null;
+            int selectedItemId;
+            selectedItem = orderPreviewListBox.SelectedItem.ToString();
+            // Trim the returned value to get item name
+            string[] tmp = selectedItem.Split('(');
+            trimmedItem = tmp[0];
+            trimmedItem = trimmedItem.Trim();
+            trimmedQuantity = tmp[1];            
+            // Find the item ID
+            selectedItemId = getItemId(trimmedItem);
+
+            MessageBox.Show("Selected Item: " + trimmedItem + " Item Number: " + selectedItemId); // for testing
         }
     }
 }
