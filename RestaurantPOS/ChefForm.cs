@@ -62,9 +62,9 @@ namespace RestaurantPOS
 
             // Delete the order from the queue
             RestaurantDataSet.OrdersRow orderRow = orders.Where(o => o.orderNumber == orderOne).First();
-            
+
             // Setting isActive to 0 to show the order has been completed
-            OrderTableAdapt.Update("0", orderRow.tableNumber, orderRow.orderNumber, orderRow.tableNumber, orderRow.orderNumber);
+            OrderTableAdapt.Update("0", orderRow.tableNumber, orderRow.isPaid, orderRow.totalPrice, orderRow.orderNumber, orderRow.tableNumber, orderRow.totalPrice);
             orderOne = 0;
 
             // Enable Load Next Order Button
@@ -80,7 +80,7 @@ namespace RestaurantPOS
             RestaurantDataSet.OrdersRow orderRow = orders.Where(o => o.orderNumber == orderTwo).First();
 
             // Setting isActive to 0 to show the order has been completed
-            OrderTableAdapt.Update("0", orderRow.tableNumber, orderRow.orderNumber, orderRow.tableNumber, orderRow.orderNumber);
+            OrderTableAdapt.Update("0", orderRow.tableNumber, orderRow.isPaid, orderRow.totalPrice, orderRow.orderNumber, orderRow.tableNumber, orderRow.totalPrice);
             orderTwo = 0;
 
             // Enable Load Next Order Button
@@ -96,7 +96,7 @@ namespace RestaurantPOS
             RestaurantDataSet.OrdersRow orderRow = orders.Where(o => o.orderNumber == orderThree).First();
 
             // Setting isActive to 0 to show the order has been completed
-            OrderTableAdapt.Update("0", orderRow.tableNumber, orderRow.orderNumber, orderRow.tableNumber, orderRow.orderNumber);
+            OrderTableAdapt.Update("0", orderRow.tableNumber, orderRow.isPaid, orderRow.totalPrice, orderRow.orderNumber, orderRow.tableNumber, orderRow.totalPrice);
             orderThree = 0;
 
             // Enable Load Next Order Button
