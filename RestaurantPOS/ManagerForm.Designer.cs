@@ -93,7 +93,7 @@
             // 
             // btnUpdateEmployee
             // 
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(269, 211);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(215, 211);
             this.btnUpdateEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
             this.btnUpdateEmployee.Size = new System.Drawing.Size(151, 28);
@@ -161,7 +161,7 @@
             // 
             // btnRemoveEmployee
             // 
-            this.btnRemoveEmployee.Location = new System.Drawing.Point(424, 211);
+            this.btnRemoveEmployee.Location = new System.Drawing.Point(370, 211);
             this.btnRemoveEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRemoveEmployee.Name = "btnRemoveEmployee";
             this.btnRemoveEmployee.Size = new System.Drawing.Size(151, 28);
@@ -172,7 +172,7 @@
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(114, 211);
+            this.btnAddEmployee.Location = new System.Drawing.Point(60, 211);
             this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(151, 28);

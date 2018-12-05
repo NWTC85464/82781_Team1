@@ -296,7 +296,6 @@ namespace RestaurantPOS
             orderPreviewListBox.Items.Add("----------------------------------------------------");
             orderPreviewListBox.Items.Add("Total: $"+orderGrandTotal);
 
-
             // Setting up a variable for the datatable from the database
             RestaurantDataSet.OrdersDataTable orders = new RestaurantDataSet.OrdersDataTable();
             // Setting up a orders adaptor and it's to fill in the datatable
@@ -308,7 +307,9 @@ namespace RestaurantPOS
             // Going and looking in the datatable for a given order number and returning the row
             RestaurantDataSet.OrdersRow ordersRow = orders.FindByorderNumber(orderNumber);
             // Set order to active so the chef can pick it up
+
             ordersTableAdap.Update("1", activeTableNumber, "0", orderGrandTotal, orderNumber, activeTableNumber, ordersRow.totalPrice);
+
 
             // Disable remove item button
             btnRemoveItem.Enabled = false;
