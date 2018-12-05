@@ -19,6 +19,7 @@ namespace RestaurantPOS
         string dbPassword = "P@ssword";
         string dbUserName = "Team1";
         string insertedOrderId;
+        double orderGrandTotal;
         
 
         public WaitstaffForm()
@@ -164,14 +165,24 @@ namespace RestaurantPOS
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
             string menuItemName = menuItemNameComboBox.Text;
-            int quantity = (int)quantityUpDownSelector.Value;          
-            addItemToOrder(menuItemName, quantity);
+            int quantity = (int)quantityUpDownSelector.Value;
 
-            // Enable send order button if it isn't already
-            if (btnSendOrder.Enabled == false)
+            if (quantity > 0)
             {
-                btnSendOrder.Enabled = true;
+                addItemToOrder(menuItemName, quantity);
+                orderGrandTotal = orderGrandTotal + getOrderItemPrice(quantity, getItemId(menuItemName));
+
+                // Enable send order button if it isn't already
+                if (btnSendOrder.Enabled == false)
+                {
+                    btnSendOrder.Enabled = true;
+                }
             }
+            else
+            {
+                MessageBox.Show("Must have more than 0 quantity to add to order");
+            }
+
         }
 
         private void fillByMyTableToolStripButton_Click(object sender, EventArgs e)
@@ -188,46 +199,49 @@ namespace RestaurantPOS
 
         private void btnSelectMyTable_Click(object sender, EventArgs e)
         {
+            // Clear Order Grand Total to track new order total
+            orderGrandTotal = 0;
+
             // Clear the order preview window
             orderPreviewListBox.Items.Clear();
             // Get table number
             activeTableNumber = (int) tableNumberComboBox.SelectedValue;
 
-            // Query to create a new record in the order table          
-            string query = "insert into Orders (isActive, tableNumber)" + "values('0', " + activeTableNumber + ");SELECT SCOPE_IDENTITY();";
-                      
-            // Make password secure to connect to database
-            var securePassword = new SecureString();
-            foreach (char c in dbPassword)
+            if(changeTableIsActive(activeTableNumber) == 1)
             {
-                securePassword.AppendChar(c);
-            }
-            securePassword.MakeReadOnly();
-            SqlCredential cred = new SqlCredential(dbUserName, securePassword);
-            // Connect to database and run insert query
-            using (var dbconn = new SqlConnection("Data Source = nwtcrestaurant.database.windows.net; Initial Catalog = Restaurant; Persist Security Info = True", cred))
-            {
-                using (var dbcm = new SqlCommand(query, dbconn))
+                // Query to create a new record in the order table          
+                string query = "insert into Orders (isActive, tableNumber, isPaid, totalPrice)" + "values('0', " + activeTableNumber + ", '0',0);SELECT SCOPE_IDENTITY();";
+
+                // Make password secure to connect to database
+                var securePassword = new SecureString();
+                foreach (char c in dbPassword)
                 {
-                    dbconn.Open();
-                    // Find the order ID
-                    insertedOrderId = dbcm.ExecuteScalar().ToString();
+                    securePassword.AppendChar(c);
                 }
+                securePassword.MakeReadOnly();
+                SqlCredential cred = new SqlCredential(dbUserName, securePassword);
+                // Connect to database and run insert query
+                using (var dbconn = new SqlConnection("Data Source = nwtcrestaurant.database.windows.net; Initial Catalog = Restaurant; Persist Security Info = True", cred))
+                {
+                    using (var dbcm = new SqlCommand(query, dbconn))
+                    {
+                        dbconn.Open();
+                        // Find the order ID
+                        insertedOrderId = dbcm.ExecuteScalar().ToString();
+                    }
+                }
+
+                // Disable select table button
+                btnCreateNewOrder.Enabled = false;
+                // Enable add item to order button
+                btnAddToOrder.Enabled = true;
+                // Disable the send order button until they add an item
+                btnSendOrder.Enabled = false;
+
+                // Display the selected table/order number in the preview list
+                orderPreviewListBox.Items.Add("Table Number: " + activeTableNumber + "   Order Number: " + insertedOrderId);
+                orderPreviewListBox.Items.Add("----------------------------------------------------");
             }
-
-            // Disable select table button
-            btnSelectMyTable.Enabled = false;
-            // Enable add item to order button
-            btnAddToOrder.Enabled = true;
-            // Disable the send order button until they add an item
-            btnSendOrder.Enabled = false;
-
-            // Display the selected table/order number in the preview list
-            orderPreviewListBox.Items.Add("Table Number: " + activeTableNumber + "   Order Number: " + insertedOrderId);
-            orderPreviewListBox.Items.Add("----------------------------------------------------");
-
-            // Set table to active and set the employee id
-            changeTableIsActive(activeTableNumber);
         }
 
         private int getItemId(string itemName)
@@ -273,14 +287,14 @@ namespace RestaurantPOS
             int orderNumber;
             int.TryParse(insertedOrderId, out orderNumber);
             // Enable the select table button
-            btnSelectMyTable.Enabled = true;
+            btnCreateNewOrder.Enabled = true;
             // Disable add item to order button
             btnAddToOrder.Enabled = false;
             // Disable send order button
             btnSendOrder.Enabled = false;
             // Add end of order to preview
             orderPreviewListBox.Items.Add("----------------------------------------------------");
-            orderPreviewListBox.Items.Add("Total: $");
+            orderPreviewListBox.Items.Add("Total: $"+orderGrandTotal);
 
             // Setting up a variable for the datatable from the database
             RestaurantDataSet.OrdersDataTable orders = new RestaurantDataSet.OrdersDataTable();
@@ -293,13 +307,15 @@ namespace RestaurantPOS
             // Going and looking in the datatable for a given order number and returning the row
             RestaurantDataSet.OrdersRow ordersRow = orders.FindByorderNumber(orderNumber);
             // Set order to active so the chef can pick it up
-            ordersTableAdap.Update("1", activeTableNumber, orderNumber, activeTableNumber);
+
+            ordersTableAdap.Update("1", activeTableNumber, "0", orderGrandTotal, orderNumber, activeTableNumber, ordersRow.totalPrice);
+
 
             // Disable remove item button
             btnRemoveItem.Enabled = false;
         }
 
-        private void changeTableIsActive(int tableNumber)
+        private int changeTableIsActive(int tableNumber)
         {
             // Setting up a variable for the datatable from the database
             RestaurantDataSet.TablesDataTable tables = new RestaurantDataSet.TablesDataTable();
@@ -314,8 +330,19 @@ namespace RestaurantPOS
             // Get data from record
             string oldNumberofGuest = tablesRow.numberOfGuests;
             int oldEmployeeId = tablesRow.employeeNumber;
-            // Set table to active and set the employee id
-            tablesTableAdap.Update(oldNumberofGuest, "1", activeEmployeeNumber, activeTableNumber, oldEmployeeId);
+
+            if(tablesRow.isActive == "0")
+            {
+                // Set table to active and set the employee id
+                tablesTableAdap.Update(oldNumberofGuest, "1", activeEmployeeNumber, activeTableNumber, oldEmployeeId);
+                return 1;
+            }
+            else
+            {
+                MessageBox.Show("Table is already occupied; Clear table to start new order");
+                return 0;
+            }
+            
         }
 
         private void btnClearTable_Click(object sender, EventArgs e)
@@ -342,6 +369,36 @@ namespace RestaurantPOS
             selectedItemId = getItemId(trimmedItem);
 
             MessageBox.Show("Selected Item: " + trimmedItem + " Item Number: " + selectedItemId); // for testing
+        }
+
+        private double getOrderItemPrice(int quantity, int itemID)
+        {
+            if (quantity > 0)
+            {
+                double orderItemPrice;
+
+                // Setting up a variable for the datatable from the database
+                RestaurantDataSet.MenuItemsDataTable items = new RestaurantDataSet.MenuItemsDataTable();
+                // Setting up a menu items adaptor and it's to fill in the datatable
+                RestaurantDataSetTableAdapters.MenuItemsTableAdapter ItemsTableAdap = new RestaurantDataSetTableAdapters.MenuItemsTableAdapter();
+                // Getting the item data from the database
+                ItemsTableAdap.GetData();
+                // Filling the data to the datatable
+                ItemsTableAdap.Fill(items);
+
+                RestaurantDataSet.MenuItemsRow menuItemRow = items.FindBymenuItemId(itemID);
+
+                orderItemPrice = quantity * double.Parse(menuItemRow.menuItemPrice);
+
+                return orderItemPrice;
+            }
+            else { return 0; } 
+        }
+
+        private void btnPayBill_Click(object sender, EventArgs e)
+        {
+            PaymentForm Form1 = new PaymentForm();
+            Form1.ShowDialog();
         }
     }
 }

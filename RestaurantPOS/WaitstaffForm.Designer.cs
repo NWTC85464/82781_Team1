@@ -58,14 +58,15 @@
             this.activeEmployeeNumberToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.activeEmployeeNumberToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.fillByMyTableToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.btnClearTable = new System.Windows.Forms.Button();
             this.fillBy1ToolStrip = new System.Windows.Forms.ToolStrip();
             this.fillBy1ToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.tableNumberComboBox = new System.Windows.Forms.ComboBox();
-            this.btnSelectMyTable = new System.Windows.Forms.Button();
+            this.btnCreateNewOrder = new System.Windows.Forms.Button();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new RestaurantPOS.RestaurantDataSetTableAdapters.OrdersTableAdapter();
-            this.btnClearTable = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
+            this.btnPayBill = new System.Windows.Forms.Button();
             tableNumberLabel = new System.Windows.Forms.Label();
             menuItemNameLabel = new System.Windows.Forms.Label();
             this.appetizersGroupBox.SuspendLayout();
@@ -109,7 +110,7 @@
             this.appetizersGroupBox.Controls.Add(this.label2);
             this.appetizersGroupBox.Controls.Add(this.quantityUpDownSelector);
             this.appetizersGroupBox.Controls.Add(this.btnAddToOrder);
-            this.appetizersGroupBox.Location = new System.Drawing.Point(15, 201);
+            this.appetizersGroupBox.Location = new System.Drawing.Point(15, 218);
             this.appetizersGroupBox.Name = "appetizersGroupBox";
             this.appetizersGroupBox.Size = new System.Drawing.Size(385, 167);
             this.appetizersGroupBox.TabIndex = 0;
@@ -280,17 +281,18 @@
             // gbMyTables
             // 
             this.gbMyTables.Controls.Add(this.fillByMyTableToolStrip);
+            this.gbMyTables.Controls.Add(this.btnClearTable);
             this.gbMyTables.Controls.Add(this.fillBy1ToolStrip);
             this.gbMyTables.Controls.Add(tableNumberLabel);
             this.gbMyTables.Controls.Add(this.tableNumberComboBox);
-            this.gbMyTables.Controls.Add(this.btnSelectMyTable);
+            this.gbMyTables.Controls.Add(this.btnCreateNewOrder);
             this.gbMyTables.Location = new System.Drawing.Point(15, 35);
             this.gbMyTables.Name = "gbMyTables";
             this.gbMyTables.Padding = new System.Windows.Forms.Padding(4);
-            this.gbMyTables.Size = new System.Drawing.Size(569, 151);
+            this.gbMyTables.Size = new System.Drawing.Size(569, 177);
             this.gbMyTables.TabIndex = 5;
             this.gbMyTables.TabStop = false;
-            this.gbMyTables.Text = "My Tables";
+            this.gbMyTables.Text = "Table Options";
             // 
             // fillByMyTableToolStrip
             // 
@@ -327,6 +329,16 @@
             this.fillByMyTableToolStripButton.Text = "View Tables";
             this.fillByMyTableToolStripButton.Click += new System.EventHandler(this.fillByMyTableToolStripButton_Click);
             // 
+            // btnClearTable
+            // 
+            this.btnClearTable.Location = new System.Drawing.Point(363, 115);
+            this.btnClearTable.Name = "btnClearTable";
+            this.btnClearTable.Size = new System.Drawing.Size(150, 42);
+            this.btnClearTable.TabIndex = 9;
+            this.btnClearTable.Text = "Clear Table";
+            this.btnClearTable.UseVisualStyleBackColor = true;
+            this.btnClearTable.Click += new System.EventHandler(this.btnClearTable_Click);
+            // 
             // fillBy1ToolStrip
             // 
             this.fillBy1ToolStrip.Dock = System.Windows.Forms.DockStyle.None;
@@ -360,15 +372,15 @@
             this.tableNumberComboBox.TabIndex = 5;
             this.tableNumberComboBox.ValueMember = "tableNumber";
             // 
-            // btnSelectMyTable
+            // btnCreateNewOrder
             // 
-            this.btnSelectMyTable.Location = new System.Drawing.Point(320, 72);
-            this.btnSelectMyTable.Name = "btnSelectMyTable";
-            this.btnSelectMyTable.Size = new System.Drawing.Size(144, 42);
-            this.btnSelectMyTable.TabIndex = 4;
-            this.btnSelectMyTable.Text = "Select";
-            this.btnSelectMyTable.UseVisualStyleBackColor = true;
-            this.btnSelectMyTable.Click += new System.EventHandler(this.btnSelectMyTable_Click);
+            this.btnCreateNewOrder.Location = new System.Drawing.Point(120, 115);
+            this.btnCreateNewOrder.Name = "btnCreateNewOrder";
+            this.btnCreateNewOrder.Size = new System.Drawing.Size(144, 42);
+            this.btnCreateNewOrder.TabIndex = 4;
+            this.btnCreateNewOrder.Text = "Create Table Order";
+            this.btnCreateNewOrder.UseVisualStyleBackColor = true;
+            this.btnCreateNewOrder.Click += new System.EventHandler(this.btnSelectMyTable_Click);
             // 
             // ordersBindingSource
             // 
@@ -378,16 +390,6 @@
             // ordersTableAdapter
             // 
             this.ordersTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnClearTable
-            // 
-            this.btnClearTable.Location = new System.Drawing.Point(421, 256);
-            this.btnClearTable.Name = "btnClearTable";
-            this.btnClearTable.Size = new System.Drawing.Size(141, 33);
-            this.btnClearTable.TabIndex = 9;
-            this.btnClearTable.Text = "Clear Table";
-            this.btnClearTable.UseVisualStyleBackColor = true;
-            this.btnClearTable.Click += new System.EventHandler(this.btnClearTable_Click);
             // 
             // btnRemoveItem
             // 
@@ -399,13 +401,23 @@
             this.btnRemoveItem.UseVisualStyleBackColor = true;
             this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
             // 
+            // btnPayBill
+            // 
+            this.btnPayBill.Location = new System.Drawing.Point(421, 258);
+            this.btnPayBill.Name = "btnPayBill";
+            this.btnPayBill.Size = new System.Drawing.Size(141, 31);
+            this.btnPayBill.TabIndex = 11;
+            this.btnPayBill.Text = "Pay Bill";
+            this.btnPayBill.UseVisualStyleBackColor = true;
+            this.btnPayBill.Click += new System.EventHandler(this.btnPayBill_Click);
+            // 
             // WaitstaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 430);
+            this.ClientSize = new System.Drawing.Size(818, 581);
+            this.Controls.Add(this.btnPayBill);
             this.Controls.Add(this.btnRemoveItem);
-            this.Controls.Add(this.btnClearTable);
             this.Controls.Add(this.gbMyTables);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.WaitstaffNameLabel);
@@ -461,7 +473,7 @@
         private System.Windows.Forms.Label WaitstaffNameLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbMyTables;
-        private System.Windows.Forms.Button btnSelectMyTable;
+        private System.Windows.Forms.Button btnCreateNewOrder;
         private System.Windows.Forms.BindingSource ordersBindingSource;
         private RestaurantDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter;
         private System.Windows.Forms.ComboBox tableNumberComboBox;
@@ -476,6 +488,7 @@
         private System.Windows.Forms.ToolStripButton fillByMyTableToolStripButton;
         private System.Windows.Forms.Button btnClearTable;
         private System.Windows.Forms.Button btnRemoveItem;
+        private System.Windows.Forms.Button btnPayBill;
     }
 }
 
