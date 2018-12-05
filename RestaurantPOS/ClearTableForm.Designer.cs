@@ -80,7 +80,7 @@
             this.Controls.Add(this.txtTableNumber);
             this.Controls.Add(this.lblTableNumber);
             this.Name = "ClearTableForm";
-            this.Text = "ClearTableForm";
+            this.Text = "Clear Table";
             this.ResumeLayout(false);
             this.PerformLayout();
 
