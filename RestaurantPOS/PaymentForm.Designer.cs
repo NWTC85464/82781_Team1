@@ -58,7 +58,7 @@
             this.labelTotalDue.Name = "labelTotalDue";
             this.labelTotalDue.Size = new System.Drawing.Size(0, 13);
             this.labelTotalDue.TabIndex = 3;
-            this.labelTotalDue.Click += new System.EventHandler(this.labelTotalDue_Click);
+            this.labelTotalDue.Click += new System.EventHandler(this.LabelTotalDue_Click);
             // 
             // button1
             // 
@@ -68,7 +68,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Select";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // textBoxOrderNumber
             // 
@@ -129,7 +129,7 @@
             this.lblChangeDueValue.Size = new System.Drawing.Size(10, 13);
             this.lblChangeDueValue.TabIndex = 11;
             this.lblChangeDueValue.Text = " ";
-            this.lblChangeDueValue.Click += new System.EventHandler(this.label3_Click);
+            this.lblChangeDueValue.Click += new System.EventHandler(this.Label3_Click);
             // 
             // lblPaymentStatus
             // 

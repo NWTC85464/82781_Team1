@@ -136,7 +136,7 @@
             this.fillByToolStripButton2.Name = "fillByToolStripButton2";
             this.fillByToolStripButton2.Size = new System.Drawing.Size(105, 22);
             this.fillByToolStripButton2.Text = "Load Active Items";
-            this.fillByToolStripButton2.Click += new System.EventHandler(this.fillByToolStripButton2_Click);
+            this.fillByToolStripButton2.Click += new System.EventHandler(this.FillByToolStripButton2_Click);
             // 
             // menuItemNameComboBox
             // 
@@ -327,7 +327,7 @@
             this.fillByMyTableToolStripButton.Name = "fillByMyTableToolStripButton";
             this.fillByMyTableToolStripButton.Size = new System.Drawing.Size(72, 22);
             this.fillByMyTableToolStripButton.Text = "View Tables";
-            this.fillByMyTableToolStripButton.Click += new System.EventHandler(this.fillByMyTableToolStripButton_Click);
+            this.fillByMyTableToolStripButton.Click += new System.EventHandler(this.FillByMyTableToolStripButton_Click);
             // 
             // btnClearTable
             // 
@@ -358,7 +358,7 @@
             this.fillBy1ToolStripButton.Name = "fillBy1ToolStripButton";
             this.fillBy1ToolStripButton.Size = new System.Drawing.Size(109, 22);
             this.fillBy1ToolStripButton.Text = "View Empty Tables";
-            this.fillBy1ToolStripButton.Click += new System.EventHandler(this.fillBy1ToolStripButton_Click);
+            this.fillBy1ToolStripButton.Click += new System.EventHandler(this.FillBy1ToolStripButton_Click);
             // 
             // tableNumberComboBox
             // 
@@ -380,7 +380,7 @@
             this.btnCreateNewOrder.TabIndex = 4;
             this.btnCreateNewOrder.Text = "Create Table Order";
             this.btnCreateNewOrder.UseVisualStyleBackColor = true;
-            this.btnCreateNewOrder.Click += new System.EventHandler(this.btnSelectMyTable_Click);
+            this.btnCreateNewOrder.Click += new System.EventHandler(this.BtnSelectMyTable_Click);
             // 
             // ordersBindingSource
             // 
@@ -399,7 +399,7 @@
             this.btnRemoveItem.TabIndex = 10;
             this.btnRemoveItem.Text = "Remove Selected Item";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
-            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
+            this.btnRemoveItem.Click += new System.EventHandler(this.BtnRemoveItem_Click);
             // 
             // btnPayBill
             // 
@@ -409,7 +409,7 @@
             this.btnPayBill.TabIndex = 11;
             this.btnPayBill.Text = "Pay Bill";
             this.btnPayBill.UseVisualStyleBackColor = true;
-            this.btnPayBill.Click += new System.EventHandler(this.btnPayBill_Click);
+            this.btnPayBill.Click += new System.EventHandler(this.BtnPayBill_Click);
             // 
             // WaitstaffForm
             // 
