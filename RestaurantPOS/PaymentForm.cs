@@ -54,6 +54,87 @@ namespace RestaurantPOS
                 {
                     labelTotalDue.Text = ordersRow.totalPrice.ToString();
                 }
+
+                // Display order status depending on if the bill is paid or not
+                if(ordersRow.isPaid == "0")
+                {
+                    lblPaymentStatusValue.Text = "Payment Pending";
+                    btnPayBill.Enabled = true;
+                }
+                else
+                {
+                    if(ordersRow.isPaid == "1")
+                    {
+                        lblPaymentStatusValue.Text = "Payment Processed and Completed";
+                        btnPayBill.Enabled = false;
+                    }
+                }
+            } 
+        }
+
+        private void labelTotalDue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPayBill_Click(object sender, EventArgs e)
+        {
+
+            int orderNumber;
+            if (int.TryParse(textBoxOrderNumber.Text, out orderNumber) == false)
+            {
+                MessageBox.Show("Please enter a valid Order Number.");
+            }
+            else
+            {
+                RestaurantDataSet.OrdersDataTable orders = new RestaurantDataSet.OrdersDataTable();
+
+                RestaurantDataSetTableAdapters.OrdersTableAdapter ordersTableAdapt = new RestaurantDataSetTableAdapters.OrdersTableAdapter();
+
+                ordersTableAdapt.GetData();
+                ordersTableAdapt.Fill(orders);
+
+
+                RestaurantDataSet.OrdersRow ordersRow = orders.FindByorderNumber(orderNumber);
+
+                double amountPaid;
+                double amountDue;
+
+                if(double.TryParse(amountPaidTextbox.ToString(), out amountPaid) == true)
+                {
+                    if(double.TryParse(labelTotalDue.ToString(), out amountDue) == true)
+                    {
+                        if(amountPaid >= amountDue)
+                        {
+                            double change = amountPaid - amountDue;
+                            lblChangeDue.Text = "$" + change;
+
+                            ordersTableAdapt.Update(ordersRow.isActive, ordersRow.tableNumber, "1", ordersRow.totalPrice, ordersRow.orderNumber, ordersRow.tableNumber, ordersRow.totalPrice);
+
+                            if(ordersRow.isPaid == "1")
+                            {
+                                lblPaymentStatusValue.Text = "Payment processed and Completed Successfully";
+                            }
+                            else
+                            {
+                                lblPaymentStatusValue.Text = "Problems occurred processing payment.";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Amount Due; Possible Data Corruption");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid Amount."); // Currently Have problems parsing textbox to double
+                }
             }
         }
     }

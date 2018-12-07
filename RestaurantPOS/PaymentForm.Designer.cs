@@ -28,42 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTotalDue = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBoxOrderNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.amountPaidTextbox = new System.Windows.Forms.TextBox();
+            this.lblAmountPaid = new System.Windows.Forms.Label();
+            this.btnPayBill = new System.Windows.Forms.Button();
+            this.lblChangeDue = new System.Windows.Forms.Label();
+            this.lblChangeDueValue = new System.Windows.Forms.Label();
+            this.lblPaymentStatus = new System.Windows.Forms.Label();
+            this.lblPaymentStatusValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 137);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(77, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Credit Card";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 103);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(49, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Cash";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 56);
+            this.label1.Location = new System.Drawing.Point(15, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 2;
@@ -72,11 +54,11 @@
             // labelTotalDue
             // 
             this.labelTotalDue.AutoSize = true;
-            this.labelTotalDue.Location = new System.Drawing.Point(78, 56);
+            this.labelTotalDue.Location = new System.Drawing.Point(78, 90);
             this.labelTotalDue.Name = "labelTotalDue";
-            this.labelTotalDue.Size = new System.Drawing.Size(35, 13);
+            this.labelTotalDue.Size = new System.Drawing.Size(0, 13);
             this.labelTotalDue.TabIndex = 3;
-            this.labelTotalDue.Text = "label2";
+            this.labelTotalDue.Click += new System.EventHandler(this.labelTotalDue_Click);
             // 
             // button1
             // 
@@ -104,18 +86,85 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Enter Order Number:";
             // 
+            // amountPaidTextbox
+            // 
+            this.amountPaidTextbox.Location = new System.Drawing.Point(81, 123);
+            this.amountPaidTextbox.Name = "amountPaidTextbox";
+            this.amountPaidTextbox.Size = new System.Drawing.Size(100, 20);
+            this.amountPaidTextbox.TabIndex = 7;
+            // 
+            // lblAmountPaid
+            // 
+            this.lblAmountPaid.AutoSize = true;
+            this.lblAmountPaid.Location = new System.Drawing.Point(2, 126);
+            this.lblAmountPaid.Name = "lblAmountPaid";
+            this.lblAmountPaid.Size = new System.Drawing.Size(73, 13);
+            this.lblAmountPaid.TabIndex = 8;
+            this.lblAmountPaid.Text = "Amount Paid: ";
+            // 
+            // btnPayBill
+            // 
+            this.btnPayBill.Location = new System.Drawing.Point(225, 121);
+            this.btnPayBill.Name = "btnPayBill";
+            this.btnPayBill.Size = new System.Drawing.Size(118, 23);
+            this.btnPayBill.TabIndex = 9;
+            this.btnPayBill.Text = "Pay Bill";
+            this.btnPayBill.UseVisualStyleBackColor = true;
+            this.btnPayBill.Click += new System.EventHandler(this.btnPayBill_Click);
+            // 
+            // lblChangeDue
+            // 
+            this.lblChangeDue.AutoSize = true;
+            this.lblChangeDue.Location = new System.Drawing.Point(9, 156);
+            this.lblChangeDue.Name = "lblChangeDue";
+            this.lblChangeDue.Size = new System.Drawing.Size(73, 13);
+            this.lblChangeDue.TabIndex = 10;
+            this.lblChangeDue.Text = "Change Due: ";
+            // 
+            // lblChangeDueValue
+            // 
+            this.lblChangeDueValue.AutoSize = true;
+            this.lblChangeDueValue.Location = new System.Drawing.Point(78, 156);
+            this.lblChangeDueValue.Name = "lblChangeDueValue";
+            this.lblChangeDueValue.Size = new System.Drawing.Size(10, 13);
+            this.lblChangeDueValue.TabIndex = 11;
+            this.lblChangeDueValue.Text = " ";
+            this.lblChangeDueValue.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lblPaymentStatus
+            // 
+            this.lblPaymentStatus.AutoSize = true;
+            this.lblPaymentStatus.Location = new System.Drawing.Point(40, 235);
+            this.lblPaymentStatus.Name = "lblPaymentStatus";
+            this.lblPaymentStatus.Size = new System.Drawing.Size(87, 13);
+            this.lblPaymentStatus.TabIndex = 12;
+            this.lblPaymentStatus.Text = "Payment Status: ";
+            // 
+            // lblPaymentStatusValue
+            // 
+            this.lblPaymentStatusValue.AutoSize = true;
+            this.lblPaymentStatusValue.Location = new System.Drawing.Point(134, 235);
+            this.lblPaymentStatusValue.Name = "lblPaymentStatusValue";
+            this.lblPaymentStatusValue.Size = new System.Drawing.Size(0, 13);
+            this.lblPaymentStatusValue.TabIndex = 13;
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 280);
+            this.Controls.Add(this.lblPaymentStatusValue);
+            this.Controls.Add(this.lblPaymentStatus);
+            this.Controls.Add(this.lblChangeDueValue);
+            this.Controls.Add(this.lblChangeDue);
+            this.Controls.Add(this.btnPayBill);
+            this.Controls.Add(this.lblAmountPaid);
+            this.Controls.Add(this.amountPaidTextbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxOrderNumber);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelTotalDue);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Name = "PaymentForm";
             this.Text = "PaymentForm";
             this.Load += new System.EventHandler(this.PaymentForm_Load);
@@ -125,13 +174,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelTotalDue;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxOrderNumber;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox amountPaidTextbox;
+        private System.Windows.Forms.Label lblAmountPaid;
+        private System.Windows.Forms.Button btnPayBill;
+        private System.Windows.Forms.Label lblChangeDue;
+        private System.Windows.Forms.Label lblChangeDueValue;
+        private System.Windows.Forms.Label lblPaymentStatus;
+        private System.Windows.Forms.Label lblPaymentStatusValue;
     }
 }
