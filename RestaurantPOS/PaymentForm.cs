@@ -29,6 +29,11 @@ namespace RestaurantPOS
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            lblPaymentStatusValue.Text = "";
+            amountPaidTextbox.Text = "";
+            labelTotalDue.Text = "";
+            lblChangeDueValue.Text = "";
+
             int orderNumber;
 
             if(int.TryParse(textBoxOrderNumber.Text, out orderNumber) == false)
@@ -105,25 +110,23 @@ namespace RestaurantPOS
                 double amountPaid;
                 double amountDue;
 
-                if(double.TryParse(amountPaidTextbox.ToString(), out amountPaid) == true)
+                if(double.TryParse(amountPaidTextbox.Text.ToString(), out amountPaid) == true)
                 {
-                    if(double.TryParse(labelTotalDue.ToString(), out amountDue) == true)
+                    if(double.TryParse(labelTotalDue.Text.ToString(), out amountDue) == true)
                     {
                         if(amountPaid >= amountDue)
                         {
                             double change = amountPaid - amountDue;
-                            lblChangeDue.Text = "$" + change;
+                            lblChangeDueValue.Text = "$" + change;
 
                             ordersTableAdapt.Update(ordersRow.isActive, ordersRow.tableNumber, "1", ordersRow.totalPrice, ordersRow.orderNumber, ordersRow.tableNumber, ordersRow.totalPrice);
 
-                            if(ordersRow.isPaid == "1")
-                            {
-                                lblPaymentStatusValue.Text = "Payment processed and Completed Successfully";
-                            }
-                            else
-                            {
-                                lblPaymentStatusValue.Text = "Problems occurred processing payment.";
-                            }
+                            lblPaymentStatusValue.Text = "Payment processed and Completed Successfully"; 
+                          
+                        }
+                        else
+                        {
+                            MessageBox.Show("Payment amount does not cover the Total Amount.");
                         }
                     }
                     else
