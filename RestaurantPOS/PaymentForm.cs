@@ -17,7 +17,7 @@ namespace RestaurantPOS
             InitializeComponent();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
@@ -27,7 +27,7 @@ namespace RestaurantPOS
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             int orderNumber;
 
@@ -72,12 +72,12 @@ namespace RestaurantPOS
             } 
         }
 
-        private void labelTotalDue_Click(object sender, EventArgs e)
+        private void LabelTotalDue_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
 
         }

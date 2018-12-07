@@ -61,7 +61,7 @@ namespace RestaurantPOS
             this.tablesTableAdapter.Fill(this.restaurantDataSet._Tables);
         }
 
-        private void menuItemsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void MenuItemsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.menuItemsBindingSource.EndEdit();
@@ -69,34 +69,34 @@ namespace RestaurantPOS
 
         }
 
-        private void menuItemsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        private void MenuItemsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
             this.Validate();
             this.menuItemsBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.restaurantDataSet);
         }
 
-        private void menuItemNameLabel1_Click(object sender, EventArgs e)
+        private void MenuItemNameLabel1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void menuItemNameTextBox1_TextChanged(object sender, EventArgs e)
+        private void MenuItemNameTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void menuItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void MenuItemsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void tableNumberComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void TableNumberComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        private void FillByToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -109,7 +109,7 @@ namespace RestaurantPOS
 
         }
 
-        private void fillBy1ToolStripButton_Click(object sender, EventArgs e)
+        private void FillBy1ToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -122,7 +122,7 @@ namespace RestaurantPOS
 
         }
 
-        private void fillBy1ToolStripButton1_Click(object sender, EventArgs e)
+        private void FillBy1ToolStripButton1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace RestaurantPOS
 
         }
 
-        private void fillByToolStripButton1_Click(object sender, EventArgs e)
+        private void FillByToolStripButton1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace RestaurantPOS
 
         }
 
-        private void fillByToolStripButton2_Click(object sender, EventArgs e)
+        private void FillByToolStripButton2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -170,7 +170,7 @@ namespace RestaurantPOS
             if (quantity > 0)
             {
                 addItemToOrder(menuItemName, quantity);
-                orderGrandTotal = orderGrandTotal + getOrderItemPrice(quantity, getItemId(menuItemName));
+                orderGrandTotal = orderGrandTotal + GetOrderItemPrice(quantity, GetItemId(menuItemName));
 
                 // Enable send order button if it isn't already
                 if (btnSendOrder.Enabled == false)
@@ -185,7 +185,7 @@ namespace RestaurantPOS
 
         }
 
-        private void fillByMyTableToolStripButton_Click(object sender, EventArgs e)
+        private void FillByMyTableToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
@@ -197,7 +197,7 @@ namespace RestaurantPOS
             }
         }
 
-        private void btnSelectMyTable_Click(object sender, EventArgs e)
+        private void BtnSelectMyTable_Click(object sender, EventArgs e)
         {
             // Clear Order Grand Total to track new order total
             orderGrandTotal = 0;
@@ -207,7 +207,7 @@ namespace RestaurantPOS
             // Get table number
             activeTableNumber = (int) tableNumberComboBox.SelectedValue;
 
-            if(changeTableIsActive(activeTableNumber) == 1)
+            if(ChangeTableIsActive(activeTableNumber) == 1)
             {
                 // Query to create a new record in the order table          
                 string query = "insert into Orders (isActive, tableNumber, isPaid, totalPrice)" + "values('0', " + activeTableNumber + ", '0',0);SELECT SCOPE_IDENTITY();";
@@ -244,7 +244,7 @@ namespace RestaurantPOS
             }
         }
 
-        private int getItemId(string itemName)
+        private int GetItemId(string itemName)
         {
             int id = 0;
             // Setting up a variable for the datatable from the database
@@ -267,7 +267,7 @@ namespace RestaurantPOS
             int orderNumber;
             int.TryParse(insertedOrderId, out orderNumber);
             // Get item ID
-            int itemId = getItemId(itemName);
+            int itemId = GetItemId(itemName);
             // Setting up a variable for the datatable from the database
             RestaurantDataSet.OrderItemsDataTable orderItems = new RestaurantDataSet.OrderItemsDataTable();
             // Setting up an order items adaptor and it's to fill in the datatable
@@ -315,7 +315,7 @@ namespace RestaurantPOS
             btnRemoveItem.Enabled = false;
         }
 
-        private int changeTableIsActive(int tableNumber)
+        private int ChangeTableIsActive(int tableNumber)
         {
             // Setting up a variable for the datatable from the database
             RestaurantDataSet.TablesDataTable tables = new RestaurantDataSet.TablesDataTable();
@@ -352,7 +352,7 @@ namespace RestaurantPOS
             
         }
 
-        private void btnRemoveItem_Click(object sender, EventArgs e)
+        private void BtnRemoveItem_Click(object sender, EventArgs e)
         {
             // Get selected item to be removed
             string selectedItem = null;
@@ -366,12 +366,12 @@ namespace RestaurantPOS
             trimmedItem = trimmedItem.Trim();
             trimmedQuantity = tmp[1];            
             // Find the item ID
-            selectedItemId = getItemId(trimmedItem);
+            selectedItemId = GetItemId(trimmedItem);
 
             MessageBox.Show("Selected Item: " + trimmedItem + " Item Number: " + selectedItemId); // for testing
         }
 
-        private double getOrderItemPrice(int quantity, int itemID)
+        private double GetOrderItemPrice(int quantity, int itemID)
         {
             if (quantity > 0)
             {
@@ -395,7 +395,7 @@ namespace RestaurantPOS
             else { return 0; } 
         }
 
-        private void btnPayBill_Click(object sender, EventArgs e)
+        private void BtnPayBill_Click(object sender, EventArgs e)
         {
             PaymentForm Form1 = new PaymentForm();
             Form1.ShowDialog();
