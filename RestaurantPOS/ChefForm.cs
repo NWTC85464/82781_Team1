@@ -106,13 +106,13 @@ namespace RestaurantPOS
         private void BtnLoadOrderOne_Click(object sender, EventArgs e)
         {
             // Load order from the queue
-            getDataTables();
+            GetDataTables();
 
             // Checking to see if there are more orders to display
             if (ActiveOrders.Where(a => a.orderNumber != orderTwo && a.orderNumber != orderThree).Count()>0)
             {
                 //Find next available order
-                nextOrder = findNextOrder(orderTwo, orderThree);
+                nextOrder = FindNextOrder(orderTwo, orderThree);
                 orderOne = ActiveOrders[nextOrder].orderNumber;
                 lstOrderOne.Items.Add("Table number: " + ActiveOrders[nextOrder].tableNumber);
               
@@ -138,13 +138,13 @@ namespace RestaurantPOS
         private void BtnLoadOrderTwo_Click(object sender, EventArgs e)
         {
             // Load order from the queue
-            getDataTables();
+            GetDataTables();
 
             // Checking to see if there are more orders to display
             if (ActiveOrders.Where(a => a.orderNumber != orderOne && a.orderNumber != orderThree).Count() > 0)
             {
                 //Find next available order
-                nextOrder = findNextOrder(orderOne, orderThree);
+                nextOrder = FindNextOrder(orderOne, orderThree);
                 orderTwo = ActiveOrders[nextOrder].orderNumber;
 
                 // Load order from the queue
@@ -171,13 +171,13 @@ namespace RestaurantPOS
         private void BtnLoadOrderThree_Click(object sender, EventArgs e)
         {
             // Load order from the queue
-            getDataTables();
+            GetDataTables();
 
             // Checking to see if there are more orders to display
             if (ActiveOrders.Where(a => a.orderNumber != orderTwo && a.orderNumber != orderOne).Count() > 0)
             {
                 //Find next available order
-                nextOrder = findNextOrder(orderTwo, orderOne);
+                nextOrder = FindNextOrder(orderTwo, orderOne);
                 orderThree = ActiveOrders[nextOrder].orderNumber;
 
                 // Load order from the queue
@@ -203,7 +203,7 @@ namespace RestaurantPOS
 
 		private void ChefForm_Load(object sender, EventArgs e)
 		{
-            getDataTables();
+            GetDataTables();
 
             // Checking to see if there are any orders to be fufilled
             if (nextOrder < ActiveOrders.Count())
@@ -273,7 +273,7 @@ namespace RestaurantPOS
 
         }
 
-        public void getDataTables()
+        public void GetDataTables()
         {
             // Getting the order data from the database
             OrderTableAdapt.GetData();
@@ -301,7 +301,7 @@ namespace RestaurantPOS
 
         }
         // Finding the next order that isn't already being displayed
-        private int findNextOrder(int orderNum1, int orderNum2)
+        private int FindNextOrder(int orderNum1, int orderNum2)
         {
             if (ActiveOrders[0].orderNumber != orderNum1 && ActiveOrders[0].orderNumber != orderNum2)
             {

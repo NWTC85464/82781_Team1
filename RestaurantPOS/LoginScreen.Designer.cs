@@ -39,7 +39,7 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(231, 146);
+            this.txtUserName.Location = new System.Drawing.Point(111, 130);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(160, 20);
@@ -47,7 +47,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(231, 182);
+            this.txtPassword.Location = new System.Drawing.Point(110, 163);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(160, 20);
@@ -56,7 +56,7 @@
             // lblEmployeeNumber
             // 
             this.lblEmployeeNumber.AutoSize = true;
-            this.lblEmployeeNumber.Location = new System.Drawing.Point(132, 149);
+            this.lblEmployeeNumber.Location = new System.Drawing.Point(11, 133);
             this.lblEmployeeNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmployeeNumber.Name = "lblEmployeeNumber";
             this.lblEmployeeNumber.Size = new System.Drawing.Size(96, 13);
@@ -66,7 +66,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(172, 185);
+            this.lblPassword.Location = new System.Drawing.Point(51, 166);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
@@ -76,17 +76,18 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(80, 57);
+            this.lblTitle.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblTitle.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(105, 66);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(416, 37);
+            this.lblTitle.Size = new System.Drawing.Size(136, 34);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Super Awesome Restaurant";
+            this.lblTitle.Text = "EZ-Serve";
             // 
             // btnLogIn
             // 
-            this.btnLogIn.Location = new System.Drawing.Point(193, 231);
+            this.btnLogIn.Location = new System.Drawing.Point(126, 209);
             this.btnLogIn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(92, 28);
@@ -97,20 +98,22 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(289, 231);
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnExit.Location = new System.Drawing.Point(126, 275);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(92, 28);
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 279);
+            this.BackColor = System.Drawing.Color.DarkGray;
+            this.ClientSize = new System.Drawing.Size(340, 341);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.lblTitle);
