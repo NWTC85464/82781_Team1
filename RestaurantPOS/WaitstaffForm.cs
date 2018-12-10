@@ -162,14 +162,14 @@ namespace RestaurantPOS
         }
 
 
-        private void btnAddToOrder_Click(object sender, EventArgs e)
+        private void BtnAddToOrder_Click(object sender, EventArgs e)
         {
             string menuItemName = menuItemNameComboBox.Text;
             int quantity = (int)quantityUpDownSelector.Value;
 
             if (quantity > 0)
             {
-                addItemToOrder(menuItemName, quantity);
+                AddItemToOrder(menuItemName, quantity);
                 orderGrandTotal = orderGrandTotal + GetOrderItemPrice(quantity, GetItemId(menuItemName));
 
                 // Enable send order button if it isn't already
@@ -262,10 +262,9 @@ namespace RestaurantPOS
             return id;
         }
 
-        private void addItemToOrder(string itemName, int quantity)
+        private void AddItemToOrder(string itemName, int quantity)
         {
-            int orderNumber;
-            int.TryParse(insertedOrderId, out orderNumber);
+            int.TryParse(insertedOrderId, out int orderNumber);
             // Get item ID
             int itemId = GetItemId(itemName);
             // Setting up a variable for the datatable from the database
@@ -284,8 +283,7 @@ namespace RestaurantPOS
 
         private void BtnSendOrder_Click(object sender, EventArgs e)
         {
-            int orderNumber;
-            int.TryParse(insertedOrderId, out orderNumber);
+            int.TryParse(insertedOrderId, out int orderNumber);
             // Enable the select table button
             btnCreateNewOrder.Enabled = true;
             // Disable add item to order button
@@ -309,10 +307,6 @@ namespace RestaurantPOS
             // Set order to active so the chef can pick it up
 
             ordersTableAdap.Update("1", activeTableNumber, "0", orderGrandTotal, orderNumber, activeTableNumber, ordersRow.totalPrice);
-
-
-            // Disable remove item button
-            btnRemoveItem.Enabled = false;
         }
 
         private int ChangeTableIsActive(int tableNumber)
@@ -345,31 +339,14 @@ namespace RestaurantPOS
             
         }
 
-        private void btnClearTable_Click(object sender, EventArgs e)
+        private void BtnClearTable_Click(object sender, EventArgs e)
         {
             ClearTableForm Form1 = new ClearTableForm();
             Form1.ShowDialog();
             
         }
 
-        private void BtnRemoveItem_Click(object sender, EventArgs e)
-        {
-            // Get selected item to be removed
-            string selectedItem = null;
-            string trimmedItem = null;
-            string trimmedQuantity = null;
-            int selectedItemId;
-            selectedItem = orderPreviewListBox.SelectedItem.ToString();
-            // Trim the returned value to get item name
-            string[] tmp = selectedItem.Split('(');
-            trimmedItem = tmp[0];
-            trimmedItem = trimmedItem.Trim();
-            trimmedQuantity = tmp[1];            
-            // Find the item ID
-            selectedItemId = GetItemId(trimmedItem);
-
-            MessageBox.Show("Selected Item: " + trimmedItem + " Item Number: " + selectedItemId); // for testing
-        }
+    
 
         private double GetOrderItemPrice(int quantity, int itemID)
         {

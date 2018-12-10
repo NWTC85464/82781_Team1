@@ -19,7 +19,7 @@ namespace RestaurantPOS
             InitializeComponent();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
 			// Exit Button
 			this.Hide();
@@ -47,7 +47,7 @@ namespace RestaurantPOS
             lblLoggedInEmployeeName.Text = LoginScreen.userName;
         }
 
-        private void btnAddMenuItem_Click(object sender, EventArgs e)
+        private void BtnAddMenuItem_Click(object sender, EventArgs e)
         {
             AddMenuItemForm Form1 = new AddMenuItemForm();
             Form1.ShowDialog();
@@ -56,7 +56,7 @@ namespace RestaurantPOS
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
         }
 
-        private void btnAddEmployee_Click(object sender, EventArgs e)
+        private void BtnAddEmployee_Click(object sender, EventArgs e)
         {
             AddEmployeeForm Form1 = new AddEmployeeForm();
             Form1.ShowDialog();
@@ -65,7 +65,7 @@ namespace RestaurantPOS
             this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
         }
 
-        private void btnRemoveEmployee_Click(object sender, EventArgs e)
+        private void BtnRemoveEmployee_Click(object sender, EventArgs e)
         {
             RemoveEmployeeForm Form1 = new RemoveEmployeeForm();
             Form1.ShowDialog();
@@ -74,7 +74,7 @@ namespace RestaurantPOS
             this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
         }
 
-        private void btnEnableItem_Click(object sender, EventArgs e)
+        private void BtnEnableItem_Click(object sender, EventArgs e)
         {
             EnableItemForm Form1 = new EnableItemForm();
             Form1.ShowDialog();
@@ -83,7 +83,7 @@ namespace RestaurantPOS
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
         }
 
-        private void btnDisableItem_Click(object sender, EventArgs e)
+        private void BtnDisableItem_Click(object sender, EventArgs e)
         {
             DisableItemForm Form1 = new DisableItemForm();
             Form1.ShowDialog();
@@ -92,7 +92,7 @@ namespace RestaurantPOS
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
         }
 
-        private void btnRemoveMenuItem_Click(object sender, EventArgs e)
+        private void BtnRemoveMenuItem_Click(object sender, EventArgs e)
         {
             RemoveItemForm Form1 = new RemoveItemForm();
             Form1.ShowDialog();
@@ -101,13 +101,63 @@ namespace RestaurantPOS
             this.menuItemsTableAdapter.Fill(this.restaurantDataSet.MenuItems);
         }
 
-        private void btnUpdateEmployee_Click(object sender, EventArgs e)
+        private void BtnUpdateEmployee_Click(object sender, EventArgs e)
         {
             UpdateEmployeeForm Form1 = new UpdateEmployeeForm();
             Form1.ShowDialog();
 
             // Refresh Employee table data view
             this.employeesTableAdapter.Fill(this.restaurantDataSet.Employees);
+        }
+
+        private void BtnGiveDiscount_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtDiscountOrderNumber.Text.ToString(), out int orderNumber) == false)
+            {
+                MessageBox.Show("Please enter valid Order Number");
+            }
+            else
+            {
+                RestaurantDataSet.OrdersDataTable orders = new RestaurantDataSet.OrdersDataTable();
+                RestaurantDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter = new RestaurantDataSetTableAdapters.OrdersTableAdapter();
+                ordersTableAdapter.GetData();
+                ordersTableAdapter.Fill(orders);
+
+                RestaurantDataSet.OrdersRow ordersRow = orders.FindByorderNumber(orderNumber);
+
+                if(ordersRow == null)
+                {
+                    MessageBox.Show("Order does not exist.");
+                }
+                else
+                {
+                    double totalWithDiscount;
+
+                    if (double.TryParse(txtDiscountPercent.Text.ToString(), out double discountPercent) == false)
+                    {
+                            MessageBox.Show("Please enter valid percentage.");
+                    }
+                    else
+                    {
+                        if(discountPercent < 0)
+                        {
+                            MessageBox.Show("Percentage must be greater than 0");
+                        }
+                        else
+                        {
+                            discountPercent = (discountPercent / 100);
+
+                            double orderTotal = ordersRow.totalPrice;
+
+                            totalWithDiscount = orderTotal - (orderTotal * discountPercent);
+
+                            ordersTableAdapter.Update(ordersRow.isActive, ordersRow.tableNumber, ordersRow.isPaid, totalWithDiscount, ordersRow.orderNumber, ordersRow.tableNumber, ordersRow.totalPrice);
+
+                            MessageBox.Show("Discount Successfully added to Order number " + orderNumber);
+                        }
+                    }
+                }
+            }
         }
     }
 }

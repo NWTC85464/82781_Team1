@@ -48,14 +48,15 @@
             // 
             // gbOrderOne
             // 
+            this.gbOrderOne.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gbOrderOne.Controls.Add(this.btnCompleteOrderOne);
             this.gbOrderOne.Controls.Add(this.btnLoadOrderOne);
             this.gbOrderOne.Controls.Add(this.lstOrderOne);
-            this.gbOrderOne.Location = new System.Drawing.Point(9, 10);
-            this.gbOrderOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbOrderOne.Location = new System.Drawing.Point(9, 11);
+            this.gbOrderOne.Margin = new System.Windows.Forms.Padding(2);
             this.gbOrderOne.Name = "gbOrderOne";
-            this.gbOrderOne.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbOrderOne.Size = new System.Drawing.Size(239, 500);
+            this.gbOrderOne.Padding = new System.Windows.Forms.Padding(2);
+            this.gbOrderOne.Size = new System.Drawing.Size(239, 499);
             this.gbOrderOne.TabIndex = 0;
             this.gbOrderOne.TabStop = false;
             this.gbOrderOne.Text = "Order One";
@@ -63,7 +64,7 @@
             // btnCompleteOrderOne
             // 
             this.btnCompleteOrderOne.Location = new System.Drawing.Point(45, 462);
-            this.btnCompleteOrderOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCompleteOrderOne.Margin = new System.Windows.Forms.Padding(2);
             this.btnCompleteOrderOne.Name = "btnCompleteOrderOne";
             this.btnCompleteOrderOne.Size = new System.Drawing.Size(149, 29);
             this.btnCompleteOrderOne.TabIndex = 2;
@@ -74,7 +75,7 @@
             // btnLoadOrderOne
             // 
             this.btnLoadOrderOne.Location = new System.Drawing.Point(45, 418);
-            this.btnLoadOrderOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadOrderOne.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadOrderOne.Name = "btnLoadOrderOne";
             this.btnLoadOrderOne.Size = new System.Drawing.Size(149, 29);
             this.btnLoadOrderOne.TabIndex = 1;
@@ -86,20 +87,21 @@
             // 
             this.lstOrderOne.FormattingEnabled = true;
             this.lstOrderOne.Location = new System.Drawing.Point(4, 17);
-            this.lstOrderOne.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstOrderOne.Margin = new System.Windows.Forms.Padding(2);
             this.lstOrderOne.Name = "lstOrderOne";
             this.lstOrderOne.Size = new System.Drawing.Size(231, 394);
             this.lstOrderOne.TabIndex = 0;
             // 
             // gbOrderTwo
             // 
+            this.gbOrderTwo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gbOrderTwo.Controls.Add(this.btnCompleteOrderTwo);
             this.gbOrderTwo.Controls.Add(this.btnLoadOrderTwo);
             this.gbOrderTwo.Controls.Add(this.lstOrderTwo);
             this.gbOrderTwo.Location = new System.Drawing.Point(253, 10);
-            this.gbOrderTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbOrderTwo.Margin = new System.Windows.Forms.Padding(2);
             this.gbOrderTwo.Name = "gbOrderTwo";
-            this.gbOrderTwo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbOrderTwo.Padding = new System.Windows.Forms.Padding(2);
             this.gbOrderTwo.Size = new System.Drawing.Size(239, 500);
             this.gbOrderTwo.TabIndex = 3;
             this.gbOrderTwo.TabStop = false;
@@ -108,7 +110,7 @@
             // btnCompleteOrderTwo
             // 
             this.btnCompleteOrderTwo.Location = new System.Drawing.Point(45, 462);
-            this.btnCompleteOrderTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCompleteOrderTwo.Margin = new System.Windows.Forms.Padding(2);
             this.btnCompleteOrderTwo.Name = "btnCompleteOrderTwo";
             this.btnCompleteOrderTwo.Size = new System.Drawing.Size(149, 29);
             this.btnCompleteOrderTwo.TabIndex = 2;
@@ -119,7 +121,7 @@
             // btnLoadOrderTwo
             // 
             this.btnLoadOrderTwo.Location = new System.Drawing.Point(45, 418);
-            this.btnLoadOrderTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadOrderTwo.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadOrderTwo.Name = "btnLoadOrderTwo";
             this.btnLoadOrderTwo.Size = new System.Drawing.Size(149, 29);
             this.btnLoadOrderTwo.TabIndex = 1;
@@ -131,20 +133,21 @@
             // 
             this.lstOrderTwo.FormattingEnabled = true;
             this.lstOrderTwo.Location = new System.Drawing.Point(4, 17);
-            this.lstOrderTwo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstOrderTwo.Margin = new System.Windows.Forms.Padding(2);
             this.lstOrderTwo.Name = "lstOrderTwo";
             this.lstOrderTwo.Size = new System.Drawing.Size(231, 394);
             this.lstOrderTwo.TabIndex = 0;
             // 
             // gbOrderThree
             // 
+            this.gbOrderThree.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gbOrderThree.Controls.Add(this.btnCompleteOrderThree);
             this.gbOrderThree.Controls.Add(this.btnLoadOrderThree);
             this.gbOrderThree.Controls.Add(this.lstOrderThree);
             this.gbOrderThree.Location = new System.Drawing.Point(496, 10);
-            this.gbOrderThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbOrderThree.Margin = new System.Windows.Forms.Padding(2);
             this.gbOrderThree.Name = "gbOrderThree";
-            this.gbOrderThree.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbOrderThree.Padding = new System.Windows.Forms.Padding(2);
             this.gbOrderThree.Size = new System.Drawing.Size(239, 500);
             this.gbOrderThree.TabIndex = 3;
             this.gbOrderThree.TabStop = false;
@@ -153,7 +156,7 @@
             // btnCompleteOrderThree
             // 
             this.btnCompleteOrderThree.Location = new System.Drawing.Point(45, 462);
-            this.btnCompleteOrderThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCompleteOrderThree.Margin = new System.Windows.Forms.Padding(2);
             this.btnCompleteOrderThree.Name = "btnCompleteOrderThree";
             this.btnCompleteOrderThree.Size = new System.Drawing.Size(149, 29);
             this.btnCompleteOrderThree.TabIndex = 2;
@@ -164,7 +167,7 @@
             // btnLoadOrderThree
             // 
             this.btnLoadOrderThree.Location = new System.Drawing.Point(45, 418);
-            this.btnLoadOrderThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadOrderThree.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadOrderThree.Name = "btnLoadOrderThree";
             this.btnLoadOrderThree.Size = new System.Drawing.Size(149, 29);
             this.btnLoadOrderThree.TabIndex = 1;
@@ -176,32 +179,34 @@
             // 
             this.lstOrderThree.FormattingEnabled = true;
             this.lstOrderThree.Location = new System.Drawing.Point(4, 17);
-            this.lstOrderThree.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lstOrderThree.Margin = new System.Windows.Forms.Padding(2);
             this.lstOrderThree.Name = "lstOrderThree";
             this.lstOrderThree.Size = new System.Drawing.Size(231, 394);
             this.lstOrderThree.TabIndex = 0;
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnExit.Location = new System.Drawing.Point(586, 531);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(149, 29);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // ChefForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(751, 569);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.gbOrderThree);
             this.Controls.Add(this.gbOrderTwo);
             this.Controls.Add(this.gbOrderOne);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChefForm";
             this.Text = "Chef Window";
             this.Load += new System.EventHandler(this.ChefForm_Load);

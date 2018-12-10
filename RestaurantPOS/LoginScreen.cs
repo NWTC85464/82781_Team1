@@ -29,15 +29,14 @@ namespace RestaurantPOS
         private void BtnLogIn_Click(object sender, EventArgs e)
         {
             // Check to see if the employee number exists         
-            int password;
 
             // If the employee number is not a integer
-            if(int.TryParse(txtUserName.Text, out employeeNumber)== false)
+            if (int.TryParse(txtUserName.Text, out employeeNumber) == false)
             {
                 MessageBox.Show("Please enter a valid employee number.");
 
             }
-            else if (int.TryParse(txtPassword.Text, out password) == false)
+            else if (int.TryParse(txtPassword.Text, out int password) == false)
             {
                 MessageBox.Show("Please enter a valid password");
 
@@ -57,16 +56,16 @@ namespace RestaurantPOS
                 // Filling the data to the datatable
                 EmpTableAdap.Fill(emp);
                 // Going and looking in the datatable for a given employee number and returning the row. 
-                RestaurantDataSet.EmployeesRow empRow =  emp.FindByemployeeNumber(employeeNumber);
+                RestaurantDataSet.EmployeesRow empRow = emp.FindByemployeeNumber(employeeNumber);
 
                 // Check if the employee row was found (If null, employee number does not exist in database)
-                if(empRow == null)
+                if (empRow == null)
                 {
                     MessageBox.Show("Could not find employee number, please try again.");
                 }
 
                 // Checks to see if password text box equals the password in the database for the employee
-                else if(empRow.employeePasscode == password)
+                else if (empRow.employeePasscode == password)
                 {
                     // Collect user name
                     userName = empRow.name;
@@ -79,16 +78,18 @@ namespace RestaurantPOS
                         // Login - to manager screen
                         ManagerForm Form1 = new ManagerForm();
                         Form1.ShowDialog();
-                    }else if(empRow.jobTitle == "Chef")
+                    }
+                    else if (empRow.jobTitle == "Chef")
                     {
                         // Login - to chef screen
                         ChefForm Form1 = new ChefForm();
                         Form1.ShowDialog();
-                    }else if(empRow.jobTitle == "Waitstaff")
+                    }
+                    else if (empRow.jobTitle == "Waitstaff")
                     {
                         // Login - to waitstaff screen
                         WaitstaffForm form1 = new WaitstaffForm();
-                    
+
                         form1.ShowDialog();
                     }
                 }
@@ -99,8 +100,8 @@ namespace RestaurantPOS
 
             }
 
-		
-		}
+
+        }
 
        
 
