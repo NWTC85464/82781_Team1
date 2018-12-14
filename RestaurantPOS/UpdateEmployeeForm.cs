@@ -115,6 +115,8 @@ namespace RestaurantPOS
                     }
                     else
                     {
+                        string fullname = newFName + " " + newLName;
+
                         // Get current record data
                         oldFName = empRow.name;
                         oldPassword = empRow.employeePasscode;
@@ -122,7 +124,7 @@ namespace RestaurantPOS
                         restId = empRow.Restaurant_restaurantId;
 
                         // Update the record in the database
-                        EmpTableAdap.Update(newFName, newPassword, newJobTitle, restId, employeeNumber, oldPassword, restId);
+                        EmpTableAdap.Update(fullname, newPassword, newJobTitle, restId, employeeNumber, oldPassword, restId);
 
                         // Close the Update Employee form and notify the user
                         this.Close();
