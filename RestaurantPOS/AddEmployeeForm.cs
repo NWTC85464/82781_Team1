@@ -81,6 +81,8 @@ namespace RestaurantPOS
             // If all inputs are valid, add the record
             if (validItemEntry == 1)
             {
+                string fullname = fName + " " + lName;
+
                 // Setting up a variable for the datatable from the database
                 RestaurantDataSet.EmployeesDataTable emp = new RestaurantDataSet.EmployeesDataTable();
                 // Setting up a employee adaptor and it's to fill in the datatable
@@ -91,7 +93,7 @@ namespace RestaurantPOS
                 EmpTableAdap.Fill(emp);
 
                 // Adding the new record                
-                EmpTableAdap.Insert(fName, password, jobTitle, 1);
+                EmpTableAdap.Insert(fullname, password, jobTitle, 1);
 
                 // Close the Add Employee form and notify the user
                 this.Close();
@@ -101,8 +103,6 @@ namespace RestaurantPOS
             // Reset validation checker
             validItemEntry = 1;
 
-            // Need to update the dataset to show database upadate
-            
         }
     }
 }
